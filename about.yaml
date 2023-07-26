@@ -1,0 +1,7 @@
+---
+name: plasmo_tar_amp_schema
+author: Nicholas Hathaway <nickjhathaway@gmail.com>
+description: Schema for defining the results to a targeted amplicon analysis performed on plasmodium 
+source_schema_path: src/plasmo_tar_amp_schema/schema/plasmo_tar_amp_schema.yaml
+google_sheet_id: 1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ
+google_sheet_tabs: personinfo enums
