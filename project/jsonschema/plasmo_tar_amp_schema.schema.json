@@ -133,6 +133,27 @@
             "required": [],
             "title": "Project",
             "type": "object"
+        },
+        "TargetInfo": {
+            "additionalProperties": false,
+            "description": "Information about a specific target within a genome",
+            "properties": {
+                "gene_id": {
+                    "description": "an identifier of the gene, if any, is being covered with this targeted ",
+                    "pattern": "^[A-z-._]$",
+                    "type": "string"
+                },
+                "target_id": {
+                    "description": "a unique identifier for target ",
+                    "pattern": "^[A-z-._]$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "target_id"
+            ],
+            "title": "TargetInfo",
+            "type": "object"
         }
     },
     "$id": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",

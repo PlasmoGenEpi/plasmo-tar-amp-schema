@@ -9,14 +9,14 @@ schema1:Thing a sh:NodeShape ;
     sh:closed true ;
     sh:description "A generic grouping for any identifiable entity" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path schema1:description ],
-        [ sh:description "A unique identifier for a thing" ;
+    sh:property [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
             sh:order 0 ;
             sh:path schema1:identifier ],
+        [ sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path schema1:description ],
         [ sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:order 1 ;
@@ -33,37 +33,54 @@ plasmo_tar_amp_schema:ProjectCollection a sh:NodeShape ;
             sh:path plasmo_tar_amp_schema:entries ] ;
     sh:targetClass plasmo_tar_amp_schema:ProjectCollection .
 
+plasmo_tar_amp_schema:TargetInfo a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Information about a specific target within a genome" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "an identifier of the gene, if any, is being covered with this targeted " ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path plasmo_tar_amp_schema:gene_id ;
+            sh:pattern "^[A-z-._]$" ],
+        [ sh:description "a unique identifier for target " ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path plasmo_tar_amp_schema:target_id ;
+            sh:pattern "^[A-z-._]$" ] ;
+    sh:targetClass plasmo_tar_amp_schema:TargetInfo .
+
 plasmo_tar_amp_schema:Project a sh:NodeShape ;
     sh:closed true ;
     sh:description "Represents a Project" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path schema1:description ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 4 ;
-            sh:path schema1:identifier ],
-        [ sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path schema1:name ],
-        [ sh:description "Date on which a person is born" ;
+    sh:property [ sh:description "Date on which a person is born" ;
             sh:maxCount 1 ;
             sh:order 1 ;
             sh:path schema1:birthDate ],
-        [ sh:description "living or dead status" ;
-            sh:in ( PATO:0001421 PATO:0001422 "UNKNOWN" ) ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path plasmo_tar_amp_schema:vital_status ],
         [ sh:description "The main email address of a person" ;
             sh:maxCount 1 ;
             sh:order 0 ;
             sh:path schema1:email ;
             sh:pattern "^\\S+@[\\S+\\.]+\\S+" ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 4 ;
+            sh:path schema1:identifier ],
+        [ sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path schema1:description ],
+        [ sh:description "living or dead status" ;
+            sh:in ( PATO:0001421 PATO:0001422 "UNKNOWN" ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path plasmo_tar_amp_schema:vital_status ],
+        [ sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path schema1:name ],
         [ sh:description "Number of years since birth" ;
             sh:maxCount 1 ;
             sh:order 2 ;

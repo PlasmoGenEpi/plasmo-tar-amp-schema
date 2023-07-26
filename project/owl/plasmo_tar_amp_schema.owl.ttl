@@ -12,7 +12,8 @@
 <https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema> a owl:Ontology ;
     rdfs:label "plasmo-tar-amp-schema" ;
     IAO:0000700 plasmo_tar_amp_schema:NamedThing,
-        plasmo_tar_amp_schema:ProjectCollection ;
+        plasmo_tar_amp_schema:ProjectCollection,
+        plasmo_tar_amp_schema:TargetInfo ;
     linkml:id "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema" ;
     linkml:imports "linkml:types" .
 
@@ -31,6 +32,19 @@ plasmo_tar_amp_schema:ProjectCollection a owl:Class,
             owl:onProperty plasmo_tar_amp_schema:entries ] ;
     skos:definition "A holder for Project objects" .
 
+plasmo_tar_amp_schema:TargetInfo a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "TargetInfo" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty plasmo_tar_amp_schema:gene_id ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty plasmo_tar_amp_schema:target_id ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "Information about a specific target within a genome" .
+
 plasmo_tar_amp_schema:age_in_years a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "age_in_years" ;
@@ -41,6 +55,18 @@ plasmo_tar_amp_schema:entries a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "entries" ;
     rdfs:range plasmo_tar_amp_schema:Project .
+
+plasmo_tar_amp_schema:gene_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "gene_id" ;
+    rdfs:range linkml:String ;
+    skos:definition "an identifier of the gene, if any, is being covered with this targeted " .
+
+plasmo_tar_amp_schema:target_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "target_id" ;
+    rdfs:range linkml:String ;
+    skos:definition "a unique identifier for target " .
 
 plasmo_tar_amp_schema:vital_status a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -97,7 +123,7 @@ plasmo_tar_amp_schema:NamedThing a owl:Class,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty schema1:name ],
+            owl:onProperty schema1:description ],
         [ a owl:Restriction ;
             owl:onClass linkml:Uriorcurie ;
             owl:onProperty schema1:identifier ;
@@ -105,7 +131,7 @@ plasmo_tar_amp_schema:NamedThing a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty schema1:description ] ;
+            owl:onProperty schema1:name ] ;
     skos:definition "A generic grouping for any identifiable entity" ;
     skos:exactMatch schema1:Thing .
 
@@ -122,16 +148,16 @@ plasmo_tar_amp_schema:Project a owl:Class,
             owl:onProperty plasmo_tar_amp_schema:vital_status ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Integer ;
-            owl:onProperty plasmo_tar_amp_schema:age_in_years ],
+            owl:onClass linkml:String ;
+            owl:onProperty schema1:email ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Date ;
             owl:onProperty schema1:birthDate ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty schema1:email ],
+            owl:onClass linkml:Integer ;
+            owl:onProperty plasmo_tar_amp_schema:age_in_years ],
         plasmo_tar_amp_schema:NamedThing ;
     skos:definition "Represents a Project" .
 

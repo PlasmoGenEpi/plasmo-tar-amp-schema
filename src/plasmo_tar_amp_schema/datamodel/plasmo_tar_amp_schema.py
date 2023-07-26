@@ -1,5 +1,5 @@
 # Auto generated from plasmo_tar_amp_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-07-26T14:14:25
+# Generation date: 2023-07-26T15:03:53
 # Schema: plasmo-tar-amp-schema
 #
 # id: https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema
@@ -141,6 +141,33 @@ class ProjectCollection(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
+class TargetInfo(YAMLRoot):
+    """
+    Information about a specific target within a genome
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.TargetInfo
+    class_class_curie: ClassVar[str] = "plasmo_tar_amp_schema:TargetInfo"
+    class_name: ClassVar[str] = "TargetInfo"
+    class_model_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.TargetInfo
+
+    target_id: str = None
+    gene_id: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.target_id):
+            self.MissingRequiredField("target_id")
+        if not isinstance(self.target_id, str):
+            self.target_id = str(self.target_id)
+
+        if self.gene_id is not None and not isinstance(self.gene_id, str):
+            self.gene_id = str(self.gene_id)
+
+        super().__post_init__(**kwargs)
+
+
 # Enumerations
 class PersonStatus(EnumDefinitionImpl):
 
@@ -187,6 +214,14 @@ slots.vital_status = Slot(uri=PLASMO_TAR_AMP_SCHEMA.vital_status, name="vital_st
 
 slots.projectCollection__entries = Slot(uri=PLASMO_TAR_AMP_SCHEMA.entries, name="projectCollection__entries", curie=PLASMO_TAR_AMP_SCHEMA.curie('entries'),
                    model_uri=PLASMO_TAR_AMP_SCHEMA.projectCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, ProjectId], Union[dict, Project]], List[Union[dict, Project]]]])
+
+slots.targetInfo__target_id = Slot(uri=PLASMO_TAR_AMP_SCHEMA.target_id, name="targetInfo__target_id", curie=PLASMO_TAR_AMP_SCHEMA.curie('target_id'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.targetInfo__target_id, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._]$'))
+
+slots.targetInfo__gene_id = Slot(uri=PLASMO_TAR_AMP_SCHEMA.gene_id, name="targetInfo__gene_id", curie=PLASMO_TAR_AMP_SCHEMA.curie('gene_id'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.targetInfo__gene_id, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[A-z-._]$'))
 
 slots.Project_primary_email = Slot(uri=SCHEMA.email, name="Project_primary_email", curie=SCHEMA.curie('email'),
                    model_uri=PLASMO_TAR_AMP_SCHEMA.Project_primary_email, domain=Project, range=Optional[str],

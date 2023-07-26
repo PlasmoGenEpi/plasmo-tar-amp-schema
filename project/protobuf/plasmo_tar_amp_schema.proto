@@ -21,3 +21,9 @@ message ProjectCollection
  {
  repeated  project entries = 0
  }
+// Information about a specific target within a genome
+message TargetInfo
+ {
+  string targetId = 0
+  string geneId = 0
+ }

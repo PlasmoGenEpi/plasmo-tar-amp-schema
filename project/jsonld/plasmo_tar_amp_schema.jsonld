@@ -445,6 +445,35 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "targetInfo__target_id",
+      "description": "a unique identifier for target ",
+      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
+      "slot_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/target_id",
+      "alias": "target_id",
+      "owner": "TargetInfo",
+      "domain_of": [
+        "TargetInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "targetInfo__gene_id",
+      "description": "an identifier of the gene, if any, is being covered with this targeted ",
+      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
+      "slot_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/gene_id",
+      "alias": "gene_id",
+      "owner": "TargetInfo",
+      "domain_of": [
+        "TargetInfo"
+      ],
+      "range": "string",
+      "pattern": "^[A-z-._]$",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "Project_primary_email",
       "definition_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/primary_email",
       "description": "The main email address of a person",
@@ -525,13 +554,43 @@
       "class_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/ProjectCollection",
       "tree_root": true,
       "@type": "ClassDefinition"
+    },
+    {
+      "name": "TargetInfo",
+      "definition_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/TargetInfo",
+      "description": "Information about a specific target within a genome",
+      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
+      "slots": [
+        "targetInfo__target_id",
+        "targetInfo__gene_id"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "target_id",
+          "description": "a unique identifier for target ",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "gene_id",
+          "description": "an identifier of the gene, if any, is being covered with this targeted ",
+          "range": "string",
+          "pattern": "^[A-z-._]$",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/TargetInfo",
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "plasmo_tar_amp_schema.yaml",
-  "source_file_date": "2023-07-26T14:13:11",
-  "source_file_size": 2327,
-  "generation_date": "2023-07-26T14:14:20",
+  "source_file_date": "2023-07-26T14:48:26",
+  "source_file_size": 2775,
+  "generation_date": "2023-07-26T15:03:47",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/plasmo_tar_amp_schema.context.jsonld",

@@ -71,4 +71,12 @@ linkml:Sparqlpath xsd:string
     )
 }
 
+<TargetInfo> CLOSED {
+    (  $<TargetInfo_tes> (  <target_id> @linkml:String ;
+          <gene_id> @linkml:String ?
+       ) ;
+       rdf:type [ <TargetInfo> ] ?
+    )
+}
+
 

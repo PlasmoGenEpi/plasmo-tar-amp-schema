@@ -54,6 +54,23 @@ classes:
         range: Project
         multivalued: true
         inlined: true
+  
+  TargetInfo:
+    description: >-
+      Information about a specific target within a genome
+    attributes:
+      target_id:
+        range: string
+        pattern: "^[A-z-._]$"
+        required: true
+        description: >-
+          a unique identifier for target 
+      gene_id:
+        range: string
+        pattern: "^[A-z-._]$"
+        description: >-
+          an identifier of the gene, if any, is being covered with this targeted 
+  #  
 
 slots:
   id:

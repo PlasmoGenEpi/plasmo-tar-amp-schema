@@ -21,3 +21,9 @@ type ProjectCollection
     entries: [Project]
   }
 
+type TargetInfo
+  {
+    targetId: String!
+    geneId: String
+  }
+
