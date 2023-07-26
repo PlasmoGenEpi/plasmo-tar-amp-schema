@@ -381,10 +381,6 @@
         "http://schema.org/email"
       ],
       "slot_uri": "http://schema.org/email",
-      "owner": "Project",
-      "domain_of": [
-        "Project"
-      ],
       "range": "string",
       "@type": "SlotDefinition"
     },
@@ -397,10 +393,6 @@
         "http://schema.org/birthDate"
       ],
       "slot_uri": "http://schema.org/birthDate",
-      "owner": "Project",
-      "domain_of": [
-        "Project"
-      ],
       "range": "date",
       "@type": "SlotDefinition"
     },
@@ -410,10 +402,6 @@
       "description": "Number of years since birth",
       "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
       "slot_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/age_in_years",
-      "owner": "Project",
-      "domain_of": [
-        "Project"
-      ],
       "range": "integer",
       "@type": "SlotDefinition"
     },
@@ -423,25 +411,7 @@
       "description": "living or dead status",
       "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
       "slot_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/vital_status",
-      "owner": "Project",
-      "domain_of": [
-        "Project"
-      ],
       "range": "PersonStatus",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "projectCollection__entries",
-      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
-      "slot_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/entries",
-      "multivalued": true,
-      "alias": "entries",
-      "owner": "ProjectCollection",
-      "domain_of": [
-        "ProjectCollection"
-      ],
-      "range": "Project",
-      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -472,28 +442,6 @@
       "range": "string",
       "pattern": "^[A-z-._]$",
       "@type": "SlotDefinition"
-    },
-    {
-      "name": "Project_primary_email",
-      "definition_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/primary_email",
-      "description": "The main email address of a person",
-      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
-      "mappings": [
-        "http://schema.org/email"
-      ],
-      "is_a": "primary_email",
-      "domain": "Project",
-      "slot_uri": "http://schema.org/email",
-      "alias": "primary_email",
-      "owner": "Project",
-      "domain_of": [
-        "Project"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "primary_email",
-      "range": "string",
-      "pattern": "^\\S+@[\\S+\\.]+\\S+",
-      "@type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -512,47 +460,6 @@
       ],
       "slot_usage": {},
       "class_uri": "http://schema.org/Thing",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "Project",
-      "definition_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/Project",
-      "description": "Represents a Project",
-      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
-      "is_a": "NamedThing",
-      "slots": [
-        "id",
-        "name",
-        "description",
-        "Project_primary_email",
-        "birth_date",
-        "age_in_years",
-        "vital_status"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/Project",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "ProjectCollection",
-      "definition_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/ProjectCollection",
-      "description": "A holder for Project objects",
-      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
-      "slots": [
-        "projectCollection__entries"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "entries",
-          "multivalued": true,
-          "range": "Project",
-          "inlined": true,
-          "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/ProjectCollection",
-      "tree_root": true,
       "@type": "ClassDefinition"
     },
     {
@@ -588,9 +495,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "plasmo_tar_amp_schema.yaml",
-  "source_file_date": "2023-07-26T14:48:26",
-  "source_file_size": 2775,
-  "generation_date": "2023-07-26T15:03:47",
+  "source_file_date": "2023-07-26T15:08:42",
+  "source_file_size": 2821,
+  "generation_date": "2023-07-26T15:09:02",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/plasmo_tar_amp_schema.context.jsonld",

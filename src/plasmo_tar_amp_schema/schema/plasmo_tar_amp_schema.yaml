@@ -32,28 +32,28 @@ classes:
       - description
     class_uri: schema:Thing
 
-  Project:
-    is_a: NamedThing
-    description: >-
-      Represents a Project
-    slots:
-      - primary_email
-      - birth_date
-      - age_in_years
-      - vital_status
-    slot_usage:
-      primary_email:
-        pattern: "^\\S+@[\\S+\\.]+\\S+"
-
-  ProjectCollection:
-    tree_root: true
-    description: >-
-      A holder for Project objects
-    attributes:
-      entries:
-        range: Project
-        multivalued: true
-        inlined: true
+  # Project:
+  #   is_a: NamedThing
+  #   description: >-
+  #     Represents a Project
+  #   slots:
+  #     - primary_email
+  #     - birth_date
+  #     - age_in_years
+  #     - vital_status
+  #   slot_usage:
+  #     primary_email:
+  #       pattern: "^\\S+@[\\S+\\.]+\\S+"
+  # 
+  # ProjectCollection:
+  #   tree_root: true
+  #   description: >-
+  #     A holder for Project objects
+  #   attributes:
+  #     entries:
+  #       range: Project
+  #       multivalued: true
+  #       inlined: true
   
   TargetInfo:
     description: >-
