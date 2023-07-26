@@ -23,13 +23,13 @@ plasmo_tar_amp_schema:TargetInfo a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "TargetInfo" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty plasmo_tar_amp_schema:gene_id ],
-        [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty plasmo_tar_amp_schema:target_id ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty plasmo_tar_amp_schema:gene_id ] ;
     skos:definition "Information about a specific target within a genome" .
 
 plasmo_tar_amp_schema:gene_id a owl:ObjectProperty,
