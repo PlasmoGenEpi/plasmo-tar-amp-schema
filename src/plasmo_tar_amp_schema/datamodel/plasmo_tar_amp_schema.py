@@ -1,5 +1,5 @@
 # Auto generated from plasmo_tar_amp_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-07-26T15:09:06
+# Generation date: 2023-07-26T15:10:42
 # Schema: plasmo-tar-amp-schema
 #
 # id: https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema
@@ -21,8 +21,7 @@ from linkml_runtime.utils.formatutils import camelcase, underscore, sfx
 from linkml_runtime.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from linkml_runtime.utils.curienamespace import CurieNamespace
-from linkml_runtime.linkml_model.types import Date, Integer, String, Uriorcurie
-from linkml_runtime.utils.metamodelcore import URIorCURIE, XSDDate
+from linkml_runtime.linkml_model.types import String
 
 metamodel_version = "1.7.0"
 version = None
@@ -43,39 +42,7 @@ DEFAULT_ = PLASMO_TAR_AMP_SCHEMA
 # Types
 
 # Class references
-class NamedThingId(URIorCURIE):
-    pass
 
-
-@dataclass
-class NamedThing(YAMLRoot):
-    """
-    A generic grouping for any identifiable entity
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = SCHEMA.Thing
-    class_class_curie: ClassVar[str] = "schema:Thing"
-    class_name: ClassVar[str] = "NamedThing"
-    class_model_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.NamedThing
-
-    id: Union[str, NamedThingId] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, NamedThingId):
-            self.id = NamedThingId(self.id)
-
-        if self.name is not None and not isinstance(self.name, str):
-            self.name = str(self.name)
-
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
-
-        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -106,48 +73,11 @@ class TargetInfo(YAMLRoot):
 
 
 # Enumerations
-class PersonStatus(EnumDefinitionImpl):
 
-    ALIVE = PermissibleValue(
-        text="ALIVE",
-        description="the person is living",
-        meaning=PATO["0001421"])
-    DEAD = PermissibleValue(
-        text="DEAD",
-        description="the person is deceased",
-        meaning=PATO["0001422"])
-    UNKNOWN = PermissibleValue(
-        text="UNKNOWN",
-        description="the vital status is not known")
-
-    _defn = EnumDefinition(
-        name="PersonStatus",
-    )
 
 # Slots
 class slots:
     pass
-
-slots.id = Slot(uri=SCHEMA.identifier, name="id", curie=SCHEMA.curie('identifier'),
-                   model_uri=PLASMO_TAR_AMP_SCHEMA.id, domain=None, range=URIRef)
-
-slots.name = Slot(uri=SCHEMA.name, name="name", curie=SCHEMA.curie('name'),
-                   model_uri=PLASMO_TAR_AMP_SCHEMA.name, domain=None, range=Optional[str])
-
-slots.description = Slot(uri=SCHEMA.description, name="description", curie=SCHEMA.curie('description'),
-                   model_uri=PLASMO_TAR_AMP_SCHEMA.description, domain=None, range=Optional[str])
-
-slots.primary_email = Slot(uri=SCHEMA.email, name="primary_email", curie=SCHEMA.curie('email'),
-                   model_uri=PLASMO_TAR_AMP_SCHEMA.primary_email, domain=None, range=Optional[str])
-
-slots.birth_date = Slot(uri=SCHEMA.birthDate, name="birth_date", curie=SCHEMA.curie('birthDate'),
-                   model_uri=PLASMO_TAR_AMP_SCHEMA.birth_date, domain=None, range=Optional[Union[str, XSDDate]])
-
-slots.age_in_years = Slot(uri=PLASMO_TAR_AMP_SCHEMA.age_in_years, name="age_in_years", curie=PLASMO_TAR_AMP_SCHEMA.curie('age_in_years'),
-                   model_uri=PLASMO_TAR_AMP_SCHEMA.age_in_years, domain=None, range=Optional[int])
-
-slots.vital_status = Slot(uri=PLASMO_TAR_AMP_SCHEMA.vital_status, name="vital_status", curie=PLASMO_TAR_AMP_SCHEMA.curie('vital_status'),
-                   model_uri=PLASMO_TAR_AMP_SCHEMA.vital_status, domain=None, range=Optional[Union[str, "PersonStatus"]])
 
 slots.targetInfo__target_id = Slot(uri=PLASMO_TAR_AMP_SCHEMA.target_id, name="targetInfo__target_id", curie=PLASMO_TAR_AMP_SCHEMA.curie('target_id'),
                    model_uri=PLASMO_TAR_AMP_SCHEMA.targetInfo__target_id, domain=None, range=str,

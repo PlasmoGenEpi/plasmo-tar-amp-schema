@@ -2,7 +2,6 @@ BASE <https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
-PREFIX schema1: <http://schema.org/>
 
 
 linkml:String xsd:string
@@ -42,14 +41,6 @@ linkml:Jsonpointer xsd:string
 linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
-
-<NamedThing> CLOSED {
-    (  $<NamedThing_tes> (  schema1:name @linkml:String ? ;
-          schema1:description @linkml:String ?
-       ) ;
-       rdf:type [ schema1:Thing ]
-    )
-}
 
 <TargetInfo> CLOSED {
     (  $<TargetInfo_tes> (  <target_id> @linkml:String ;

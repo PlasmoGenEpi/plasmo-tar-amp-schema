@@ -295,125 +295,7 @@
       "@type": "TypeDefinition"
     }
   ],
-  "enums": [
-    {
-      "name": "PersonStatus",
-      "definition_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/PersonStatus",
-      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
-      "permissible_values": [
-        {
-          "text": "ALIVE",
-          "description": "the person is living",
-          "meaning": "PATO:0001421"
-        },
-        {
-          "text": "DEAD",
-          "description": "the person is deceased",
-          "meaning": "PATO:0001422"
-        },
-        {
-          "text": "UNKNOWN",
-          "description": "the vital status is not known",
-          "todos": [
-            "map this to an ontology"
-          ]
-        }
-      ]
-    }
-  ],
   "slots": [
-    {
-      "name": "id",
-      "definition_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/id",
-      "description": "A unique identifier for a thing",
-      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
-      "mappings": [
-        "http://schema.org/identifier"
-      ],
-      "slot_uri": "http://schema.org/identifier",
-      "identifier": true,
-      "owner": "NamedThing",
-      "domain_of": [
-        "NamedThing"
-      ],
-      "range": "uriorcurie",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "name",
-      "definition_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/name",
-      "description": "A human-readable name for a thing",
-      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
-      "mappings": [
-        "http://schema.org/name"
-      ],
-      "slot_uri": "http://schema.org/name",
-      "owner": "NamedThing",
-      "domain_of": [
-        "NamedThing"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "description",
-      "definition_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/description",
-      "description": "A human-readable description for a thing",
-      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
-      "mappings": [
-        "http://schema.org/description"
-      ],
-      "slot_uri": "http://schema.org/description",
-      "owner": "NamedThing",
-      "domain_of": [
-        "NamedThing"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "primary_email",
-      "definition_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/primary_email",
-      "description": "The main email address of a person",
-      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
-      "mappings": [
-        "http://schema.org/email"
-      ],
-      "slot_uri": "http://schema.org/email",
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "birth_date",
-      "definition_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/birth_date",
-      "description": "Date on which a person is born",
-      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
-      "mappings": [
-        "http://schema.org/birthDate"
-      ],
-      "slot_uri": "http://schema.org/birthDate",
-      "range": "date",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "age_in_years",
-      "definition_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/age_in_years",
-      "description": "Number of years since birth",
-      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
-      "slot_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/age_in_years",
-      "range": "integer",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "vital_status",
-      "definition_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/vital_status",
-      "description": "living or dead status",
-      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
-      "slot_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/vital_status",
-      "range": "PersonStatus",
-      "@type": "SlotDefinition"
-    },
     {
       "name": "targetInfo__target_id",
       "description": "a unique identifier for target ",
@@ -445,23 +327,6 @@
     }
   ],
   "classes": [
-    {
-      "name": "NamedThing",
-      "definition_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/NamedThing",
-      "description": "A generic grouping for any identifiable entity",
-      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
-      "mappings": [
-        "schema:Thing"
-      ],
-      "slots": [
-        "id",
-        "name",
-        "description"
-      ],
-      "slot_usage": {},
-      "class_uri": "http://schema.org/Thing",
-      "@type": "ClassDefinition"
-    },
     {
       "name": "TargetInfo",
       "definition_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/TargetInfo",
@@ -495,9 +360,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "plasmo_tar_amp_schema.yaml",
-  "source_file_date": "2023-07-26T15:08:42",
-  "source_file_size": 2821,
-  "generation_date": "2023-07-26T15:09:02",
+  "source_file_date": "2023-07-26T15:10:24",
+  "source_file_size": 2912,
+  "generation_date": "2023-07-26T15:10:38",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/plasmo_tar_amp_schema.context.jsonld",

@@ -1,41 +1,22 @@
 @prefix plasmo_tar_amp_schema: <https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix schema1: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-schema1:Thing a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "A generic grouping for any identifiable entity" ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path schema1:description ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path schema1:identifier ],
-        [ sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path schema1:name ] ;
-    sh:targetClass schema1:Thing .
 
 plasmo_tar_amp_schema:TargetInfo a sh:NodeShape ;
     sh:closed true ;
     sh:description "Information about a specific target within a genome" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "an identifier of the gene, if any, is being covered with this targeted " ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path plasmo_tar_amp_schema:gene_id ;
-            sh:pattern "^[A-z-._]$" ],
-        [ sh:description "a unique identifier for target " ;
+    sh:property [ sh:description "a unique identifier for target " ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path plasmo_tar_amp_schema:target_id ;
+            sh:pattern "^[A-z-._]$" ],
+        [ sh:description "an identifier of the gene, if any, is being covered with this targeted " ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path plasmo_tar_amp_schema:gene_id ;
             sh:pattern "^[A-z-._]$" ] ;
     sh:targetClass plasmo_tar_amp_schema:TargetInfo .
 
