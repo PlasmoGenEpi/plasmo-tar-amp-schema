@@ -1,8 +1,8 @@
 # Auto generated from plasmo_tar_amp_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-08-02T13:13:47
+# Generation date: 2023-08-02T13:17:00
 # Schema: plasmo-tar-amp-schema
 #
-# id: https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema
+# id: https://plasmogenepi.github.io/plasmo-tar-amp-schema
 # description: Schema for defining the results to a targeted amplicon analysis performed on plasmodium
 # license: GNU GPL v3.0
 

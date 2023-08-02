@@ -5,7 +5,7 @@
   "see_also": [
     "https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema"
   ],
-  "id": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
+  "id": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
   "imports": [
     "linkml:types"
   ],
@@ -299,7 +299,7 @@
     {
       "name": "targetInfo__target_id",
       "description": "a unique identifier for target ",
-      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
       "slot_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/target_id",
       "alias": "target_id",
       "owner": "TargetInfo",
@@ -314,7 +314,7 @@
     {
       "name": "targetInfo__gene_id",
       "description": "an identifier of the gene, if any, is being covered with this targeted ",
-      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
       "slot_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/gene_id",
       "alias": "gene_id",
       "owner": "TargetInfo",
@@ -331,7 +331,7 @@
       "name": "TargetInfo",
       "definition_uri": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/TargetInfo",
       "description": "Information about a specific target within a genome",
-      "from_schema": "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
       "slots": [
         "targetInfo__target_id",
         "targetInfo__gene_id"
@@ -360,9 +360,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "plasmo_tar_amp_schema.yaml",
-  "source_file_date": "2023-07-26T15:10:24",
-  "source_file_size": 2912,
-  "generation_date": "2023-08-02T13:13:43",
+  "source_file_date": "2023-08-02T13:16:45",
+  "source_file_size": 2913,
+  "generation_date": "2023-08-02T13:16:56",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/plasmo_tar_amp_schema.context.jsonld",

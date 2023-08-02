@@ -7,16 +7,16 @@ plasmo_tar_amp_schema:TargetInfo a sh:NodeShape ;
     sh:closed true ;
     sh:description "Information about a specific target within a genome" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "an identifier of the gene, if any, is being covered with this targeted " ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path plasmo_tar_amp_schema:gene_id ;
-            sh:pattern "^[A-z-._]$" ],
-        [ sh:description "a unique identifier for target " ;
+    sh:property [ sh:description "a unique identifier for target " ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path plasmo_tar_amp_schema:target_id ;
+            sh:pattern "^[A-z-._]$" ],
+        [ sh:description "an identifier of the gene, if any, is being covered with this targeted " ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path plasmo_tar_amp_schema:gene_id ;
             sh:pattern "^[A-z-._]$" ] ;
     sh:targetClass plasmo_tar_amp_schema:TargetInfo .
 

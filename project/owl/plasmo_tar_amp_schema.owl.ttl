@@ -6,10 +6,10 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema> a owl:Ontology ;
+<https://plasmogenepi.github.io/plasmo-tar-amp-schema> a owl:Ontology ;
     rdfs:label "plasmo-tar-amp-schema" ;
     IAO:0000700 plasmo_tar_amp_schema:TargetInfo ;
-    linkml:id "https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema" ;
+    linkml:id "https://plasmogenepi.github.io/plasmo-tar-amp-schema" ;
     linkml:imports "linkml:types" .
 
 linkml:SubsetDefinition a owl:Class .
