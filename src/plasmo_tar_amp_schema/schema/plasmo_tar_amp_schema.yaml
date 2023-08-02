@@ -9,7 +9,7 @@ see_also:
   - https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema
 
 prefixes:
-  plasmo_tar_amp_schema: https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/
+  plasmo_tar_amp_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema/
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/
   schema: http://schema.org/

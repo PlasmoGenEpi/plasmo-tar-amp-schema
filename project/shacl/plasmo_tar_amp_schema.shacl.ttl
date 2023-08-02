@@ -1,4 +1,4 @@
-@prefix plasmo_tar_amp_schema: <https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema/> .
+@prefix plasmo_tar_amp_schema: <https://plasmogenepi.github.io/plasmo-tar-amp-schema/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
