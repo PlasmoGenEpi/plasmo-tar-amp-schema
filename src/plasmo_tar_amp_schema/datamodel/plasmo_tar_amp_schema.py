@@ -1,5 +1,5 @@
 # Auto generated from plasmo_tar_amp_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-07-26T15:11:56
+# Generation date: 2023-08-02T13:13:47
 # Schema: plasmo-tar-amp-schema
 #
 # id: https://w3id.org/PlasmoGenEpi/plasmo-tar-amp-schema
