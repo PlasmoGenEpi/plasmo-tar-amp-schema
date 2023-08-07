@@ -80,7 +80,9 @@ linkml:Sparqlpath xsd:string
 }
 
 <HaplotypesForTarget> CLOSED {
-    (  $<HaplotypesForTarget_tes> <target_id> @linkml:String ;
+    (  $<HaplotypesForTarget_tes> (  <target_id> @linkml:String ;
+          <haplotype_ids> @linkml:String +
+       ) ;
        rdf:type [ <HaplotypesForTarget> ] ?
     )
 }

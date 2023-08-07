@@ -31,7 +31,8 @@ CREATE TABLE "HaplotypesDetected" (
 
 CREATE TABLE "HaplotypesForTarget" (
 	target_id TEXT NOT NULL, 
-	PRIMARY KEY (target_id)
+	haplotype_ids TEXT NOT NULL, 
+	PRIMARY KEY (target_id, haplotype_ids)
 );
 
 CREATE TABLE "PanelInfo" (

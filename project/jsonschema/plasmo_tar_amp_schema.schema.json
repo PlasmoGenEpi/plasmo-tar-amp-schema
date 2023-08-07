@@ -120,6 +120,13 @@
             "additionalProperties": false,
             "description": "Haplotypes detected for a specific target",
             "properties": {
+                "haplotype_ids": {
+                    "description": "a list of the haplotypes detected for this target",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "target_id": {
                     "description": "the target associated with this target and these detected haplotypes",
                     "pattern": "^[A-z-._0-9]$",
@@ -127,7 +134,8 @@
                 }
             },
             "required": [
-                "target_id"
+                "target_id",
+                "haplotype_ids"
             ],
             "title": "HaplotypesForTarget",
             "type": "object"

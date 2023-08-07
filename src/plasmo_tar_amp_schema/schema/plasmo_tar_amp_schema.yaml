@@ -273,13 +273,13 @@ classes:
         required: true
         description: >-
           the target associated with this target and these detected haplotypes
-#      haplotype_ids:
-#        required: true
-#        range: string
-#        multivalued: true
-#        inlined: true
-#        description: >-
-#          a list of the haplotypes detected for this target
+      haplotype_ids:
+        required: true
+        range: string
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          a list of the haplotypes detected for this target
 #      read_counts:
 #        required: true
 #        range: double

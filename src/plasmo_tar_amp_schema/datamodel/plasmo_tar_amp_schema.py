@@ -1,5 +1,5 @@
 # Auto generated from plasmo_tar_amp_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-08-07T15:09:58
+# Generation date: 2023-08-07T15:12:39
 # Schema: plasmo-tar-amp-schema
 #
 # id: https://plasmogenepi.github.io/plasmo-tar-amp-schema
@@ -361,12 +361,19 @@ class HaplotypesForTarget(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.HaplotypesForTarget
 
     target_id: str = None
+    haplotype_ids: Union[str, List[str]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.target_id):
             self.MissingRequiredField("target_id")
         if not isinstance(self.target_id, str):
             self.target_id = str(self.target_id)
+
+        if self._is_empty(self.haplotype_ids):
+            self.MissingRequiredField("haplotype_ids")
+        if not isinstance(self.haplotype_ids, list):
+            self.haplotype_ids = [self.haplotype_ids] if self.haplotype_ids is not None else []
+        self.haplotype_ids = [v if isinstance(v, str) else str(v) for v in self.haplotype_ids]
 
         super().__post_init__(**kwargs)
 
@@ -482,3 +489,6 @@ slots.primers__entries = Slot(uri=PLASMO_TAR_AMP_SCHEMA.entries, name="primers__
 slots.haplotypesForTarget__target_id = Slot(uri=PLASMO_TAR_AMP_SCHEMA.target_id, name="haplotypesForTarget__target_id", curie=PLASMO_TAR_AMP_SCHEMA.curie('target_id'),
                    model_uri=PLASMO_TAR_AMP_SCHEMA.haplotypesForTarget__target_id, domain=None, range=str,
                    pattern=re.compile(r'^[A-z-._0-9]$'))
+
+slots.haplotypesForTarget__haplotype_ids = Slot(uri=PLASMO_TAR_AMP_SCHEMA.haplotype_ids, name="haplotypesForTarget__haplotype_ids", curie=PLASMO_TAR_AMP_SCHEMA.curie('haplotype_ids'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.haplotypesForTarget__haplotype_ids, domain=None, range=Union[str, List[str]])

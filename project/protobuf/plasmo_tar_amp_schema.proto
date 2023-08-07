@@ -31,6 +31,7 @@ message HaplotypesDetected
 message HaplotypesForTarget
  {
   string targetId = 0
+ repeated  string haplotypeIds = 0
  }
 // information on a panel of targeted amplicon primer pairs
 message PanelInfo

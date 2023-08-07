@@ -34,11 +34,11 @@ plasmo_tar_amp_schema:HaplotypeInfo a owl:Class,
     rdfs:label "HaplotypeInfo" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass linkml:String ;
-            owl:onProperty plasmo_tar_amp_schema:haplotype_id ;
+            owl:onProperty plasmo_tar_amp_schema:target_id ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass linkml:String ;
-            owl:onProperty plasmo_tar_amp_schema:target_id ;
+            owl:onProperty plasmo_tar_amp_schema:haplotype_id ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "information on a haplotype except for it's sequence which can be found under RepresentativeHaplotypeSequence" .
 
@@ -58,7 +58,13 @@ plasmo_tar_amp_schema:HaplotypesDetected a owl:Class,
 plasmo_tar_amp_schema:HaplotypesForTarget a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "HaplotypesForTarget" ;
-    rdfs:subClassOf [ a owl:Restriction ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:allValuesFrom linkml:String ;
+                        owl:onProperty plasmo_tar_amp_schema:haplotype_ids ] [ a owl:Restriction ;
+                        owl:onProperty plasmo_tar_amp_schema:haplotype_ids ;
+                        owl:someValuesFrom linkml:String ] ) ],
+        [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty plasmo_tar_amp_schema:target_id ;
             owl:qualifiedCardinality 1 ] ;
@@ -84,7 +90,7 @@ plasmo_tar_amp_schema:RepresentativeHaplotypeSequence a owl:Class,
     rdfs:label "RepresentativeHaplotypeSequence" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass linkml:String ;
-            owl:onProperty plasmo_tar_amp_schema:haplotype_id ;
+            owl:onProperty plasmo_tar_amp_schema:seq ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
@@ -92,7 +98,7 @@ plasmo_tar_amp_schema:RepresentativeHaplotypeSequence a owl:Class,
             owl:onProperty plasmo_tar_amp_schema:quality ],
         [ a owl:Restriction ;
             owl:onClass linkml:String ;
-            owl:onProperty plasmo_tar_amp_schema:seq ;
+            owl:onProperty plasmo_tar_amp_schema:haplotype_id ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "the representative sequence for a haplotype, similar to a fast(a/q) format" .
 
@@ -219,6 +225,12 @@ plasmo_tar_amp_schema:version a owl:ObjectProperty,
 plasmo_tar_amp_schema:haplotype_id a owl:ObjectProperty,
         linkml:SlotDefinition .
 
+plasmo_tar_amp_schema:haplotype_ids a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "haplotype_ids" ;
+    rdfs:range linkml:String ;
+    skos:definition "a list of the haplotypes detected for this target" .
+
 plasmo_tar_amp_schema:seq a owl:ObjectProperty,
         linkml:SlotDefinition .
 
@@ -233,15 +245,11 @@ plasmo_tar_amp_schema:GenomeInfo a owl:Class,
     rdfs:label "GenomeInfo" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass linkml:String ;
-            owl:onProperty plasmo_tar_amp_schema:version ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass linkml:String ;
-            owl:onProperty plasmo_tar_amp_schema:url ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass linkml:String ;
             owl:onProperty plasmo_tar_amp_schema:name ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty plasmo_tar_amp_schema:version ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
@@ -250,6 +258,10 @@ plasmo_tar_amp_schema:GenomeInfo a owl:Class,
         [ a owl:Restriction ;
             owl:onClass linkml:Integer ;
             owl:onProperty plasmo_tar_amp_schema:taxon_id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty plasmo_tar_amp_schema:url ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "information on a genome" .
 
@@ -257,12 +269,12 @@ plasmo_tar_amp_schema:PrimerInfo a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "PrimerInfo" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass linkml:String ;
-            owl:onProperty plasmo_tar_amp_schema:seq ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass plasmo_tar_amp_schema:GenomicLocation ;
             owl:onProperty plasmo_tar_amp_schema:location ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty plasmo_tar_amp_schema:seq ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "information on a primer sequence" .
 
@@ -273,50 +285,50 @@ plasmo_tar_amp_schema:TargetInfo a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "TargetInfo" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass plasmo_tar_amp_schema:GenomeInfo ;
-            owl:onProperty plasmo_tar_amp_schema:target_genome ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass plasmo_tar_amp_schema:Primers ;
-            owl:onProperty plasmo_tar_amp_schema:reverse_primers ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass plasmo_tar_amp_schema:GenomicLocation ;
             owl:onProperty plasmo_tar_amp_schema:insert_location ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass linkml:String ;
-            owl:onProperty plasmo_tar_amp_schema:target_id ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass plasmo_tar_amp_schema:Primers ;
             owl:onProperty plasmo_tar_amp_schema:forward_primers ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
+            owl:onClass plasmo_tar_amp_schema:GenomeInfo ;
+            owl:onProperty plasmo_tar_amp_schema:target_genome ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty plasmo_tar_amp_schema:gene_id ] ;
+            owl:onProperty plasmo_tar_amp_schema:gene_id ],
+        [ a owl:Restriction ;
+            owl:onClass plasmo_tar_amp_schema:Primers ;
+            owl:onProperty plasmo_tar_amp_schema:reverse_primers ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty plasmo_tar_amp_schema:target_id ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "Information about a specific target within a genome" .
 
 plasmo_tar_amp_schema:GenomicLocation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "GenomicLocation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass linkml:Integer ;
-            owl:onProperty plasmo_tar_amp_schema:end ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty plasmo_tar_amp_schema:strand ],
-        [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty plasmo_tar_amp_schema:chrom ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass linkml:Integer ;
+            owl:onProperty plasmo_tar_amp_schema:end ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:Integer ;
             owl:onProperty plasmo_tar_amp_schema:start ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty plasmo_tar_amp_schema:strand ] ;
     skos:definition "information on the genomic location of specific sequence" .
 
 plasmo_tar_amp_schema:Primers a owl:Class,
