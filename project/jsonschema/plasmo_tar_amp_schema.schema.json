@@ -5,7 +5,7 @@
             "description": "information on a genome",
             "properties": {
                 "gff_url": {
-                    "description": "a link to the where this genome's annotation file could be downloaded\n\n  ",
+                    "description": "a link to the where this genome's annotation file could be downloaded",
                     "pattern": "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"",
                     "type": "string"
                 },
@@ -39,18 +39,98 @@
             "title": "GenomeInfo",
             "type": "object"
         },
+        "GenomicLocation": {
+            "additionalProperties": false,
+            "description": "information on the genomic location of specific sequence",
+            "properties": {
+                "chrom": {
+                    "description": "the chromosome name",
+                    "pattern": "^[A-z-._0-9]$",
+                    "type": "string"
+                },
+                "end": {
+                    "description": "the end of the location, 0-based positioning",
+                    "pattern": "^[0-9]$",
+                    "type": "integer"
+                },
+                "start": {
+                    "description": "the start of the location, 0-based positioning",
+                    "pattern": "^[0-9]$",
+                    "type": "integer"
+                },
+                "strand": {
+                    "description": "which strand the location is, either + for plus strand or - for negative strand ",
+                    "pattern": "r'[+-]'",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "chrom",
+                "start",
+                "end"
+            ],
+            "title": "GenomicLocation",
+            "type": "object"
+        },
+        "PrimerInfo": {
+            "additionalProperties": false,
+            "description": "information on a primer sequence",
+            "properties": {
+                "location": {
+                    "$ref": "#/$defs/GenomicLocation",
+                    "description": "what the intended genomic location of the primer is  \n  "
+                },
+                "seq": {
+                    "description": "the primer sequence, can include any degeneracy bases as well",
+                    "pattern": "^[A-z-._0-9]$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "seq",
+                "location"
+            ],
+            "title": "PrimerInfo",
+            "type": "object"
+        },
+        "Primers": {
+            "additionalProperties": false,
+            "description": "A holder of primer sequences",
+            "properties": {
+                "entries": {
+                    "items": {
+                        "$ref": "#/$defs/PrimerInfo"
+                    },
+                    "type": "array"
+                }
+            },
+            "title": "Primers",
+            "type": "object"
+        },
         "TargetInfo": {
             "additionalProperties": false,
             "description": "Information about a specific target within a genome",
             "properties": {
+                "forward_primers": {
+                    "$ref": "#/$defs/Primers",
+                    "description": "A holder of forward primers associated with this target"
+                },
                 "gene_id": {
                     "description": "an identifier of the gene, if any, is being covered with this targeted",
                     "pattern": "^[A-z-._0-9]$",
                     "type": "string"
                 },
+                "insert_location": {
+                    "$ref": "#/$defs/GenomicLocation",
+                    "description": "the intended genomic location of the insert of the amplicon (the location between the end of the forward primer and the beginning of the reverse primer)"
+                },
+                "reverse_primers": {
+                    "$ref": "#/$defs/Primers",
+                    "description": "A holder of reverse primers associated with this target"
+                },
                 "target_genome": {
                     "$ref": "#/$defs/GenomeInfo",
-                    "description": "the info on the target genome for this target "
+                    "description": "the info on the target genome for this target"
                 },
                 "target_id": {
                     "description": "a unique identifier for target ",
@@ -60,7 +140,10 @@
             },
             "required": [
                 "target_id",
-                "target_genome"
+                "target_genome",
+                "insert_location",
+                "forward_primers",
+                "reverse_primers"
             ],
             "title": "TargetInfo",
             "type": "object"
@@ -69,7 +152,16 @@
     "$id": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": true,
+    "description": "A holder of primer sequences",
     "metamodel_version": "1.7.0",
+    "properties": {
+        "entries": {
+            "items": {
+                "$ref": "#/$defs/PrimerInfo"
+            },
+            "type": "array"
+        }
+    },
     "title": "plasmo-tar-amp-schema",
     "type": "object",
     "version": null

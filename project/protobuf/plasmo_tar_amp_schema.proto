@@ -7,10 +7,32 @@ message GenomeInfo
   string url = 0
   string gffUrl = 0
  }
+// information on the genomic location of specific sequence
+message GenomicLocation
+ {
+  string chrom = 0
+  integer start = 0
+  integer end = 0
+  string strand = 0
+ }
+// information on a primer sequence
+message PrimerInfo
+ {
+  string seq = 0
+  genomicLocation location = 0
+ }
+// A holder of primer sequences
+message Primers
+ {
+ repeated  primerInfo entries = 0
+ }
 // Information about a specific target within a genome
 message TargetInfo
  {
   string targetId = 0
   string geneId = 0
   genomeInfo targetGenome = 0
+  genomicLocation insertLocation = 0
+  primers forwardPrimers = 0
+  primers reversePrimers = 0
  }

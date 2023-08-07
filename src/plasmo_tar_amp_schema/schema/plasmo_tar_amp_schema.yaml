@@ -74,7 +74,22 @@ classes:
         range: GenomeInfo
         required: true
         description: >-
-          the info on the target genome for this target 
+          the info on the target genome for this target
+      insert_location:
+        range: GenomicLocation
+        required: true
+        description: >- 
+          the intended genomic location of the insert of the amplicon (the location between the end of the forward primer and the beginning of the reverse primer)
+      forward_primers:
+        range: Primers
+        required: true
+        description: >-
+          A holder of forward primers associated with this target
+      reverse_primers:
+        range: Primers
+        required: true
+        description: >-
+          A holder of reverse primers associated with this target
 
   GenomeInfo:
     description: >-
@@ -110,9 +125,61 @@ classes:
         required: false
         description: >-
           a link to the where this genome's annotation file could be downloaded
-          
-            
 
+  GenomicLocation:
+    description: >- 
+      information on the genomic location of specific sequence
+    attributes:
+      chrom:
+        range: string
+        pattern: "^[A-z-._0-9]$"
+        required: true
+        description: >-
+          the chromosome name
+      start:
+        range: integer
+        pattern: "^[0-9]$"
+        required: true
+        description: >-
+          the start of the location, 0-based positioning
+      end:
+        range: integer
+        pattern: "^[0-9]$"
+        required: true
+        description: >-
+          the end of the location, 0-based positioning
+      strand:
+        range: string
+        required: false
+        pattern: r'[+-]'
+        description: >- 
+          which strand the location is, either + for plus strand or - for negative strand 
+
+  PrimerInfo:
+    description: >- 
+      information on a primer sequence
+    attributes:
+      seq:
+        range: string
+        pattern: "^[A-z-._0-9]$"
+        required: true
+        description: >-
+          the primer sequence, can include any degeneracy bases as well
+      location:
+        range: GenomicLocation
+        required: true
+        description: >-
+          what the intended genomic location of the primer is  
+            
+  Primers:
+    tree_root: true
+    description: >-
+      A holder of primer sequences
+    attributes:
+      entries:
+        range: PrimerInfo
+        multivalued: true
+        inlined: true
 # slots:
 #   id:
 #     identifier: true

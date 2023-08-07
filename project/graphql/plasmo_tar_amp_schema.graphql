@@ -7,10 +7,32 @@ type GenomeInfo
     gffUrl: String
   }
 
+type GenomicLocation
+  {
+    chrom: String!
+    start: Integer!
+    end: Integer!
+    strand: String
+  }
+
+type PrimerInfo
+  {
+    seq: String!
+    location: GenomicLocation!
+  }
+
+type Primers
+  {
+    entries: [PrimerInfo]
+  }
+
 type TargetInfo
   {
     targetId: String!
     geneId: String
     targetGenome: GenomeInfo!
+    insertLocation: GenomicLocation!
+    forwardPrimers: Primers!
+    reversePrimers: Primers!
   }
 

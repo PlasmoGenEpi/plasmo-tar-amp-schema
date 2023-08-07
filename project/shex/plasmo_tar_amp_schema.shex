@@ -53,10 +53,37 @@ linkml:Sparqlpath xsd:string
     )
 }
 
+<GenomicLocation> CLOSED {
+    (  $<GenomicLocation_tes> (  <chrom> @linkml:String ;
+          <start> @linkml:Integer ;
+          <end> @linkml:Integer ;
+          <strand> @linkml:String ?
+       ) ;
+       rdf:type [ <GenomicLocation> ] ?
+    )
+}
+
+<PrimerInfo> CLOSED {
+    (  $<PrimerInfo_tes> (  <seq> @linkml:String ;
+          <location> @<GenomicLocation>
+       ) ;
+       rdf:type [ <PrimerInfo> ] ?
+    )
+}
+
+<Primers> CLOSED {
+    (  $<Primers_tes> <entries> @<PrimerInfo> * ;
+       rdf:type [ <Primers> ] ?
+    )
+}
+
 <TargetInfo> CLOSED {
     (  $<TargetInfo_tes> (  <target_id> @linkml:String ;
           <gene_id> @linkml:String ? ;
-          <target_genome> @<GenomeInfo>
+          <target_genome> @<GenomeInfo> ;
+          <insert_location> @<GenomicLocation> ;
+          <forward_primers> @<Primers> ;
+          <reverse_primers> @<Primers>
        ) ;
        rdf:type [ <TargetInfo> ] ?
     )

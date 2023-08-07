@@ -327,7 +327,7 @@
     },
     {
       "name": "targetInfo__target_genome",
-      "description": "the info on the target genome for this target ",
+      "description": "the info on the target genome for this target",
       "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
       "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/target_genome",
       "alias": "target_genome",
@@ -336,6 +336,51 @@
         "TargetInfo"
       ],
       "range": "GenomeInfo",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "targetInfo__insert_location",
+      "description": "the intended genomic location of the insert of the amplicon (the location between the end of the forward primer and the beginning of the reverse primer)",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/insert_location",
+      "alias": "insert_location",
+      "owner": "TargetInfo",
+      "domain_of": [
+        "TargetInfo"
+      ],
+      "range": "GenomicLocation",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "targetInfo__forward_primers",
+      "description": "A holder of forward primers associated with this target",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/forward_primers",
+      "alias": "forward_primers",
+      "owner": "TargetInfo",
+      "domain_of": [
+        "TargetInfo"
+      ],
+      "range": "Primers",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "targetInfo__reverse_primers",
+      "description": "A holder of reverse primers associated with this target",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/reverse_primers",
+      "alias": "reverse_primers",
+      "owner": "TargetInfo",
+      "domain_of": [
+        "TargetInfo"
+      ],
+      "range": "Primers",
       "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
@@ -402,7 +447,7 @@
     },
     {
       "name": "genomeInfo__gff_url",
-      "description": "a link to the where this genome's annotation file could be downloaded\n\n  ",
+      "description": "a link to the where this genome's annotation file could be downloaded",
       "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
       "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/gff_url",
       "alias": "gff_url",
@@ -412,6 +457,109 @@
       ],
       "range": "string",
       "pattern": "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "genomicLocation__chrom",
+      "description": "the chromosome name",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/chrom",
+      "alias": "chrom",
+      "owner": "GenomicLocation",
+      "domain_of": [
+        "GenomicLocation"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._0-9]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "genomicLocation__start",
+      "description": "the start of the location, 0-based positioning",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/start",
+      "alias": "start",
+      "owner": "GenomicLocation",
+      "domain_of": [
+        "GenomicLocation"
+      ],
+      "range": "integer",
+      "required": true,
+      "pattern": "^[0-9]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "genomicLocation__end",
+      "description": "the end of the location, 0-based positioning",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/end",
+      "alias": "end",
+      "owner": "GenomicLocation",
+      "domain_of": [
+        "GenomicLocation"
+      ],
+      "range": "integer",
+      "required": true,
+      "pattern": "^[0-9]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "genomicLocation__strand",
+      "description": "which strand the location is, either + for plus strand or - for negative strand ",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/strand",
+      "alias": "strand",
+      "owner": "GenomicLocation",
+      "domain_of": [
+        "GenomicLocation"
+      ],
+      "range": "string",
+      "pattern": "r'[+-]'",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "primerInfo__seq",
+      "description": "the primer sequence, can include any degeneracy bases as well",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/seq",
+      "alias": "seq",
+      "owner": "PrimerInfo",
+      "domain_of": [
+        "PrimerInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._0-9]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "primerInfo__location",
+      "description": "what the intended genomic location of the primer is  \n  ",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/location",
+      "alias": "location",
+      "owner": "PrimerInfo",
+      "domain_of": [
+        "PrimerInfo"
+      ],
+      "range": "GenomicLocation",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "primers__entries",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/entries",
+      "multivalued": true,
+      "alias": "entries",
+      "owner": "Primers",
+      "domain_of": [
+        "Primers"
+      ],
+      "range": "PrimerInfo",
+      "inlined": true,
       "@type": "SlotDefinition"
     }
   ],
@@ -424,7 +572,10 @@
       "slots": [
         "targetInfo__target_id",
         "targetInfo__gene_id",
-        "targetInfo__target_genome"
+        "targetInfo__target_genome",
+        "targetInfo__insert_location",
+        "targetInfo__forward_primers",
+        "targetInfo__reverse_primers"
       ],
       "slot_usage": {},
       "attributes": [
@@ -445,8 +596,29 @@
         },
         {
           "name": "target_genome",
-          "description": "the info on the target genome for this target ",
+          "description": "the info on the target genome for this target",
           "range": "GenomeInfo",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "insert_location",
+          "description": "the intended genomic location of the insert of the amplicon (the location between the end of the forward primer and the beginning of the reverse primer)",
+          "range": "GenomicLocation",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "forward_primers",
+          "description": "A holder of forward primers associated with this target",
+          "range": "Primers",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "reverse_primers",
+          "description": "A holder of reverse primers associated with this target",
+          "range": "Primers",
           "required": true,
           "@type": "SlotDefinition"
         }
@@ -502,7 +674,7 @@
         },
         {
           "name": "gff_url",
-          "description": "a link to the where this genome's annotation file could be downloaded\n\n  ",
+          "description": "a link to the where this genome's annotation file could be downloaded",
           "range": "string",
           "pattern": "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"",
           "@type": "SlotDefinition"
@@ -510,13 +682,113 @@
       ],
       "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/GenomeInfo",
       "@type": "ClassDefinition"
+    },
+    {
+      "name": "GenomicLocation",
+      "definition_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/GenomicLocation",
+      "description": "information on the genomic location of specific sequence",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slots": [
+        "genomicLocation__chrom",
+        "genomicLocation__start",
+        "genomicLocation__end",
+        "genomicLocation__strand"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "chrom",
+          "description": "the chromosome name",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._0-9]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "start",
+          "description": "the start of the location, 0-based positioning",
+          "range": "integer",
+          "required": true,
+          "pattern": "^[0-9]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "end",
+          "description": "the end of the location, 0-based positioning",
+          "range": "integer",
+          "required": true,
+          "pattern": "^[0-9]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "strand",
+          "description": "which strand the location is, either + for plus strand or - for negative strand ",
+          "range": "string",
+          "pattern": "r'[+-]'",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/GenomicLocation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "PrimerInfo",
+      "definition_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/PrimerInfo",
+      "description": "information on a primer sequence",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slots": [
+        "primerInfo__seq",
+        "primerInfo__location"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "seq",
+          "description": "the primer sequence, can include any degeneracy bases as well",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._0-9]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "location",
+          "description": "what the intended genomic location of the primer is  \n  ",
+          "range": "GenomicLocation",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/PrimerInfo",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Primers",
+      "definition_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/Primers",
+      "description": "A holder of primer sequences",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slots": [
+        "primers__entries"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "entries",
+          "multivalued": true,
+          "range": "PrimerInfo",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/Primers",
+      "tree_root": true,
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "plasmo_tar_amp_schema.yaml",
-  "source_file_date": "2023-08-07T14:27:59",
-  "source_file_size": 4035,
-  "generation_date": "2023-08-07T14:28:08",
+  "source_file_date": "2023-08-07T14:41:59",
+  "source_file_size": 6026,
+  "generation_date": "2023-08-07T14:42:14",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/plasmo_tar_amp_schema.context.jsonld",
