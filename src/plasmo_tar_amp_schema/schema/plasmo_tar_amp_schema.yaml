@@ -61,16 +61,57 @@ classes:
     attributes:
       target_id:
         range: string
-        pattern: "^[A-z-._]$"
+        pattern: "^[A-z-._0-9]$"
         required: true
         description: >-
           a unique identifier for target 
       gene_id:
         range: string
-        pattern: "^[A-z-._]$"
+        pattern: "^[A-z-._0-9]$"
         description: >-
-          an identifier of the gene, if any, is being covered with this targeted 
-  
+          an identifier of the gene, if any, is being covered with this targeted
+      target_genome:
+        range: GenomeInfo
+        required: true
+        description: >-
+          the info on the target genome for this target 
+
+  GenomeInfo:
+    description: >-
+      information on a genome
+    attributes:
+      name:
+        range: string
+        pattern: "^[A-z-._0-9]$"
+        required: true
+        description: >-
+          name of the genome
+      version:
+        range: string
+        pattern: "^[A-z-._0-9]$"
+        required: true
+        description: >-
+          the genome version
+      taxon_id:
+        range: string
+        pattern: "^[0-9]$"
+        required: true
+        description: >-
+          the NCBI taxonomy number
+      url:
+        range: string
+        pattern: r"^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$"
+        required: true
+        description: >-
+          a link to the where this genome file could be downloaded
+      gff_url:
+        range: string
+        pattern: r"^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$"
+        required: false
+        description: >-
+          a link to the where this genome's annotation file could be downloaded
+          
+            
 
 # slots:
 #   id:

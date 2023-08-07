@@ -42,9 +42,21 @@ linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
 
+<GenomeInfo> CLOSED {
+    (  $<GenomeInfo_tes> (  <name> @linkml:String ;
+          <version> @linkml:String ;
+          <taxon_id> @linkml:String ;
+          <url> @linkml:String ;
+          <gff_url> @linkml:String ?
+       ) ;
+       rdf:type [ <GenomeInfo> ] ?
+    )
+}
+
 <TargetInfo> CLOSED {
     (  $<TargetInfo_tes> (  <target_id> @linkml:String ;
-          <gene_id> @linkml:String ?
+          <gene_id> @linkml:String ? ;
+          <target_genome> @<GenomeInfo>
        ) ;
        rdf:type [ <TargetInfo> ] ?
     )

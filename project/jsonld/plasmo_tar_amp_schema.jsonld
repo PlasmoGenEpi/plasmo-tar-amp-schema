@@ -308,12 +308,12 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^[A-z-._]$",
+      "pattern": "^[A-z-._0-9]$",
       "@type": "SlotDefinition"
     },
     {
       "name": "targetInfo__gene_id",
-      "description": "an identifier of the gene, if any, is being covered with this targeted ",
+      "description": "an identifier of the gene, if any, is being covered with this targeted",
       "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
       "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/gene_id",
       "alias": "gene_id",
@@ -322,7 +322,96 @@
         "TargetInfo"
       ],
       "range": "string",
-      "pattern": "^[A-z-._]$",
+      "pattern": "^[A-z-._0-9]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "targetInfo__target_genome",
+      "description": "the info on the target genome for this target ",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/target_genome",
+      "alias": "target_genome",
+      "owner": "TargetInfo",
+      "domain_of": [
+        "TargetInfo"
+      ],
+      "range": "GenomeInfo",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "genomeInfo__name",
+      "description": "name of the genome",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/name",
+      "alias": "name",
+      "owner": "GenomeInfo",
+      "domain_of": [
+        "GenomeInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._0-9]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "genomeInfo__version",
+      "description": "the genome version",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/version",
+      "alias": "version",
+      "owner": "GenomeInfo",
+      "domain_of": [
+        "GenomeInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._0-9]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "genomeInfo__taxon_id",
+      "description": "the NCBI taxonomy number",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/taxon_id",
+      "alias": "taxon_id",
+      "owner": "GenomeInfo",
+      "domain_of": [
+        "GenomeInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[0-9]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "genomeInfo__url",
+      "description": "a link to the where this genome file could be downloaded",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/url",
+      "alias": "url",
+      "owner": "GenomeInfo",
+      "domain_of": [
+        "GenomeInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "genomeInfo__gff_url",
+      "description": "a link to the where this genome's annotation file could be downloaded\n\n  ",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/gff_url",
+      "alias": "gff_url",
+      "owner": "GenomeInfo",
+      "domain_of": [
+        "GenomeInfo"
+      ],
+      "range": "string",
+      "pattern": "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"",
       "@type": "SlotDefinition"
     }
   ],
@@ -334,7 +423,8 @@
       "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
       "slots": [
         "targetInfo__target_id",
-        "targetInfo__gene_id"
+        "targetInfo__gene_id",
+        "targetInfo__target_genome"
       ],
       "slot_usage": {},
       "attributes": [
@@ -343,26 +433,90 @@
           "description": "a unique identifier for target ",
           "range": "string",
           "required": true,
-          "pattern": "^[A-z-._]$",
+          "pattern": "^[A-z-._0-9]$",
           "@type": "SlotDefinition"
         },
         {
           "name": "gene_id",
-          "description": "an identifier of the gene, if any, is being covered with this targeted ",
+          "description": "an identifier of the gene, if any, is being covered with this targeted",
           "range": "string",
-          "pattern": "^[A-z-._]$",
+          "pattern": "^[A-z-._0-9]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "target_genome",
+          "description": "the info on the target genome for this target ",
+          "range": "GenomeInfo",
+          "required": true,
           "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/TargetInfo",
       "@type": "ClassDefinition"
+    },
+    {
+      "name": "GenomeInfo",
+      "definition_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/GenomeInfo",
+      "description": "information on a genome",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slots": [
+        "genomeInfo__name",
+        "genomeInfo__version",
+        "genomeInfo__taxon_id",
+        "genomeInfo__url",
+        "genomeInfo__gff_url"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "name",
+          "description": "name of the genome",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._0-9]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "version",
+          "description": "the genome version",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._0-9]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "taxon_id",
+          "description": "the NCBI taxonomy number",
+          "range": "string",
+          "required": true,
+          "pattern": "^[0-9]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "url",
+          "description": "a link to the where this genome file could be downloaded",
+          "range": "string",
+          "required": true,
+          "pattern": "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "gff_url",
+          "description": "a link to the where this genome's annotation file could be downloaded\n\n  ",
+          "range": "string",
+          "pattern": "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/GenomeInfo",
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "plasmo_tar_amp_schema.yaml",
-  "source_file_date": "2023-08-02T13:19:10",
-  "source_file_size": 2914,
-  "generation_date": "2023-08-02T13:19:23",
+  "source_file_date": "2023-08-07T14:26:01",
+  "source_file_size": 4034,
+  "generation_date": "2023-08-07T14:26:07",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/plasmo_tar_amp_schema.context.jsonld",

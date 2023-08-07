@@ -7,16 +7,60 @@ plasmo_tar_amp_schema:TargetInfo a sh:NodeShape ;
     sh:closed true ;
     sh:description "Information about a specific target within a genome" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "a unique identifier for target " ;
+    sh:property [ sh:class plasmo_tar_amp_schema:GenomeInfo ;
+            sh:description "the info on the target genome for this target " ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path plasmo_tar_amp_schema:target_genome ],
+        [ sh:description "an identifier of the gene, if any, is being covered with this targeted" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path plasmo_tar_amp_schema:gene_id ;
+            sh:pattern "^[A-z-._0-9]$" ],
+        [ sh:description "a unique identifier for target " ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path plasmo_tar_amp_schema:target_id ;
-            sh:pattern "^[A-z-._]$" ],
-        [ sh:description "an identifier of the gene, if any, is being covered with this targeted " ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path plasmo_tar_amp_schema:gene_id ;
-            sh:pattern "^[A-z-._]$" ] ;
+            sh:pattern "^[A-z-._0-9]$" ] ;
     sh:targetClass plasmo_tar_amp_schema:TargetInfo .
+
+plasmo_tar_amp_schema:GenomeInfo a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "information on a genome" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "the genome version" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path plasmo_tar_amp_schema:version ;
+            sh:pattern "^[A-z-._0-9]$" ],
+        [ sh:description """a link to the where this genome's annotation file could be downloaded
+
+  """ ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path plasmo_tar_amp_schema:gff_url ;
+            sh:pattern "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"" ],
+        [ sh:description "a link to the where this genome file could be downloaded" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path plasmo_tar_amp_schema:url ;
+            sh:pattern "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"" ],
+        [ sh:description "the NCBI taxonomy number" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path plasmo_tar_amp_schema:taxon_id ;
+            sh:pattern "^[0-9]$" ],
+        [ sh:description "name of the genome" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path plasmo_tar_amp_schema:name ;
+            sh:pattern "^[A-z-._0-9]$" ] ;
+    sh:targetClass plasmo_tar_amp_schema:GenomeInfo .
 

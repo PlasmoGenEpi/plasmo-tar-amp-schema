@@ -1,6 +1,16 @@
+// information on a genome
+message GenomeInfo
+ {
+  string name = 0
+  string version = 0
+  string taxonId = 0
+  string url = 0
+  string gffUrl = 0
+ }
 // Information about a specific target within a genome
 message TargetInfo
  {
   string targetId = 0
   string geneId = 0
+  genomeInfo targetGenome = 0
  }

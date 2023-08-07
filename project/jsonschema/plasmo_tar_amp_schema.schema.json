@@ -1,22 +1,66 @@
 {
     "$defs": {
+        "GenomeInfo": {
+            "additionalProperties": false,
+            "description": "information on a genome",
+            "properties": {
+                "gff_url": {
+                    "description": "a link to the where this genome's annotation file could be downloaded\n\n  ",
+                    "pattern": "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "name of the genome",
+                    "pattern": "^[A-z-._0-9]$",
+                    "type": "string"
+                },
+                "taxon_id": {
+                    "description": "the NCBI taxonomy number",
+                    "pattern": "^[0-9]$",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "a link to the where this genome file could be downloaded",
+                    "pattern": "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "the genome version",
+                    "pattern": "^[A-z-._0-9]$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "version",
+                "taxon_id",
+                "url"
+            ],
+            "title": "GenomeInfo",
+            "type": "object"
+        },
         "TargetInfo": {
             "additionalProperties": false,
             "description": "Information about a specific target within a genome",
             "properties": {
                 "gene_id": {
-                    "description": "an identifier of the gene, if any, is being covered with this targeted ",
-                    "pattern": "^[A-z-._]$",
+                    "description": "an identifier of the gene, if any, is being covered with this targeted",
+                    "pattern": "^[A-z-._0-9]$",
                     "type": "string"
+                },
+                "target_genome": {
+                    "$ref": "#/$defs/GenomeInfo",
+                    "description": "the info on the target genome for this target "
                 },
                 "target_id": {
                     "description": "a unique identifier for target ",
-                    "pattern": "^[A-z-._]$",
+                    "pattern": "^[A-z-._0-9]$",
                     "type": "string"
                 }
             },
             "required": [
-                "target_id"
+                "target_id",
+                "target_genome"
             ],
             "title": "TargetInfo",
             "type": "object"
