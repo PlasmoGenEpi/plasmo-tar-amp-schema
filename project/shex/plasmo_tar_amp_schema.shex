@@ -74,9 +74,18 @@ linkml:Sparqlpath xsd:string
 
 <HaplotypesDetected> CLOSED {
     (  $<HaplotypesDetected_tes> (  <sequencing_id> @linkml:String ;
-          <bioinformatics_id> @linkml:String
+          <bioinformatics_id> @linkml:String ;
+          <samples> @<HaplotypesForSample> +
        ) ;
        rdf:type [ <HaplotypesDetected> ] ?
+    )
+}
+
+<HaplotypesForSample> CLOSED {
+    (  $<HaplotypesForSample_tes> (  <sample_id> @linkml:String ;
+          <target_results> @<HaplotypesForTarget> +
+       ) ;
+       rdf:type [ <HaplotypesForSample> ] ?
     )
 }
 

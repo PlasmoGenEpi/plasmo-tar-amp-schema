@@ -106,9 +106,16 @@
             "description": "the haplotypes detected in a targeted amplicon analysis",
             "properties": {
                 "bioinformatics_id": {
-                    "description": "the name of the bioinformatics processing steps associated with this run ",
+                    "description": "the name of the bioinformatics processing steps associated with this run",
                     "pattern": "^[A-z-._0-9]$",
                     "type": "string"
+                },
+                "samples": {
+                    "description": "a list of the haplotypes detected for a sample for various targets ",
+                    "items": {
+                        "$ref": "#/$defs/HaplotypesForSample"
+                    },
+                    "type": "array"
                 },
                 "sequencing_id": {
                     "description": "the name of the sequencing/wet lab processing steps associated with this run",
@@ -118,9 +125,34 @@
             },
             "required": [
                 "sequencing_id",
-                "bioinformatics_id"
+                "bioinformatics_id",
+                "samples"
             ],
             "title": "HaplotypesDetected",
+            "type": "object"
+        },
+        "HaplotypesForSample": {
+            "additionalProperties": false,
+            "description": "Haplotypes detected for a sample for all targets",
+            "properties": {
+                "sample_id": {
+                    "description": "the name of the sample",
+                    "pattern": "^[A-z-._0-9]$",
+                    "type": "string"
+                },
+                "target_results": {
+                    "description": "a list of the haplotypes detected for a list of targets",
+                    "items": {
+                        "$ref": "#/$defs/HaplotypesForTarget"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "sample_id",
+                "target_results"
+            ],
+            "title": "HaplotypesForSample",
             "type": "object"
         },
         "HaplotypesForTarget": {

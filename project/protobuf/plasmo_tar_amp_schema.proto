@@ -27,6 +27,13 @@ message HaplotypesDetected
  {
   string sequencingId = 0
   string bioinformaticsId = 0
+ repeated  haplotypesForSample samples = 0
+ }
+// Haplotypes detected for a sample for all targets
+message HaplotypesForSample
+ {
+  string sampleId = 0
+ repeated  haplotypesForTarget targetResults = 0
  }
 // Haplotypes detected for a specific target
 message HaplotypesForTarget

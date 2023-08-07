@@ -26,6 +26,13 @@ type HaplotypesDetected
   {
     sequencingId: String!
     bioinformaticsId: String!
+    samples: [HaplotypesForSample]!
+  }
+
+type HaplotypesForSample
+  {
+    sampleId: String!
+    targetResults: [HaplotypesForTarget]!
   }
 
 type HaplotypesForTarget

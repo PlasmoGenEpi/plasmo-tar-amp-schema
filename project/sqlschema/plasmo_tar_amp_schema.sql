@@ -27,7 +27,14 @@ CREATE TABLE "HaplotypeInfo" (
 CREATE TABLE "HaplotypesDetected" (
 	sequencing_id TEXT NOT NULL, 
 	bioinformatics_id TEXT NOT NULL, 
-	PRIMARY KEY (sequencing_id, bioinformatics_id)
+	samples TEXT NOT NULL, 
+	PRIMARY KEY (sequencing_id, bioinformatics_id, samples)
+);
+
+CREATE TABLE "HaplotypesForSample" (
+	sample_id TEXT NOT NULL, 
+	target_results TEXT NOT NULL, 
+	PRIMARY KEY (sample_id, target_results)
 );
 
 CREATE TABLE "HaplotypesForTarget" (

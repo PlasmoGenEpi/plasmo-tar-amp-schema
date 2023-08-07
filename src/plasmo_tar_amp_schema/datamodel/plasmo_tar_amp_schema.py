@@ -1,5 +1,5 @@
 # Auto generated from plasmo_tar_amp_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-08-07T15:13:52
+# Generation date: 2023-08-07T15:18:58
 # Schema: plasmo-tar-amp-schema
 #
 # id: https://plasmogenepi.github.io/plasmo-tar-amp-schema
@@ -205,6 +205,7 @@ class HaplotypesDetected(YAMLRoot):
 
     sequencing_id: str = None
     bioinformatics_id: str = None
+    samples: Union[Union[dict, "HaplotypesForSample"], List[Union[dict, "HaplotypesForSample"]]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.sequencing_id):
@@ -216,6 +217,12 @@ class HaplotypesDetected(YAMLRoot):
             self.MissingRequiredField("bioinformatics_id")
         if not isinstance(self.bioinformatics_id, str):
             self.bioinformatics_id = str(self.bioinformatics_id)
+
+        if self._is_empty(self.samples):
+            self.MissingRequiredField("samples")
+        if not isinstance(self.samples, list):
+            self.samples = [self.samples] if self.samples is not None else []
+        self.samples = [v if isinstance(v, HaplotypesForSample) else HaplotypesForSample(**as_dict(v)) for v in self.samples]
 
         super().__post_init__(**kwargs)
 
@@ -354,6 +361,36 @@ class Primers(YAMLRoot):
 
 
 @dataclass
+class HaplotypesForSample(YAMLRoot):
+    """
+    Haplotypes detected for a sample for all targets
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.HaplotypesForSample
+    class_class_curie: ClassVar[str] = "plasmo_tar_amp_schema:HaplotypesForSample"
+    class_name: ClassVar[str] = "HaplotypesForSample"
+    class_model_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.HaplotypesForSample
+
+    sample_id: str = None
+    target_results: Union[Union[dict, "HaplotypesForTarget"], List[Union[dict, "HaplotypesForTarget"]]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.sample_id):
+            self.MissingRequiredField("sample_id")
+        if not isinstance(self.sample_id, str):
+            self.sample_id = str(self.sample_id)
+
+        if self._is_empty(self.target_results):
+            self.MissingRequiredField("target_results")
+        if not isinstance(self.target_results, list):
+            self.target_results = [self.target_results] if self.target_results is not None else []
+        self.target_results = [v if isinstance(v, HaplotypesForTarget) else HaplotypesForTarget(**as_dict(v)) for v in self.target_results]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
 class HaplotypesForTarget(YAMLRoot):
     """
     Haplotypes detected for a specific target
@@ -460,6 +497,9 @@ slots.haplotypesDetected__bioinformatics_id = Slot(uri=PLASMO_TAR_AMP_SCHEMA.bio
                    model_uri=PLASMO_TAR_AMP_SCHEMA.haplotypesDetected__bioinformatics_id, domain=None, range=str,
                    pattern=re.compile(r'^[A-z-._0-9]$'))
 
+slots.haplotypesDetected__samples = Slot(uri=PLASMO_TAR_AMP_SCHEMA.samples, name="haplotypesDetected__samples", curie=PLASMO_TAR_AMP_SCHEMA.curie('samples'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.haplotypesDetected__samples, domain=None, range=Union[Union[dict, HaplotypesForSample], List[Union[dict, HaplotypesForSample]]])
+
 slots.genomeInfo__name = Slot(uri=PLASMO_TAR_AMP_SCHEMA.name, name="genomeInfo__name", curie=PLASMO_TAR_AMP_SCHEMA.curie('name'),
                    model_uri=PLASMO_TAR_AMP_SCHEMA.genomeInfo__name, domain=None, range=str,
                    pattern=re.compile(r'^[A-z-._0-9]$'))
@@ -505,6 +545,13 @@ slots.primerInfo__location = Slot(uri=PLASMO_TAR_AMP_SCHEMA.location, name="prim
 
 slots.primers__entries = Slot(uri=PLASMO_TAR_AMP_SCHEMA.entries, name="primers__entries", curie=PLASMO_TAR_AMP_SCHEMA.curie('entries'),
                    model_uri=PLASMO_TAR_AMP_SCHEMA.primers__entries, domain=None, range=Optional[Union[Union[dict, PrimerInfo], List[Union[dict, PrimerInfo]]]])
+
+slots.haplotypesForSample__sample_id = Slot(uri=PLASMO_TAR_AMP_SCHEMA.sample_id, name="haplotypesForSample__sample_id", curie=PLASMO_TAR_AMP_SCHEMA.curie('sample_id'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.haplotypesForSample__sample_id, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._0-9]$'))
+
+slots.haplotypesForSample__target_results = Slot(uri=PLASMO_TAR_AMP_SCHEMA.target_results, name="haplotypesForSample__target_results", curie=PLASMO_TAR_AMP_SCHEMA.curie('target_results'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.haplotypesForSample__target_results, domain=None, range=Union[Union[dict, HaplotypesForTarget], List[Union[dict, HaplotypesForTarget]]])
 
 slots.haplotypesForTarget__target_id = Slot(uri=PLASMO_TAR_AMP_SCHEMA.target_id, name="haplotypesForTarget__target_id", curie=PLASMO_TAR_AMP_SCHEMA.curie('target_id'),
                    model_uri=PLASMO_TAR_AMP_SCHEMA.haplotypesForTarget__target_id, domain=None, range=str,
