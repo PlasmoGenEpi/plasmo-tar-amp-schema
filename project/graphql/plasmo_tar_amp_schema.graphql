@@ -15,6 +15,12 @@ type GenomicLocation
     strand: String
   }
 
+type PanelInfo
+  {
+    panelId: String!
+    targets: [TargetInfo]
+  }
+
 type PrimerInfo
   {
     seq: String!

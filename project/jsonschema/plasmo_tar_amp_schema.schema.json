@@ -72,6 +72,28 @@
             "title": "GenomicLocation",
             "type": "object"
         },
+        "PanelInfo": {
+            "additionalProperties": false,
+            "description": "information on a panel of targeted amplicon primer pairs",
+            "properties": {
+                "panel_id": {
+                    "description": "name of the panel",
+                    "pattern": "^[A-z-._0-9]$",
+                    "type": "string"
+                },
+                "targets": {
+                    "items": {
+                        "$ref": "#/$defs/TargetInfo"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "panel_id"
+            ],
+            "title": "PanelInfo",
+            "type": "object"
+        },
         "PrimerInfo": {
             "additionalProperties": false,
             "description": "information on a primer sequence",

@@ -91,6 +91,21 @@ classes:
         description: >-
           A holder of reverse primers associated with this target
 
+  PanelInfo:
+    description: >-
+      information on a panel of targeted amplicon primer pairs
+    attributes:
+      panel_id:
+        range: string
+        pattern: "^[A-z-._0-9]$"
+        required: true
+        description: >-
+          name of the panel
+      targets:
+        range: TargetInfo
+        multivalued: true
+        inlined: true
+
   GenomeInfo:
     description: >-
       information on a genome

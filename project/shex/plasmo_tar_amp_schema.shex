@@ -63,6 +63,14 @@ linkml:Sparqlpath xsd:string
     )
 }
 
+<PanelInfo> CLOSED {
+    (  $<PanelInfo_tes> (  <panel_id> @linkml:String ;
+          <targets> @<TargetInfo> *
+       ) ;
+       rdf:type [ <PanelInfo> ] ?
+    )
+}
+
 <PrimerInfo> CLOSED {
     (  $<PrimerInfo_tes> (  <seq> @linkml:String ;
           <location> @<GenomicLocation>

@@ -15,6 +15,12 @@ message GenomicLocation
   integer end = 0
   string strand = 0
  }
+// information on a panel of targeted amplicon primer pairs
+message PanelInfo
+ {
+  string panelId = 0
+ repeated  targetInfo targets = 0
+ }
 // information on a primer sequence
 message PrimerInfo
  {

@@ -1,5 +1,5 @@
 # Auto generated from plasmo_tar_amp_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-08-07T14:42:28
+# Generation date: 2023-08-07T14:47:40
 # Schema: plasmo-tar-amp-schema
 #
 # id: https://plasmogenepi.github.io/plasmo-tar-amp-schema
@@ -92,6 +92,32 @@ class TargetInfo(YAMLRoot):
 
         if self.gene_id is not None and not isinstance(self.gene_id, str):
             self.gene_id = str(self.gene_id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class PanelInfo(YAMLRoot):
+    """
+    information on a panel of targeted amplicon primer pairs
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.PanelInfo
+    class_class_curie: ClassVar[str] = "plasmo_tar_amp_schema:PanelInfo"
+    class_name: ClassVar[str] = "PanelInfo"
+    class_model_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.PanelInfo
+
+    panel_id: str = None
+    targets: Optional[Union[Union[dict, TargetInfo], List[Union[dict, TargetInfo]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.panel_id):
+            self.MissingRequiredField("panel_id")
+        if not isinstance(self.panel_id, str):
+            self.panel_id = str(self.panel_id)
+
+        self._normalize_inlined_as_dict(slot_name="targets", slot_type=TargetInfo, key_name="target_id", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -255,6 +281,13 @@ slots.targetInfo__forward_primers = Slot(uri=PLASMO_TAR_AMP_SCHEMA.forward_prime
 
 slots.targetInfo__reverse_primers = Slot(uri=PLASMO_TAR_AMP_SCHEMA.reverse_primers, name="targetInfo__reverse_primers", curie=PLASMO_TAR_AMP_SCHEMA.curie('reverse_primers'),
                    model_uri=PLASMO_TAR_AMP_SCHEMA.targetInfo__reverse_primers, domain=None, range=Union[dict, Primers])
+
+slots.panelInfo__panel_id = Slot(uri=PLASMO_TAR_AMP_SCHEMA.panel_id, name="panelInfo__panel_id", curie=PLASMO_TAR_AMP_SCHEMA.curie('panel_id'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.panelInfo__panel_id, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._0-9]$'))
+
+slots.panelInfo__targets = Slot(uri=PLASMO_TAR_AMP_SCHEMA.targets, name="panelInfo__targets", curie=PLASMO_TAR_AMP_SCHEMA.curie('targets'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.panelInfo__targets, domain=None, range=Optional[Union[Union[dict, TargetInfo], List[Union[dict, TargetInfo]]]])
 
 slots.genomeInfo__name = Slot(uri=PLASMO_TAR_AMP_SCHEMA.name, name="genomeInfo__name", curie=PLASMO_TAR_AMP_SCHEMA.curie('name'),
                    model_uri=PLASMO_TAR_AMP_SCHEMA.genomeInfo__name, domain=None, range=str,

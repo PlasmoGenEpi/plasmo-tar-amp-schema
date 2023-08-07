@@ -386,6 +386,35 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "panelInfo__panel_id",
+      "description": "name of the panel",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/panel_id",
+      "alias": "panel_id",
+      "owner": "PanelInfo",
+      "domain_of": [
+        "PanelInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._0-9]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "panelInfo__targets",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/targets",
+      "multivalued": true,
+      "alias": "targets",
+      "owner": "PanelInfo",
+      "domain_of": [
+        "PanelInfo"
+      ],
+      "range": "TargetInfo",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "genomeInfo__name",
       "description": "name of the genome",
       "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
@@ -627,6 +656,36 @@
       "@type": "ClassDefinition"
     },
     {
+      "name": "PanelInfo",
+      "definition_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/PanelInfo",
+      "description": "information on a panel of targeted amplicon primer pairs",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slots": [
+        "panelInfo__panel_id",
+        "panelInfo__targets"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "panel_id",
+          "description": "name of the panel",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._0-9]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "targets",
+          "multivalued": true,
+          "range": "TargetInfo",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/PanelInfo",
+      "@type": "ClassDefinition"
+    },
+    {
       "name": "GenomeInfo",
       "definition_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/GenomeInfo",
       "description": "information on a genome",
@@ -786,9 +845,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "plasmo_tar_amp_schema.yaml",
-  "source_file_date": "2023-08-07T14:41:59",
-  "source_file_size": 6026,
-  "generation_date": "2023-08-07T14:42:14",
+  "source_file_date": "2023-08-07T14:46:44",
+  "source_file_size": 6374,
+  "generation_date": "2023-08-07T14:47:26",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/plasmo_tar_amp_schema.context.jsonld",

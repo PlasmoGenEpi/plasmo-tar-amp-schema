@@ -17,6 +17,12 @@ CREATE TABLE "GenomicLocation" (
 	PRIMARY KEY (chrom, start, "end", strand)
 );
 
+CREATE TABLE "PanelInfo" (
+	panel_id TEXT NOT NULL, 
+	targets TEXT, 
+	PRIMARY KEY (panel_id, targets)
+);
+
 CREATE TABLE "PrimerInfo" (
 	seq TEXT NOT NULL, 
 	location TEXT NOT NULL, 
