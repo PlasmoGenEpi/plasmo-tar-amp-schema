@@ -72,6 +72,66 @@
             "title": "GenomicLocation",
             "type": "object"
         },
+        "HaplotypeInfo": {
+            "additionalProperties": false,
+            "description": "information on a haplotype except for it's sequence which can be found under RepresentativeHaplotypeSequence",
+            "properties": {
+                "haplotype_id": {
+                    "description": "name of the haplotype, should be unique to this haplotype",
+                    "pattern": "^[A-z-._0-9]$",
+                    "type": "string"
+                },
+                "target_id": {
+                    "description": "name of the target the haplotype is associated with",
+                    "pattern": "^[A-z-._0-9]$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "haplotype_id",
+                "target_id"
+            ],
+            "title": "HaplotypeInfo",
+            "type": "object"
+        },
+        "HaplotypesDetected": {
+            "additionalProperties": false,
+            "description": "the haplotypes detected in a targeted amplicon analysis",
+            "properties": {
+                "bioinformatics_id": {
+                    "description": "the name of the bioinformatics processing steps associated with this run ",
+                    "pattern": "^[A-z-._0-9]$",
+                    "type": "string"
+                },
+                "sequencing_id": {
+                    "description": "the name of the sequencing/wet lab processing steps associated with this run",
+                    "pattern": "^[A-z-._0-9]$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "sequencing_id",
+                "bioinformatics_id"
+            ],
+            "title": "HaplotypesDetected",
+            "type": "object"
+        },
+        "HaplotypesForTarget": {
+            "additionalProperties": false,
+            "description": "Haplotypes detected for a specific target",
+            "properties": {
+                "target_id": {
+                    "description": "the target associated with this target and these detected haplotypes",
+                    "pattern": "^[A-z-._0-9]$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "target_id"
+            ],
+            "title": "HaplotypesForTarget",
+            "type": "object"
+        },
         "PanelInfo": {
             "additionalProperties": false,
             "description": "information on a panel of targeted amplicon primer pairs",
@@ -106,7 +166,7 @@
                 },
                 "seq": {
                     "description": "the primer sequence, can include any degeneracy bases as well",
-                    "pattern": "^[A-z-._0-9]$",
+                    "pattern": "^[A-z]$",
                     "type": "string"
                 }
             },
@@ -129,6 +189,33 @@
                 }
             },
             "title": "Primers",
+            "type": "object"
+        },
+        "RepresentativeHaplotypeSequence": {
+            "additionalProperties": false,
+            "description": "the representative sequence for a haplotype, similar to a fast(a/q) format",
+            "properties": {
+                "haplotype_id": {
+                    "description": "name of the haplotype, should be unique to this haplotype",
+                    "pattern": "^[A-z-._0-9]$",
+                    "type": "string"
+                },
+                "quality": {
+                    "description": "the ansi fastq per base quality score for this sequence, this is optional",
+                    "pattern": "^[A-z-._0-9]$",
+                    "type": "string"
+                },
+                "seq": {
+                    "description": "the sequence of haplotype",
+                    "pattern": "^[A-z]$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "haplotype_id",
+                "seq"
+            ],
+            "title": "RepresentativeHaplotypeSequence",
             "type": "object"
         },
         "TargetInfo": {

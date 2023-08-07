@@ -15,6 +15,23 @@ message GenomicLocation
   integer end = 0
   string strand = 0
  }
+// information on a haplotype except for it's sequence which can be found under RepresentativeHaplotypeSequence
+message HaplotypeInfo
+ {
+  string haplotypeId = 0
+  string targetId = 0
+ }
+// the haplotypes detected in a targeted amplicon analysis
+message HaplotypesDetected
+ {
+  string sequencingId = 0
+  string bioinformaticsId = 0
+ }
+// Haplotypes detected for a specific target
+message HaplotypesForTarget
+ {
+  string targetId = 0
+ }
 // information on a panel of targeted amplicon primer pairs
 message PanelInfo
  {
@@ -31,6 +48,13 @@ message PrimerInfo
 message Primers
  {
  repeated  primerInfo entries = 0
+ }
+// the representative sequence for a haplotype, similar to a fast(a/q) format
+message RepresentativeHaplotypeSequence
+ {
+  string haplotypeId = 0
+  string seq = 0
+  string quality = 0
  }
 // Information about a specific target within a genome
 message TargetInfo

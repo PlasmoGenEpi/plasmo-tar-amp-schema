@@ -17,6 +17,23 @@ CREATE TABLE "GenomicLocation" (
 	PRIMARY KEY (chrom, start, "end", strand)
 );
 
+CREATE TABLE "HaplotypeInfo" (
+	haplotype_id TEXT NOT NULL, 
+	target_id TEXT NOT NULL, 
+	PRIMARY KEY (haplotype_id, target_id)
+);
+
+CREATE TABLE "HaplotypesDetected" (
+	sequencing_id TEXT NOT NULL, 
+	bioinformatics_id TEXT NOT NULL, 
+	PRIMARY KEY (sequencing_id, bioinformatics_id)
+);
+
+CREATE TABLE "HaplotypesForTarget" (
+	target_id TEXT NOT NULL, 
+	PRIMARY KEY (target_id)
+);
+
 CREATE TABLE "PanelInfo" (
 	panel_id TEXT NOT NULL, 
 	targets TEXT NOT NULL, 
@@ -32,6 +49,13 @@ CREATE TABLE "PrimerInfo" (
 CREATE TABLE "Primers" (
 	entries TEXT, 
 	PRIMARY KEY (entries)
+);
+
+CREATE TABLE "RepresentativeHaplotypeSequence" (
+	haplotype_id TEXT NOT NULL, 
+	seq TEXT NOT NULL, 
+	quality TEXT, 
+	PRIMARY KEY (haplotype_id, seq, quality)
 );
 
 CREATE TABLE "TargetInfo" (

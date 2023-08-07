@@ -109,6 +109,70 @@ classes:
         description: >-
           a list of the target infos for the targets in this panel 
 
+  RepresentativeHaplotypeSequence:
+    description: >-
+      the representative sequence for a haplotype, similar to a fast(a/q) format
+    attributes:
+      haplotype_id:
+        range: string
+        pattern: "^[A-z-._0-9]$"
+        required: true
+        description: >-
+          name of the haplotype, should be unique to this haplotype
+      seq:
+        range: string
+        pattern: "^[A-z]$"
+        required: true
+        description: >-
+          the sequence of haplotype
+      quality:
+        range: string
+        pattern: "^[A-z-._0-9]$"
+        required: false
+        description: >-
+          the ansi fastq per base quality score for this sequence, this is optional
+
+  HaplotypeInfo:
+    description: >-
+      information on a haplotype except for it's sequence which can be found under RepresentativeHaplotypeSequence
+    attributes:
+      haplotype_id:
+        range: string
+        pattern: "^[A-z-._0-9]$"
+        required: true
+        description: >-
+          name of the haplotype, should be unique to this haplotype
+      target_id:
+        range: string
+        pattern: "^[A-z-._0-9]$"
+        required: true
+        description: >-
+          name of the target the haplotype is associated with
+#      alt_annotations:
+#        required: false
+#        range: string
+#        multivalued: true
+#        inlined: true
+#        description: >-
+#          a list of additional annotations associated with this haplotype, e.g. wildtype, amino acid changes etc
+
+  HaplotypesDetected:
+    description: >-
+      the haplotypes detected in a targeted amplicon analysis
+    attributes:
+      sequencing_id:
+        range: string
+        pattern: "^[A-z-._0-9]$"
+        required: true
+        description: >-
+          the name of the sequencing/wet lab processing steps associated with this run
+      bioinformatics_id:
+        range: string
+        pattern: "^[A-z-._0-9]$"
+        required: true
+        description: >-
+          the name of the bioinformatics processing steps associated with this run 
+
   GenomeInfo:
     description: >-
       information on a genome
@@ -179,7 +243,7 @@ classes:
     attributes:
       seq:
         range: string
-        pattern: "^[A-z-._0-9]$"
+        pattern: "^[A-z]$"
         required: true
         description: >-
           the primer sequence, can include any degeneracy bases as well
@@ -198,6 +262,38 @@ classes:
         range: PrimerInfo
         multivalued: true
         inlined: true
+
+  HaplotypesForTarget:
+    description: >-
+      Haplotypes detected for a specific target
+    attributes:
+      target_id:
+        range: string
+        pattern: "^[A-z-._0-9]$"
+        required: true
+        description: >-
+          the target associated with this target and these detected haplotypes
+#      haplotype_ids:
+#        required: true
+#        range: string
+#        multivalued: true
+#        inlined: true
+#        description: >-
+#          a list of the haplotypes detected for this target
+#      read_counts:
+#        required: true
+#        range: double
+#        multivalued: true
+#        inlined: true
+#        description: >-
+#          the read counts associated with the haplotypes, needs to be same length as haplotype_ids
+#      umi_counts:
+#        required: false
+#        range: double
+#        multivalued: true
+#        inlined: true
+#        description: >-
+#          the unique molecular identifier (umi) counts associated with the haplotypes, needs to be same length as haplotype_ids
 # slots:
 #   id:
 #     identifier: true

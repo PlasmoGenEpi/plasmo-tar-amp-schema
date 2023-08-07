@@ -63,6 +63,28 @@ linkml:Sparqlpath xsd:string
     )
 }
 
+<HaplotypeInfo> CLOSED {
+    (  $<HaplotypeInfo_tes> (  <haplotype_id> @linkml:String ;
+          <target_id> @linkml:String
+       ) ;
+       rdf:type [ <HaplotypeInfo> ] ?
+    )
+}
+
+<HaplotypesDetected> CLOSED {
+    (  $<HaplotypesDetected_tes> (  <sequencing_id> @linkml:String ;
+          <bioinformatics_id> @linkml:String
+       ) ;
+       rdf:type [ <HaplotypesDetected> ] ?
+    )
+}
+
+<HaplotypesForTarget> CLOSED {
+    (  $<HaplotypesForTarget_tes> <target_id> @linkml:String ;
+       rdf:type [ <HaplotypesForTarget> ] ?
+    )
+}
+
 <PanelInfo> CLOSED {
     (  $<PanelInfo_tes> (  <panel_id> @linkml:String ;
           <targets> @<TargetInfo> +
@@ -82,6 +104,15 @@ linkml:Sparqlpath xsd:string
 <Primers> CLOSED {
     (  $<Primers_tes> <entries> @<PrimerInfo> * ;
        rdf:type [ <Primers> ] ?
+    )
+}
+
+<RepresentativeHaplotypeSequence> CLOSED {
+    (  $<RepresentativeHaplotypeSequence_tes> (  <haplotype_id> @linkml:String ;
+          <seq> @linkml:String ;
+          <quality> @linkml:String ?
+       ) ;
+       rdf:type [ <RepresentativeHaplotypeSequence> ] ?
     )
 }
 

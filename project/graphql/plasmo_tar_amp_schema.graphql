@@ -15,6 +15,23 @@ type GenomicLocation
     strand: String
   }
 
+type HaplotypeInfo
+  {
+    haplotypeId: String!
+    targetId: String!
+  }
+
+type HaplotypesDetected
+  {
+    sequencingId: String!
+    bioinformaticsId: String!
+  }
+
+type HaplotypesForTarget
+  {
+    targetId: String!
+  }
+
 type PanelInfo
   {
     panelId: String!
@@ -30,6 +47,13 @@ type PrimerInfo
 type Primers
   {
     entries: [PrimerInfo]
+  }
+
+type RepresentativeHaplotypeSequence
+  {
+    haplotypeId: String!
+    seq: String!
+    quality: String
   }
 
 type TargetInfo
