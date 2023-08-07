@@ -1,3 +1,10 @@
+// methodology description of a portion of a bioinformatics pipeline
+message BioMethod
+ {
+  string program = 0
+  string purpose = 0
+ repeated  string additionalArgument = 0
+ }
 // information on a genome
 message GenomeInfo
  {
@@ -66,6 +73,14 @@ message RepresentativeHaplotypeSequence
   string haplotypeId = 0
   string seq = 0
   string quality = 0
+ }
+// Haplotypes detected for a specific target
+message TarAmpBioinformaticsInfo
+ {
+  bioMethod demultiplexingMethod = 0
+  bioMethod denoisingMethod = 0
+  bioMethod populationClusteringMethod = 0
+ repeated  bioMethod additionalMethods = 0
  }
 // Information about a specific target within a genome
 message TargetInfo

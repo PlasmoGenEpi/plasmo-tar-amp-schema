@@ -42,6 +42,15 @@ linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
 
+<BioMethod> CLOSED {
+    (  $<BioMethod_tes> (  <program> @linkml:String ;
+          <purpose> @linkml:String ;
+          <additional_argument> @linkml:String *
+       ) ;
+       rdf:type [ <BioMethod> ] ?
+    )
+}
+
 <GenomeInfo> CLOSED {
     (  $<GenomeInfo_tes> (  <name> @linkml:String ;
           <version> @linkml:String ;
@@ -127,6 +136,16 @@ linkml:Sparqlpath xsd:string
           <quality> @linkml:String ?
        ) ;
        rdf:type [ <RepresentativeHaplotypeSequence> ] ?
+    )
+}
+
+<TarAmpBioinformaticsInfo> CLOSED {
+    (  $<TarAmpBioinformaticsInfo_tes> (  <demultiplexing_method> @<BioMethod> ;
+          <denoising_method> @<BioMethod> ;
+          <population_clustering_method> @<BioMethod> ;
+          <additional_methods> @<BioMethod> *
+       ) ;
+       rdf:type [ <TarAmpBioinformaticsInfo> ] ?
     )
 }
 

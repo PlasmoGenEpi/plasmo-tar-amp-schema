@@ -1,5 +1,12 @@
 
 
+CREATE TABLE "BioMethod" (
+	program TEXT NOT NULL, 
+	purpose TEXT NOT NULL, 
+	additional_argument TEXT, 
+	PRIMARY KEY (program, purpose, additional_argument)
+);
+
 CREATE TABLE "GenomeInfo" (
 	name TEXT NOT NULL, 
 	version TEXT NOT NULL, 
@@ -67,6 +74,14 @@ CREATE TABLE "RepresentativeHaplotypeSequence" (
 	seq TEXT NOT NULL, 
 	quality TEXT, 
 	PRIMARY KEY (haplotype_id, seq, quality)
+);
+
+CREATE TABLE "TarAmpBioinformaticsInfo" (
+	demultiplexing_method TEXT NOT NULL, 
+	denoising_method TEXT NOT NULL, 
+	population_clustering_method TEXT NOT NULL, 
+	additional_methods TEXT, 
+	PRIMARY KEY (demultiplexing_method, denoising_method, population_clustering_method, additional_methods)
 );
 
 CREATE TABLE "TargetInfo" (

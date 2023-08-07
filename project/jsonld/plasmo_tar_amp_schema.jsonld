@@ -822,6 +822,113 @@
       "range": "double",
       "inlined_as_list": true,
       "@type": "SlotDefinition"
+    },
+    {
+      "name": "bioMethod__program",
+      "description": "name of the program used for this portion of the pipeline",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/program",
+      "alias": "program",
+      "owner": "BioMethod",
+      "domain_of": [
+        "BioMethod"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._0-9 ]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "bioMethod__purpose",
+      "description": "the propose for this method",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/purpose",
+      "alias": "purpose",
+      "owner": "BioMethod",
+      "domain_of": [
+        "BioMethod"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._0-9 ]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "bioMethod__additional_argument",
+      "description": "any additional arguments that differ from the default",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/additional_argument",
+      "multivalued": true,
+      "alias": "additional_argument",
+      "owner": "BioMethod",
+      "domain_of": [
+        "BioMethod"
+      ],
+      "range": "string",
+      "inlined_as_list": true,
+      "pattern": "^[A-z-._0-9 ]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "tarAmpBioinformaticsInfo__demultiplexing_method",
+      "description": "the demultiplexing method used to separate raw reads from barcodes and primer targets",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/demultiplexing_method",
+      "alias": "demultiplexing_method",
+      "owner": "TarAmpBioinformaticsInfo",
+      "domain_of": [
+        "TarAmpBioinformaticsInfo"
+      ],
+      "range": "BioMethod",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "tarAmpBioinformaticsInfo__denoising_method",
+      "description": "the method used to de-noise and/or cluster the raw reads",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/denoising_method",
+      "alias": "denoising_method",
+      "owner": "TarAmpBioinformaticsInfo",
+      "domain_of": [
+        "TarAmpBioinformaticsInfo"
+      ],
+      "range": "BioMethod",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "tarAmpBioinformaticsInfo__population_clustering_method",
+      "description": "the method used to compare clustered/de-noised reads across samples for a target",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/population_clustering_method",
+      "alias": "population_clustering_method",
+      "owner": "TarAmpBioinformaticsInfo",
+      "domain_of": [
+        "TarAmpBioinformaticsInfo"
+      ],
+      "range": "BioMethod",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "tarAmpBioinformaticsInfo__additional_methods",
+      "description": "any additional methods used to analyze the data",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/additional_methods",
+      "multivalued": true,
+      "alias": "additional_methods",
+      "owner": "TarAmpBioinformaticsInfo",
+      "domain_of": [
+        "TarAmpBioinformaticsInfo"
+      ],
+      "range": "BioMethod",
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -1278,13 +1385,100 @@
       ],
       "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/HaplotypesForTarget",
       "@type": "ClassDefinition"
+    },
+    {
+      "name": "BioMethod",
+      "definition_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/BioMethod",
+      "description": "methodology description of a portion of a bioinformatics pipeline",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slots": [
+        "bioMethod__program",
+        "bioMethod__purpose",
+        "bioMethod__additional_argument"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "program",
+          "description": "name of the program used for this portion of the pipeline",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._0-9 ]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "purpose",
+          "description": "the propose for this method",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._0-9 ]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "additional_argument",
+          "description": "any additional arguments that differ from the default",
+          "multivalued": true,
+          "range": "string",
+          "inlined_as_list": true,
+          "pattern": "^[A-z-._0-9 ]$",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/BioMethod",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "TarAmpBioinformaticsInfo",
+      "definition_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/TarAmpBioinformaticsInfo",
+      "description": "Haplotypes detected for a specific target",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slots": [
+        "tarAmpBioinformaticsInfo__demultiplexing_method",
+        "tarAmpBioinformaticsInfo__denoising_method",
+        "tarAmpBioinformaticsInfo__population_clustering_method",
+        "tarAmpBioinformaticsInfo__additional_methods"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "demultiplexing_method",
+          "description": "the demultiplexing method used to separate raw reads from barcodes and primer targets",
+          "range": "BioMethod",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "denoising_method",
+          "description": "the method used to de-noise and/or cluster the raw reads",
+          "range": "BioMethod",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "population_clustering_method",
+          "description": "the method used to compare clustered/de-noised reads across samples for a target",
+          "range": "BioMethod",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "additional_methods",
+          "description": "any additional methods used to analyze the data",
+          "multivalued": true,
+          "range": "BioMethod",
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/TarAmpBioinformaticsInfo",
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "plasmo_tar_amp_schema.yaml",
-  "source_file_date": "2023-08-07T15:18:41",
-  "source_file_size": 10274,
-  "generation_date": "2023-08-07T15:18:51",
+  "source_file_date": "2023-08-07T18:07:02",
+  "source_file_size": 11872,
+  "generation_date": "2023-08-07T18:22:53",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/plasmo_tar_amp_schema.context.jsonld",

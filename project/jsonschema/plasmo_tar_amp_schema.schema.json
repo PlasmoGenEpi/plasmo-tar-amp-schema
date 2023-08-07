@@ -1,5 +1,35 @@
 {
     "$defs": {
+        "BioMethod": {
+            "additionalProperties": false,
+            "description": "methodology description of a portion of a bioinformatics pipeline",
+            "properties": {
+                "additional_argument": {
+                    "description": "any additional arguments that differ from the default",
+                    "items": {
+                        "pattern": "^[A-z-._0-9 ]$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "program": {
+                    "description": "name of the program used for this portion of the pipeline",
+                    "pattern": "^[A-z-._0-9 ]$",
+                    "type": "string"
+                },
+                "purpose": {
+                    "description": "the propose for this method",
+                    "pattern": "^[A-z-._0-9 ]$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "program",
+                "purpose"
+            ],
+            "title": "BioMethod",
+            "type": "object"
+        },
         "GenomeInfo": {
             "additionalProperties": false,
             "description": "information on a genome",
@@ -278,6 +308,38 @@
                 "seq"
             ],
             "title": "RepresentativeHaplotypeSequence",
+            "type": "object"
+        },
+        "TarAmpBioinformaticsInfo": {
+            "additionalProperties": false,
+            "description": "Haplotypes detected for a specific target",
+            "properties": {
+                "additional_methods": {
+                    "description": "any additional methods used to analyze the data",
+                    "items": {
+                        "$ref": "#/$defs/BioMethod"
+                    },
+                    "type": "array"
+                },
+                "demultiplexing_method": {
+                    "$ref": "#/$defs/BioMethod",
+                    "description": "the demultiplexing method used to separate raw reads from barcodes and primer targets"
+                },
+                "denoising_method": {
+                    "$ref": "#/$defs/BioMethod",
+                    "description": "the method used to de-noise and/or cluster the raw reads"
+                },
+                "population_clustering_method": {
+                    "$ref": "#/$defs/BioMethod",
+                    "description": "the method used to compare clustered/de-noised reads across samples for a target"
+                }
+            },
+            "required": [
+                "demultiplexing_method",
+                "denoising_method",
+                "population_clustering_method"
+            ],
+            "title": "TarAmpBioinformaticsInfo",
             "type": "object"
         },
         "TargetInfo": {

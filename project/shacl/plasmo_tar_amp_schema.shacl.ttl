@@ -13,26 +13,26 @@ plasmo_tar_amp_schema:HaplotypeInfo a sh:NodeShape ;
             sh:order 1 ;
             sh:path plasmo_tar_amp_schema:target_id ;
             sh:pattern "^[A-z-._0-9]$" ],
+        [ sh:description "a list of additional annotations associated with this haplotype, e.g. wildtype, amino acid changes etc" ;
+            sh:order 2 ;
+            sh:path plasmo_tar_amp_schema:alt_annotations ],
         [ sh:description "name of the haplotype, should be unique to this haplotype" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path plasmo_tar_amp_schema:haplotype_id ;
-            sh:pattern "^[A-z-._0-9]$" ],
-        [ sh:description "a list of additional annotations associated with this haplotype, e.g. wildtype, amino acid changes etc" ;
-            sh:order 2 ;
-            sh:path plasmo_tar_amp_schema:alt_annotations ] ;
+            sh:pattern "^[A-z-._0-9]$" ] ;
     sh:targetClass plasmo_tar_amp_schema:HaplotypeInfo .
 
 plasmo_tar_amp_schema:HaplotypesDetected a sh:NodeShape ;
     sh:closed true ;
     sh:description "the haplotypes detected in a targeted amplicon analysis" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "the name of the bioinformatics processing steps associated with this run" ;
+    sh:property [ sh:description "the name of the sequencing/wet lab processing steps associated with this run" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path plasmo_tar_amp_schema:bioinformatics_id ;
+            sh:order 0 ;
+            sh:path plasmo_tar_amp_schema:sequencing_id ;
             sh:pattern "^[A-z-._0-9]$" ],
         [ sh:class plasmo_tar_amp_schema:HaplotypesForSample ;
             sh:description "a list of the haplotypes detected for a sample for various targets " ;
@@ -40,11 +40,11 @@ plasmo_tar_amp_schema:HaplotypesDetected a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 2 ;
             sh:path plasmo_tar_amp_schema:samples ],
-        [ sh:description "the name of the sequencing/wet lab processing steps associated with this run" ;
+        [ sh:description "the name of the bioinformatics processing steps associated with this run" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path plasmo_tar_amp_schema:sequencing_id ;
+            sh:order 1 ;
+            sh:path plasmo_tar_amp_schema:bioinformatics_id ;
             sh:pattern "^[A-z-._0-9]$" ] ;
     sh:targetClass plasmo_tar_amp_schema:HaplotypesDetected .
 
@@ -70,18 +70,18 @@ plasmo_tar_amp_schema:RepresentativeHaplotypeSequence a sh:NodeShape ;
     sh:closed true ;
     sh:description "the representative sequence for a haplotype, similar to a fast(a/q) format" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "name of the haplotype, should be unique to this haplotype" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path plasmo_tar_amp_schema:haplotype_id ;
-            sh:pattern "^[A-z-._0-9]$" ],
-        [ sh:description "the sequence of haplotype" ;
+    sh:property [ sh:description "the sequence of haplotype" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path plasmo_tar_amp_schema:seq ;
             sh:pattern "^[A-z]$" ],
+        [ sh:description "name of the haplotype, should be unique to this haplotype" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path plasmo_tar_amp_schema:haplotype_id ;
+            sh:pattern "^[A-z-._0-9]$" ],
         [ sh:description "the ansi fastq per base quality score for this sequence, this is optional" ;
             sh:maxCount 1 ;
             sh:order 2 ;
@@ -89,28 +89,43 @@ plasmo_tar_amp_schema:RepresentativeHaplotypeSequence a sh:NodeShape ;
             sh:pattern "^[A-z-._0-9]$" ] ;
     sh:targetClass plasmo_tar_amp_schema:RepresentativeHaplotypeSequence .
 
+plasmo_tar_amp_schema:TarAmpBioinformaticsInfo a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Haplotypes detected for a specific target" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class plasmo_tar_amp_schema:BioMethod ;
+            sh:description "the method used to de-noise and/or cluster the raw reads" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path plasmo_tar_amp_schema:denoising_method ],
+        [ sh:class plasmo_tar_amp_schema:BioMethod ;
+            sh:description "any additional methods used to analyze the data" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path plasmo_tar_amp_schema:additional_methods ],
+        [ sh:class plasmo_tar_amp_schema:BioMethod ;
+            sh:description "the method used to compare clustered/de-noised reads across samples for a target" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path plasmo_tar_amp_schema:population_clustering_method ],
+        [ sh:class plasmo_tar_amp_schema:BioMethod ;
+            sh:description "the demultiplexing method used to separate raw reads from barcodes and primer targets" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path plasmo_tar_amp_schema:demultiplexing_method ] ;
+    sh:targetClass plasmo_tar_amp_schema:TarAmpBioinformaticsInfo .
+
 plasmo_tar_amp_schema:GenomeInfo a sh:NodeShape ;
     sh:closed true ;
     sh:description "information on a genome" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "the genome version" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path plasmo_tar_amp_schema:version ;
-            sh:pattern "^[A-z-._0-9]$" ],
-        [ sh:description "a link to the where this genome file could be downloaded" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 3 ;
-            sh:path plasmo_tar_amp_schema:url ;
-            sh:pattern "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"" ],
-        [ sh:description "a link to the where this genome's annotation file could be downloaded" ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path plasmo_tar_amp_schema:gff_url ;
-            sh:pattern "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"" ],
-        [ sh:description "name of the genome" ;
+    sh:property [ sh:description "name of the genome" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
@@ -121,48 +136,65 @@ plasmo_tar_amp_schema:GenomeInfo a sh:NodeShape ;
             sh:minCount 1 ;
             sh:order 2 ;
             sh:path plasmo_tar_amp_schema:taxon_id ;
-            sh:pattern "^[0-9]$" ] ;
+            sh:pattern "^[0-9]$" ],
+        [ sh:description "a link to the where this genome's annotation file could be downloaded" ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path plasmo_tar_amp_schema:gff_url ;
+            sh:pattern "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"" ],
+        [ sh:description "a link to the where this genome file could be downloaded" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path plasmo_tar_amp_schema:url ;
+            sh:pattern "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"" ],
+        [ sh:description "the genome version" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path plasmo_tar_amp_schema:version ;
+            sh:pattern "^[A-z-._0-9]$" ] ;
     sh:targetClass plasmo_tar_amp_schema:GenomeInfo .
 
 plasmo_tar_amp_schema:HaplotypesForSample a sh:NodeShape ;
     sh:closed true ;
     sh:description "Haplotypes detected for a sample for all targets" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "the name of the sample" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path plasmo_tar_amp_schema:sample_id ;
-            sh:pattern "^[A-z-._0-9]$" ],
-        [ sh:class plasmo_tar_amp_schema:HaplotypesForTarget ;
+    sh:property [ sh:class plasmo_tar_amp_schema:HaplotypesForTarget ;
             sh:description "a list of the haplotypes detected for a list of targets" ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 1 ;
-            sh:path plasmo_tar_amp_schema:target_results ] ;
+            sh:path plasmo_tar_amp_schema:target_results ],
+        [ sh:description "the name of the sample" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path plasmo_tar_amp_schema:sample_id ;
+            sh:pattern "^[A-z-._0-9]$" ] ;
     sh:targetClass plasmo_tar_amp_schema:HaplotypesForSample .
 
 plasmo_tar_amp_schema:HaplotypesForTarget a sh:NodeShape ;
     sh:closed true ;
     sh:description "Haplotypes detected for a specific target" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "a list of the haplotypes detected for this target" ;
+    sh:property [ sh:description "the unique molecular identifier (umi) counts associated with the haplotypes, needs to be same length as haplotype_ids" ;
+            sh:order 3 ;
+            sh:path plasmo_tar_amp_schema:umi_counts ],
+        [ sh:description "a list of the haplotypes detected for this target" ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path plasmo_tar_amp_schema:haplotype_ids ],
-        [ sh:description "the unique molecular identifier (umi) counts associated with the haplotypes, needs to be same length as haplotype_ids" ;
-            sh:order 3 ;
-            sh:path plasmo_tar_amp_schema:umi_counts ],
+        [ sh:description "the read counts associated with the haplotypes, needs to be same length as haplotype_ids" ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path plasmo_tar_amp_schema:read_counts ],
         [ sh:description "the target associated with this target and these detected haplotypes" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path plasmo_tar_amp_schema:target_id ;
-            sh:pattern "^[A-z-._0-9]$" ],
-        [ sh:description "the read counts associated with the haplotypes, needs to be same length as haplotype_ids" ;
-            sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path plasmo_tar_amp_schema:read_counts ] ;
+            sh:pattern "^[A-z-._0-9]$" ] ;
     sh:targetClass plasmo_tar_amp_schema:HaplotypesForTarget .
 
 plasmo_tar_amp_schema:PrimerInfo a sh:NodeShape ;
@@ -196,11 +228,13 @@ plasmo_tar_amp_schema:TargetInfo a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 2 ;
             sh:path plasmo_tar_amp_schema:target_genome ],
-        [ sh:description "an identifier of the gene, if any, is being covered with this targeted" ;
+        [ sh:class plasmo_tar_amp_schema:Primers ;
+            sh:description "A holder of reverse primers associated with this target" ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path plasmo_tar_amp_schema:gene_id ;
-            sh:pattern "^[A-z-._0-9]$" ],
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path plasmo_tar_amp_schema:reverse_primers ],
         [ sh:class plasmo_tar_amp_schema:GenomicLocation ;
             sh:description "the intended genomic location of the insert of the amplicon (the location between the end of the forward primer and the beginning of the reverse primer)" ;
             sh:maxCount 1 ;
@@ -215,18 +249,16 @@ plasmo_tar_amp_schema:TargetInfo a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 4 ;
             sh:path plasmo_tar_amp_schema:forward_primers ],
-        [ sh:class plasmo_tar_amp_schema:Primers ;
-            sh:description "A holder of reverse primers associated with this target" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path plasmo_tar_amp_schema:reverse_primers ],
         [ sh:description "a unique identifier for target " ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path plasmo_tar_amp_schema:target_id ;
+            sh:pattern "^[A-z-._0-9]$" ],
+        [ sh:description "an identifier of the gene, if any, is being covered with this targeted" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path plasmo_tar_amp_schema:gene_id ;
             sh:pattern "^[A-z-._0-9]$" ] ;
     sh:targetClass plasmo_tar_amp_schema:TargetInfo .
 
@@ -234,29 +266,29 @@ plasmo_tar_amp_schema:GenomicLocation a sh:NodeShape ;
     sh:closed true ;
     sh:description "information on the genomic location of specific sequence" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "which strand the location is, either + for plus strand or - for negative strand " ;
+    sh:property [ sh:description "the end of the location, 0-based positioning" ;
             sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path plasmo_tar_amp_schema:strand ;
-            sh:pattern "r'[+-]'" ],
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path plasmo_tar_amp_schema:end ;
+            sh:pattern "^[0-9]$" ],
         [ sh:description "the start of the location, 0-based positioning" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path plasmo_tar_amp_schema:start ;
             sh:pattern "^[0-9]$" ],
-        [ sh:description "the end of the location, 0-based positioning" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path plasmo_tar_amp_schema:end ;
-            sh:pattern "^[0-9]$" ],
         [ sh:description "the chromosome name" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path plasmo_tar_amp_schema:chrom ;
-            sh:pattern "^[A-z-._0-9]$" ] ;
+            sh:pattern "^[A-z-._0-9]$" ],
+        [ sh:description "which strand the location is, either + for plus strand or - for negative strand " ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path plasmo_tar_amp_schema:strand ;
+            sh:pattern "r'[+-]'" ] ;
     sh:targetClass plasmo_tar_amp_schema:GenomicLocation .
 
 plasmo_tar_amp_schema:Primers a sh:NodeShape ;
@@ -268,4 +300,26 @@ plasmo_tar_amp_schema:Primers a sh:NodeShape ;
             sh:order 0 ;
             sh:path plasmo_tar_amp_schema:entries ] ;
     sh:targetClass plasmo_tar_amp_schema:Primers .
+
+plasmo_tar_amp_schema:BioMethod a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "methodology description of a portion of a bioinformatics pipeline" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "the propose for this method" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path plasmo_tar_amp_schema:purpose ;
+            sh:pattern "^[A-z-._0-9 ]$" ],
+        [ sh:description "name of the program used for this portion of the pipeline" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path plasmo_tar_amp_schema:program ;
+            sh:pattern "^[A-z-._0-9 ]$" ],
+        [ sh:description "any additional arguments that differ from the default" ;
+            sh:order 2 ;
+            sh:path plasmo_tar_amp_schema:additional_argument ;
+            sh:pattern "^[A-z-._0-9 ]$" ] ;
+    sh:targetClass plasmo_tar_amp_schema:BioMethod .
 

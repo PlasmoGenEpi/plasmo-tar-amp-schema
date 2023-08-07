@@ -1,5 +1,5 @@
 # Auto generated from plasmo_tar_amp_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-08-07T15:18:58
+# Generation date: 2023-08-07T18:23:01
 # Schema: plasmo-tar-amp-schema
 #
 # id: https://plasmogenepi.github.io/plasmo-tar-amp-schema
@@ -432,6 +432,80 @@ class HaplotypesForTarget(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
+class BioMethod(YAMLRoot):
+    """
+    methodology description of a portion of a bioinformatics pipeline
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.BioMethod
+    class_class_curie: ClassVar[str] = "plasmo_tar_amp_schema:BioMethod"
+    class_name: ClassVar[str] = "BioMethod"
+    class_model_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.BioMethod
+
+    program: str = None
+    purpose: str = None
+    additional_argument: Optional[Union[str, List[str]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.program):
+            self.MissingRequiredField("program")
+        if not isinstance(self.program, str):
+            self.program = str(self.program)
+
+        if self._is_empty(self.purpose):
+            self.MissingRequiredField("purpose")
+        if not isinstance(self.purpose, str):
+            self.purpose = str(self.purpose)
+
+        if not isinstance(self.additional_argument, list):
+            self.additional_argument = [self.additional_argument] if self.additional_argument is not None else []
+        self.additional_argument = [v if isinstance(v, str) else str(v) for v in self.additional_argument]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class TarAmpBioinformaticsInfo(YAMLRoot):
+    """
+    Haplotypes detected for a specific target
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.TarAmpBioinformaticsInfo
+    class_class_curie: ClassVar[str] = "plasmo_tar_amp_schema:TarAmpBioinformaticsInfo"
+    class_name: ClassVar[str] = "TarAmpBioinformaticsInfo"
+    class_model_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.TarAmpBioinformaticsInfo
+
+    demultiplexing_method: Union[dict, BioMethod] = None
+    denoising_method: Union[dict, BioMethod] = None
+    population_clustering_method: Union[dict, BioMethod] = None
+    additional_methods: Optional[Union[Union[dict, BioMethod], List[Union[dict, BioMethod]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.demultiplexing_method):
+            self.MissingRequiredField("demultiplexing_method")
+        if not isinstance(self.demultiplexing_method, BioMethod):
+            self.demultiplexing_method = BioMethod(**as_dict(self.demultiplexing_method))
+
+        if self._is_empty(self.denoising_method):
+            self.MissingRequiredField("denoising_method")
+        if not isinstance(self.denoising_method, BioMethod):
+            self.denoising_method = BioMethod(**as_dict(self.denoising_method))
+
+        if self._is_empty(self.population_clustering_method):
+            self.MissingRequiredField("population_clustering_method")
+        if not isinstance(self.population_clustering_method, BioMethod):
+            self.population_clustering_method = BioMethod(**as_dict(self.population_clustering_method))
+
+        if not isinstance(self.additional_methods, list):
+            self.additional_methods = [self.additional_methods] if self.additional_methods is not None else []
+        self.additional_methods = [v if isinstance(v, BioMethod) else BioMethod(**as_dict(v)) for v in self.additional_methods]
+
+        super().__post_init__(**kwargs)
+
+
 # Enumerations
 
 
@@ -565,3 +639,27 @@ slots.haplotypesForTarget__read_counts = Slot(uri=PLASMO_TAR_AMP_SCHEMA.read_cou
 
 slots.haplotypesForTarget__umi_counts = Slot(uri=PLASMO_TAR_AMP_SCHEMA.umi_counts, name="haplotypesForTarget__umi_counts", curie=PLASMO_TAR_AMP_SCHEMA.curie('umi_counts'),
                    model_uri=PLASMO_TAR_AMP_SCHEMA.haplotypesForTarget__umi_counts, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.bioMethod__program = Slot(uri=PLASMO_TAR_AMP_SCHEMA.program, name="bioMethod__program", curie=PLASMO_TAR_AMP_SCHEMA.curie('program'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.bioMethod__program, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._0-9 ]$'))
+
+slots.bioMethod__purpose = Slot(uri=PLASMO_TAR_AMP_SCHEMA.purpose, name="bioMethod__purpose", curie=PLASMO_TAR_AMP_SCHEMA.curie('purpose'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.bioMethod__purpose, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._0-9 ]$'))
+
+slots.bioMethod__additional_argument = Slot(uri=PLASMO_TAR_AMP_SCHEMA.additional_argument, name="bioMethod__additional_argument", curie=PLASMO_TAR_AMP_SCHEMA.curie('additional_argument'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.bioMethod__additional_argument, domain=None, range=Optional[Union[str, List[str]]],
+                   pattern=re.compile(r'^[A-z-._0-9 ]$'))
+
+slots.tarAmpBioinformaticsInfo__demultiplexing_method = Slot(uri=PLASMO_TAR_AMP_SCHEMA.demultiplexing_method, name="tarAmpBioinformaticsInfo__demultiplexing_method", curie=PLASMO_TAR_AMP_SCHEMA.curie('demultiplexing_method'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.tarAmpBioinformaticsInfo__demultiplexing_method, domain=None, range=Union[dict, BioMethod])
+
+slots.tarAmpBioinformaticsInfo__denoising_method = Slot(uri=PLASMO_TAR_AMP_SCHEMA.denoising_method, name="tarAmpBioinformaticsInfo__denoising_method", curie=PLASMO_TAR_AMP_SCHEMA.curie('denoising_method'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.tarAmpBioinformaticsInfo__denoising_method, domain=None, range=Union[dict, BioMethod])
+
+slots.tarAmpBioinformaticsInfo__population_clustering_method = Slot(uri=PLASMO_TAR_AMP_SCHEMA.population_clustering_method, name="tarAmpBioinformaticsInfo__population_clustering_method", curie=PLASMO_TAR_AMP_SCHEMA.curie('population_clustering_method'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.tarAmpBioinformaticsInfo__population_clustering_method, domain=None, range=Union[dict, BioMethod])
+
+slots.tarAmpBioinformaticsInfo__additional_methods = Slot(uri=PLASMO_TAR_AMP_SCHEMA.additional_methods, name="tarAmpBioinformaticsInfo__additional_methods", curie=PLASMO_TAR_AMP_SCHEMA.curie('additional_methods'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.tarAmpBioinformaticsInfo__additional_methods, domain=None, range=Optional[Union[Union[dict, BioMethod], List[Union[dict, BioMethod]]]])

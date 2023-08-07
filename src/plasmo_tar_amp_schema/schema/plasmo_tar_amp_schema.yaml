@@ -320,6 +320,56 @@ classes:
         inlined_as_list: true
         description: >-
           the unique molecular identifier (umi) counts associated with the haplotypes, needs to be same length as haplotype_ids
+  BioMethod:
+    description: >-
+      methodology description of a portion of a bioinformatics pipeline
+    attributes:
+      program:
+        range: string
+        pattern: "^[A-z-._0-9 ]$"
+        required: true
+        description: >-
+          name of the program used for this portion of the pipeline
+      purpose:
+        range: string
+        pattern: "^[A-z-._0-9 ]$"
+        required: true
+        description: >-
+          the propose for this method
+      additional_argument:
+        range: string
+        pattern: "^[A-z-._0-9 ]$"
+        required: false
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          any additional arguments that differ from the default
+  TarAmpBioinformaticsInfo:
+    description: >-
+      Haplotypes detected for a specific target
+    attributes:
+      demultiplexing_method:
+        range: BioMethod
+        required: true
+        description: >-
+          the demultiplexing method used to separate raw reads from barcodes and primer targets
+      denoising_method:
+        range: BioMethod
+        required: true
+        description: >-
+          the method used to de-noise and/or cluster the raw reads
+      population_clustering_method:
+        range: BioMethod
+        required: true
+        description: >-
+          the method used to compare clustered/de-noised reads across samples for a target
+      additional_methods:
+        range: BioMethod
+        required: false
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          any additional methods used to analyze the data
 # slots:
 #   id:
 #     identifier: true

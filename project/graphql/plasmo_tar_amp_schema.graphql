@@ -1,3 +1,10 @@
+type BioMethod
+  {
+    program: String!
+    purpose: String!
+    additionalArgument: [String]
+  }
+
 type GenomeInfo
   {
     name: String!
@@ -65,6 +72,14 @@ type RepresentativeHaplotypeSequence
     haplotypeId: String!
     seq: String!
     quality: String
+  }
+
+type TarAmpBioinformaticsInfo
+  {
+    demultiplexingMethod: BioMethod!
+    denoisingMethod: BioMethod!
+    populationClusteringMethod: BioMethod!
+    additionalMethods: [BioMethod]
   }
 
 type TargetInfo
