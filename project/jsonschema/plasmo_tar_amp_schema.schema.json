@@ -82,6 +82,7 @@
                     "type": "string"
                 },
                 "targets": {
+                    "description": "a list of the target infos for the targets in this panel ",
                     "items": {
                         "$ref": "#/$defs/TargetInfo"
                     },
@@ -89,7 +90,8 @@
                 }
             },
             "required": [
-                "panel_id"
+                "panel_id",
+                "targets"
             ],
             "title": "PanelInfo",
             "type": "object"

@@ -1,5 +1,5 @@
 # Auto generated from plasmo_tar_amp_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-08-07T14:47:40
+# Generation date: 2023-08-07T14:49:24
 # Schema: plasmo-tar-amp-schema
 #
 # id: https://plasmogenepi.github.io/plasmo-tar-amp-schema
@@ -109,7 +109,7 @@ class PanelInfo(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.PanelInfo
 
     panel_id: str = None
-    targets: Optional[Union[Union[dict, TargetInfo], List[Union[dict, TargetInfo]]]] = empty_list()
+    targets: Union[Union[dict, TargetInfo], List[Union[dict, TargetInfo]]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.panel_id):
@@ -117,6 +117,8 @@ class PanelInfo(YAMLRoot):
         if not isinstance(self.panel_id, str):
             self.panel_id = str(self.panel_id)
 
+        if self._is_empty(self.targets):
+            self.MissingRequiredField("targets")
         self._normalize_inlined_as_dict(slot_name="targets", slot_type=TargetInfo, key_name="target_id", keyed=False)
 
         super().__post_init__(**kwargs)
@@ -287,7 +289,7 @@ slots.panelInfo__panel_id = Slot(uri=PLASMO_TAR_AMP_SCHEMA.panel_id, name="panel
                    pattern=re.compile(r'^[A-z-._0-9]$'))
 
 slots.panelInfo__targets = Slot(uri=PLASMO_TAR_AMP_SCHEMA.targets, name="panelInfo__targets", curie=PLASMO_TAR_AMP_SCHEMA.curie('targets'),
-                   model_uri=PLASMO_TAR_AMP_SCHEMA.panelInfo__targets, domain=None, range=Optional[Union[Union[dict, TargetInfo], List[Union[dict, TargetInfo]]]])
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.panelInfo__targets, domain=None, range=Union[Union[dict, TargetInfo], List[Union[dict, TargetInfo]]])
 
 slots.genomeInfo__name = Slot(uri=PLASMO_TAR_AMP_SCHEMA.name, name="genomeInfo__name", curie=PLASMO_TAR_AMP_SCHEMA.curie('name'),
                    model_uri=PLASMO_TAR_AMP_SCHEMA.genomeInfo__name, domain=None, range=str,

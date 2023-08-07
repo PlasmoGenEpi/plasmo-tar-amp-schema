@@ -65,7 +65,7 @@ linkml:Sparqlpath xsd:string
 
 <PanelInfo> CLOSED {
     (  $<PanelInfo_tes> (  <panel_id> @linkml:String ;
-          <targets> @<TargetInfo> *
+          <targets> @<TargetInfo> +
        ) ;
        rdf:type [ <PanelInfo> ] ?
     )

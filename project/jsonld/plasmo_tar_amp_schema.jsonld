@@ -402,6 +402,7 @@
     },
     {
       "name": "panelInfo__targets",
+      "description": "a list of the target infos for the targets in this panel ",
       "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
       "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/targets",
       "multivalued": true,
@@ -411,6 +412,7 @@
         "PanelInfo"
       ],
       "range": "TargetInfo",
+      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -676,8 +678,10 @@
         },
         {
           "name": "targets",
+          "description": "a list of the target infos for the targets in this panel ",
           "multivalued": true,
           "range": "TargetInfo",
+          "required": true,
           "inlined": true,
           "@type": "SlotDefinition"
         }
@@ -845,9 +849,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "plasmo_tar_amp_schema.yaml",
-  "source_file_date": "2023-08-07T14:46:44",
-  "source_file_size": 6374,
-  "generation_date": "2023-08-07T14:47:26",
+  "source_file_date": "2023-08-07T14:48:52",
+  "source_file_size": 6489,
+  "generation_date": "2023-08-07T14:49:09",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/plasmo_tar_amp_schema.context.jsonld",

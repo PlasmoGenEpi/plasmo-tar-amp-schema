@@ -19,7 +19,7 @@ CREATE TABLE "GenomicLocation" (
 
 CREATE TABLE "PanelInfo" (
 	panel_id TEXT NOT NULL, 
-	targets TEXT, 
+	targets TEXT NOT NULL, 
 	PRIMARY KEY (panel_id, targets)
 );
 

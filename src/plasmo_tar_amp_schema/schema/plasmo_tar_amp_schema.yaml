@@ -102,9 +102,12 @@ classes:
         description: >-
           name of the panel
       targets:
+        required: true
         range: TargetInfo
         multivalued: true
         inlined: true
+        description: >-
+          a list of the target infos for the targets in this panel 
 
   GenomeInfo:
     description: >-
