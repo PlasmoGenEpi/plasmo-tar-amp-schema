@@ -491,6 +491,21 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "haplotypeInfo__alt_annotations",
+      "description": "a list of additional annotations associated with this haplotype, e.g. wildtype, amino acid changes etc",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/alt_annotations",
+      "multivalued": true,
+      "alias": "alt_annotations",
+      "owner": "HaplotypeInfo",
+      "domain_of": [
+        "HaplotypeInfo"
+      ],
+      "range": "string",
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "haplotypesDetected__sequencing_id",
       "description": "the name of the sequencing/wet lab processing steps associated with this run",
       "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
@@ -727,6 +742,37 @@
       "required": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
+    },
+    {
+      "name": "haplotypesForTarget__read_counts",
+      "description": "the read counts associated with the haplotypes, needs to be same length as haplotype_ids",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/read_counts",
+      "multivalued": true,
+      "alias": "read_counts",
+      "owner": "HaplotypesForTarget",
+      "domain_of": [
+        "HaplotypesForTarget"
+      ],
+      "range": "double",
+      "required": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "haplotypesForTarget__umi_counts",
+      "description": "the unique molecular identifier (umi) counts associated with the haplotypes, needs to be same length as haplotype_ids",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/umi_counts",
+      "multivalued": true,
+      "alias": "umi_counts",
+      "owner": "HaplotypesForTarget",
+      "domain_of": [
+        "HaplotypesForTarget"
+      ],
+      "range": "double",
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -870,7 +916,8 @@
       "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
       "slots": [
         "haplotypeInfo__haplotype_id",
-        "haplotypeInfo__target_id"
+        "haplotypeInfo__target_id",
+        "haplotypeInfo__alt_annotations"
       ],
       "slot_usage": {},
       "attributes": [
@@ -888,6 +935,14 @@
           "range": "string",
           "required": true,
           "pattern": "^[A-z-._0-9]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "alt_annotations",
+          "description": "a list of additional annotations associated with this haplotype, e.g. wildtype, amino acid changes etc",
+          "multivalued": true,
+          "range": "string",
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -1089,7 +1144,9 @@
       "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
       "slots": [
         "haplotypesForTarget__target_id",
-        "haplotypesForTarget__haplotype_ids"
+        "haplotypesForTarget__haplotype_ids",
+        "haplotypesForTarget__read_counts",
+        "haplotypesForTarget__umi_counts"
       ],
       "slot_usage": {},
       "attributes": [
@@ -1109,6 +1166,23 @@
           "required": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
+        },
+        {
+          "name": "read_counts",
+          "description": "the read counts associated with the haplotypes, needs to be same length as haplotype_ids",
+          "multivalued": true,
+          "range": "double",
+          "required": true,
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "umi_counts",
+          "description": "the unique molecular identifier (umi) counts associated with the haplotypes, needs to be same length as haplotype_ids",
+          "multivalued": true,
+          "range": "double",
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/HaplotypesForTarget",
@@ -1117,9 +1191,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "plasmo_tar_amp_schema.yaml",
-  "source_file_date": "2023-08-07T15:12:26",
-  "source_file_size": 9539,
-  "generation_date": "2023-08-07T15:12:31",
+  "source_file_date": "2023-08-07T15:13:15",
+  "source_file_size": 9542,
+  "generation_date": "2023-08-07T15:13:21",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/plasmo_tar_amp_schema.context.jsonld",

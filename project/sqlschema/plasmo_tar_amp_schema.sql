@@ -20,7 +20,8 @@ CREATE TABLE "GenomicLocation" (
 CREATE TABLE "HaplotypeInfo" (
 	haplotype_id TEXT NOT NULL, 
 	target_id TEXT NOT NULL, 
-	PRIMARY KEY (haplotype_id, target_id)
+	alt_annotations TEXT, 
+	PRIMARY KEY (haplotype_id, target_id, alt_annotations)
 );
 
 CREATE TABLE "HaplotypesDetected" (
@@ -32,7 +33,9 @@ CREATE TABLE "HaplotypesDetected" (
 CREATE TABLE "HaplotypesForTarget" (
 	target_id TEXT NOT NULL, 
 	haplotype_ids TEXT NOT NULL, 
-	PRIMARY KEY (target_id, haplotype_ids)
+	read_counts FLOAT NOT NULL, 
+	umi_counts FLOAT, 
+	PRIMARY KEY (target_id, haplotype_ids, read_counts, umi_counts)
 );
 
 CREATE TABLE "PanelInfo" (

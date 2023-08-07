@@ -19,6 +19,7 @@ type HaplotypeInfo
   {
     haplotypeId: String!
     targetId: String!
+    altAnnotations: [String]
   }
 
 type HaplotypesDetected
@@ -31,6 +32,8 @@ type HaplotypesForTarget
   {
     targetId: String!
     haplotypeIds: [String]!
+    readCounts: [Double]!
+    umiCounts: [Double]
   }
 
 type PanelInfo

@@ -20,6 +20,7 @@ message HaplotypeInfo
  {
   string haplotypeId = 0
   string targetId = 0
+ repeated  string altAnnotations = 0
  }
 // the haplotypes detected in a targeted amplicon analysis
 message HaplotypesDetected
@@ -32,6 +33,8 @@ message HaplotypesForTarget
  {
   string targetId = 0
  repeated  string haplotypeIds = 0
+ repeated  double readCounts = 0
+ repeated  double umiCounts = 0
  }
 // information on a panel of targeted amplicon primer pairs
 message PanelInfo

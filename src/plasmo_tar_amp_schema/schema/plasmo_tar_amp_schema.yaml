@@ -148,13 +148,13 @@ classes:
         required: true
         description: >-
           name of the target the haplotype is associated with
-#      alt_annotations:
-#        required: false
-#        range: string
-#        multivalued: true
-#        inlined: true
-#        description: >-
-#          a list of additional annotations associated with this haplotype, e.g. wildtype, amino acid changes etc
+      alt_annotations:
+        required: false
+        range: string
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          a list of additional annotations associated with this haplotype, e.g. wildtype, amino acid changes etc
 
   HaplotypesDetected:
     description: >-
@@ -280,20 +280,20 @@ classes:
         inlined_as_list: true
         description: >-
           a list of the haplotypes detected for this target
-#      read_counts:
-#        required: true
-#        range: double
-#        multivalued: true
-#        inlined: true
-#        description: >-
-#          the read counts associated with the haplotypes, needs to be same length as haplotype_ids
-#      umi_counts:
-#        required: false
-#        range: double
-#        multivalued: true
-#        inlined: true
-#        description: >-
-#          the unique molecular identifier (umi) counts associated with the haplotypes, needs to be same length as haplotype_ids
+      read_counts:
+        required: true
+        range: double
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          the read counts associated with the haplotypes, needs to be same length as haplotype_ids
+      umi_counts:
+        required: false
+        range: double
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          the unique molecular identifier (umi) counts associated with the haplotypes, needs to be same length as haplotype_ids
 # slots:
 #   id:
 #     identifier: true

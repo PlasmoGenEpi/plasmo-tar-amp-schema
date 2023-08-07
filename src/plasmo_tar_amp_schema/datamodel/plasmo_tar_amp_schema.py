@@ -1,5 +1,5 @@
 # Auto generated from plasmo_tar_amp_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-08-07T15:12:39
+# Generation date: 2023-08-07T15:13:28
 # Schema: plasmo-tar-amp-schema
 #
 # id: https://plasmogenepi.github.io/plasmo-tar-amp-schema
@@ -21,7 +21,7 @@ from linkml_runtime.utils.formatutils import camelcase, underscore, sfx
 from linkml_runtime.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from linkml_runtime.utils.curienamespace import CurieNamespace
-from linkml_runtime.linkml_model.types import Integer, String
+from linkml_runtime.linkml_model.types import Double, Integer, String
 
 metamodel_version = "1.7.0"
 version = None
@@ -171,6 +171,7 @@ class HaplotypeInfo(YAMLRoot):
 
     haplotype_id: str = None
     target_id: str = None
+    alt_annotations: Optional[Union[str, List[str]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.haplotype_id):
@@ -182,6 +183,10 @@ class HaplotypeInfo(YAMLRoot):
             self.MissingRequiredField("target_id")
         if not isinstance(self.target_id, str):
             self.target_id = str(self.target_id)
+
+        if not isinstance(self.alt_annotations, list):
+            self.alt_annotations = [self.alt_annotations] if self.alt_annotations is not None else []
+        self.alt_annotations = [v if isinstance(v, str) else str(v) for v in self.alt_annotations]
 
         super().__post_init__(**kwargs)
 
@@ -362,6 +367,8 @@ class HaplotypesForTarget(YAMLRoot):
 
     target_id: str = None
     haplotype_ids: Union[str, List[str]] = None
+    read_counts: Union[float, List[float]] = None
+    umi_counts: Optional[Union[float, List[float]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.target_id):
@@ -374,6 +381,16 @@ class HaplotypesForTarget(YAMLRoot):
         if not isinstance(self.haplotype_ids, list):
             self.haplotype_ids = [self.haplotype_ids] if self.haplotype_ids is not None else []
         self.haplotype_ids = [v if isinstance(v, str) else str(v) for v in self.haplotype_ids]
+
+        if self._is_empty(self.read_counts):
+            self.MissingRequiredField("read_counts")
+        if not isinstance(self.read_counts, list):
+            self.read_counts = [self.read_counts] if self.read_counts is not None else []
+        self.read_counts = [v if isinstance(v, float) else float(v) for v in self.read_counts]
+
+        if not isinstance(self.umi_counts, list):
+            self.umi_counts = [self.umi_counts] if self.umi_counts is not None else []
+        self.umi_counts = [v if isinstance(v, float) else float(v) for v in self.umi_counts]
 
         super().__post_init__(**kwargs)
 
@@ -431,6 +448,9 @@ slots.haplotypeInfo__haplotype_id = Slot(uri=PLASMO_TAR_AMP_SCHEMA.haplotype_id,
 slots.haplotypeInfo__target_id = Slot(uri=PLASMO_TAR_AMP_SCHEMA.target_id, name="haplotypeInfo__target_id", curie=PLASMO_TAR_AMP_SCHEMA.curie('target_id'),
                    model_uri=PLASMO_TAR_AMP_SCHEMA.haplotypeInfo__target_id, domain=None, range=str,
                    pattern=re.compile(r'^[A-z-._0-9]$'))
+
+slots.haplotypeInfo__alt_annotations = Slot(uri=PLASMO_TAR_AMP_SCHEMA.alt_annotations, name="haplotypeInfo__alt_annotations", curie=PLASMO_TAR_AMP_SCHEMA.curie('alt_annotations'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.haplotypeInfo__alt_annotations, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.haplotypesDetected__sequencing_id = Slot(uri=PLASMO_TAR_AMP_SCHEMA.sequencing_id, name="haplotypesDetected__sequencing_id", curie=PLASMO_TAR_AMP_SCHEMA.curie('sequencing_id'),
                    model_uri=PLASMO_TAR_AMP_SCHEMA.haplotypesDetected__sequencing_id, domain=None, range=str,
@@ -492,3 +512,9 @@ slots.haplotypesForTarget__target_id = Slot(uri=PLASMO_TAR_AMP_SCHEMA.target_id,
 
 slots.haplotypesForTarget__haplotype_ids = Slot(uri=PLASMO_TAR_AMP_SCHEMA.haplotype_ids, name="haplotypesForTarget__haplotype_ids", curie=PLASMO_TAR_AMP_SCHEMA.curie('haplotype_ids'),
                    model_uri=PLASMO_TAR_AMP_SCHEMA.haplotypesForTarget__haplotype_ids, domain=None, range=Union[str, List[str]])
+
+slots.haplotypesForTarget__read_counts = Slot(uri=PLASMO_TAR_AMP_SCHEMA.read_counts, name="haplotypesForTarget__read_counts", curie=PLASMO_TAR_AMP_SCHEMA.curie('read_counts'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.haplotypesForTarget__read_counts, domain=None, range=Union[float, List[float]])
+
+slots.haplotypesForTarget__umi_counts = Slot(uri=PLASMO_TAR_AMP_SCHEMA.umi_counts, name="haplotypesForTarget__umi_counts", curie=PLASMO_TAR_AMP_SCHEMA.curie('umi_counts'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.haplotypesForTarget__umi_counts, domain=None, range=Optional[Union[float, List[float]]])

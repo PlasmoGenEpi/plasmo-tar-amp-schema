@@ -76,6 +76,13 @@
             "additionalProperties": false,
             "description": "information on a haplotype except for it's sequence which can be found under RepresentativeHaplotypeSequence",
             "properties": {
+                "alt_annotations": {
+                    "description": "a list of additional annotations associated with this haplotype, e.g. wildtype, amino acid changes etc",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "haplotype_id": {
                     "description": "name of the haplotype, should be unique to this haplotype",
                     "pattern": "^[A-z-._0-9]$",
@@ -127,15 +134,30 @@
                     },
                     "type": "array"
                 },
+                "read_counts": {
+                    "description": "the read counts associated with the haplotypes, needs to be same length as haplotype_ids",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
                 "target_id": {
                     "description": "the target associated with this target and these detected haplotypes",
                     "pattern": "^[A-z-._0-9]$",
                     "type": "string"
+                },
+                "umi_counts": {
+                    "description": "the unique molecular identifier (umi) counts associated with the haplotypes, needs to be same length as haplotype_ids",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
                 "target_id",
-                "haplotype_ids"
+                "haplotype_ids",
+                "read_counts"
             ],
             "title": "HaplotypesForTarget",
             "type": "object"

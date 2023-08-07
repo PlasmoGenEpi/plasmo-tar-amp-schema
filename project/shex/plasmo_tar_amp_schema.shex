@@ -65,7 +65,8 @@ linkml:Sparqlpath xsd:string
 
 <HaplotypeInfo> CLOSED {
     (  $<HaplotypeInfo_tes> (  <haplotype_id> @linkml:String ;
-          <target_id> @linkml:String
+          <target_id> @linkml:String ;
+          <alt_annotations> @linkml:String *
        ) ;
        rdf:type [ <HaplotypeInfo> ] ?
     )
@@ -81,7 +82,9 @@ linkml:Sparqlpath xsd:string
 
 <HaplotypesForTarget> CLOSED {
     (  $<HaplotypesForTarget_tes> (  <target_id> @linkml:String ;
-          <haplotype_ids> @linkml:String +
+          <haplotype_ids> @linkml:String + ;
+          <read_counts> @linkml:Double + ;
+          <umi_counts> @linkml:Double *
        ) ;
        rdf:type [ <HaplotypesForTarget> ] ?
     )
