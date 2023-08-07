@@ -93,7 +93,7 @@ classes:
         description: >-
           the genome version
       taxon_id:
-        range: string
+        range: integer
         pattern: "^[0-9]$"
         required: true
         description: >-

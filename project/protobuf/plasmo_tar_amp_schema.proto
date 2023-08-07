@@ -3,7 +3,7 @@ message GenomeInfo
  {
   string name = 0
   string version = 0
-  string taxonId = 0
+  integer taxonId = 0
   string url = 0
   string gffUrl = 0
  }

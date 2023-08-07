@@ -45,7 +45,7 @@ linkml:Sparqlpath xsd:string
 <GenomeInfo> CLOSED {
     (  $<GenomeInfo_tes> (  <name> @linkml:String ;
           <version> @linkml:String ;
-          <taxon_id> @linkml:String ;
+          <taxon_id> @linkml:Integer ;
           <url> @linkml:String ;
           <gff_url> @linkml:String ?
        ) ;

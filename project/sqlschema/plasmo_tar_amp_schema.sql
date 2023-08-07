@@ -3,7 +3,7 @@
 CREATE TABLE "GenomeInfo" (
 	name TEXT NOT NULL, 
 	version TEXT NOT NULL, 
-	taxon_id TEXT NOT NULL, 
+	taxon_id INTEGER NOT NULL, 
 	url TEXT NOT NULL, 
 	gff_url TEXT, 
 	PRIMARY KEY (name, version, taxon_id, url, gff_url)

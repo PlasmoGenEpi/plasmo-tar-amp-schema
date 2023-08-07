@@ -31,13 +31,7 @@ plasmo_tar_amp_schema:GenomeInfo a sh:NodeShape ;
     sh:closed true ;
     sh:description "information on a genome" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "the genome version" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path plasmo_tar_amp_schema:version ;
-            sh:pattern "^[A-z-._0-9]$" ],
-        [ sh:description """a link to the where this genome's annotation file could be downloaded
+    sh:property [ sh:description """a link to the where this genome's annotation file could be downloaded
 
   """ ;
             sh:maxCount 1 ;
@@ -56,6 +50,12 @@ plasmo_tar_amp_schema:GenomeInfo a sh:NodeShape ;
             sh:order 2 ;
             sh:path plasmo_tar_amp_schema:taxon_id ;
             sh:pattern "^[0-9]$" ],
+        [ sh:description "the genome version" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path plasmo_tar_amp_schema:version ;
+            sh:pattern "^[A-z-._0-9]$" ],
         [ sh:description "name of the genome" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;

@@ -1,5 +1,5 @@
 # Auto generated from plasmo_tar_amp_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-08-07T14:26:12
+# Generation date: 2023-08-07T14:28:12
 # Schema: plasmo-tar-amp-schema
 #
 # id: https://plasmogenepi.github.io/plasmo-tar-amp-schema
@@ -21,7 +21,7 @@ from linkml_runtime.utils.formatutils import camelcase, underscore, sfx
 from linkml_runtime.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from linkml_runtime.utils.curienamespace import CurieNamespace
-from linkml_runtime.linkml_model.types import String
+from linkml_runtime.linkml_model.types import Integer, String
 
 metamodel_version = "1.7.0"
 version = None
@@ -92,7 +92,7 @@ class GenomeInfo(YAMLRoot):
 
     name: str = None
     version: str = None
-    taxon_id: str = None
+    taxon_id: int = None
     url: str = None
     gff_url: Optional[str] = None
 
@@ -109,8 +109,8 @@ class GenomeInfo(YAMLRoot):
 
         if self._is_empty(self.taxon_id):
             self.MissingRequiredField("taxon_id")
-        if not isinstance(self.taxon_id, str):
-            self.taxon_id = str(self.taxon_id)
+        if not isinstance(self.taxon_id, int):
+            self.taxon_id = int(self.taxon_id)
 
         if self._is_empty(self.url):
             self.MissingRequiredField("url")
@@ -150,7 +150,7 @@ slots.genomeInfo__version = Slot(uri=PLASMO_TAR_AMP_SCHEMA.version, name="genome
                    pattern=re.compile(r'^[A-z-._0-9]$'))
 
 slots.genomeInfo__taxon_id = Slot(uri=PLASMO_TAR_AMP_SCHEMA.taxon_id, name="genomeInfo__taxon_id", curie=PLASMO_TAR_AMP_SCHEMA.curie('taxon_id'),
-                   model_uri=PLASMO_TAR_AMP_SCHEMA.genomeInfo__taxon_id, domain=None, range=str,
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.genomeInfo__taxon_id, domain=None, range=int,
                    pattern=re.compile(r'^[0-9]$'))
 
 slots.genomeInfo__url = Slot(uri=PLASMO_TAR_AMP_SCHEMA.url, name="genomeInfo__url", curie=PLASMO_TAR_AMP_SCHEMA.curie('url'),

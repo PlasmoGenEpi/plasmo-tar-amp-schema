@@ -17,7 +17,7 @@
                 "taxon_id": {
                     "description": "the NCBI taxonomy number",
                     "pattern": "^[0-9]$",
-                    "type": "string"
+                    "type": "integer"
                 },
                 "url": {
                     "description": "a link to the where this genome file could be downloaded",

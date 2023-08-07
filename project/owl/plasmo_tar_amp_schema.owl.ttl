@@ -28,12 +28,12 @@ plasmo_tar_amp_schema:TargetInfo a owl:Class,
             owl:onClass linkml:String ;
             owl:onProperty plasmo_tar_amp_schema:gene_id ],
         [ a owl:Restriction ;
-            owl:onClass plasmo_tar_amp_schema:GenomeInfo ;
-            owl:onProperty plasmo_tar_amp_schema:target_genome ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty plasmo_tar_amp_schema:target_id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass plasmo_tar_amp_schema:GenomeInfo ;
+            owl:onProperty plasmo_tar_amp_schema:target_genome ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "Information about a specific target within a genome" .
 
@@ -72,7 +72,7 @@ plasmo_tar_amp_schema:target_id a owl:ObjectProperty,
 plasmo_tar_amp_schema:taxon_id a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "taxon_id" ;
-    rdfs:range linkml:String ;
+    rdfs:range linkml:Integer ;
     skos:definition "the NCBI taxonomy number" .
 
 plasmo_tar_amp_schema:url a owl:ObjectProperty,
@@ -93,24 +93,24 @@ plasmo_tar_amp_schema:GenomeInfo a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "GenomeInfo" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty plasmo_tar_amp_schema:gff_url ],
+        [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty plasmo_tar_amp_schema:url ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass linkml:String ;
-            owl:onProperty plasmo_tar_amp_schema:taxon_id ;
+            owl:onProperty plasmo_tar_amp_schema:version ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty plasmo_tar_amp_schema:name ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty plasmo_tar_amp_schema:gff_url ],
-        [ a owl:Restriction ;
-            owl:onClass linkml:String ;
-            owl:onProperty plasmo_tar_amp_schema:version ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty plasmo_tar_amp_schema:taxon_id ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "information on a genome" .
 

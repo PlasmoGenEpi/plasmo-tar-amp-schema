@@ -2,7 +2,7 @@ type GenomeInfo
   {
     name: String!
     version: String!
-    taxonId: String!
+    taxonId: Integer!
     url: String!
     gffUrl: String
   }
