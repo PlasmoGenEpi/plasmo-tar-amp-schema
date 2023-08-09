@@ -88,6 +88,23 @@ message SequencingInfo
   string libKit = 0
   string seqCenter = 0
  }
+// Information on specimen info
+message SpecimenInfo
+ {
+  string sampleName = 0
+  integer sampTaxonId = 0
+  integer hostTaxonId = 0
+ repeated  string alternateIdentifiers = 0
+  integer parasiteDensity = 0
+  string collectionDate = 0
+  string latLon = 0
+  string collector = 0
+  string sampStoreLoc = 0
+  string sampCollectDevice = 0
+  string projectName = 0
+  string accession = 0
+  string sampleComments = 0
+ }
 // Haplotypes detected for a specific target
 message TarAmpBioinformaticsInfo
  {

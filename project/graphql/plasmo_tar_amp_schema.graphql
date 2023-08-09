@@ -88,6 +88,23 @@ type SequencingInfo
     seqCenter: String!
   }
 
+type SpecimenInfo
+  {
+    sampleName: String!
+    sampTaxonId: Integer!
+    hostTaxonId: Integer
+    alternateIdentifiers: [String]
+    parasiteDensity: Integer
+    collectionDate: String!
+    latLon: String!
+    collector: String!
+    sampStoreLoc: String!
+    sampCollectDevice: String!
+    projectName: String!
+    accession: String
+    sampleComments: String
+  }
+
 type TarAmpBioinformaticsInfo
   {
     demultiplexingMethod: BioMethod!

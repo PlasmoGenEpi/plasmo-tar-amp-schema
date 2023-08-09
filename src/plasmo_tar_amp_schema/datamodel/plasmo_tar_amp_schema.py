@@ -1,5 +1,5 @@
 # Auto generated from plasmo_tar_amp_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-08-09T18:34:04
+# Generation date: 2023-08-09T19:08:38
 # Schema: plasmo-tar-amp-schema
 #
 # id: https://plasmogenepi.github.io/plasmo-tar-amp-schema
@@ -583,6 +583,92 @@ class SequencingInfo(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
+class SpecimenInfo(YAMLRoot):
+    """
+    Information on specimen info
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.SpecimenInfo
+    class_class_curie: ClassVar[str] = "plasmo_tar_amp_schema:SpecimenInfo"
+    class_name: ClassVar[str] = "SpecimenInfo"
+    class_model_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.SpecimenInfo
+
+    sample_name: str = None
+    samp_taxon_id: int = None
+    collection_date: str = None
+    lat_lon: str = None
+    collector: str = None
+    samp_store_loc: str = None
+    samp_collect_device: str = None
+    project_name: str = None
+    host_taxon_id: Optional[int] = None
+    alternate_identifiers: Optional[Union[str, List[str]]] = empty_list()
+    parasite_density: Optional[int] = None
+    accession: Optional[str] = None
+    sample_comments: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.sample_name):
+            self.MissingRequiredField("sample_name")
+        if not isinstance(self.sample_name, str):
+            self.sample_name = str(self.sample_name)
+
+        if self._is_empty(self.samp_taxon_id):
+            self.MissingRequiredField("samp_taxon_id")
+        if not isinstance(self.samp_taxon_id, int):
+            self.samp_taxon_id = int(self.samp_taxon_id)
+
+        if self._is_empty(self.collection_date):
+            self.MissingRequiredField("collection_date")
+        if not isinstance(self.collection_date, str):
+            self.collection_date = str(self.collection_date)
+
+        if self._is_empty(self.lat_lon):
+            self.MissingRequiredField("lat_lon")
+        if not isinstance(self.lat_lon, str):
+            self.lat_lon = str(self.lat_lon)
+
+        if self._is_empty(self.collector):
+            self.MissingRequiredField("collector")
+        if not isinstance(self.collector, str):
+            self.collector = str(self.collector)
+
+        if self._is_empty(self.samp_store_loc):
+            self.MissingRequiredField("samp_store_loc")
+        if not isinstance(self.samp_store_loc, str):
+            self.samp_store_loc = str(self.samp_store_loc)
+
+        if self._is_empty(self.samp_collect_device):
+            self.MissingRequiredField("samp_collect_device")
+        if not isinstance(self.samp_collect_device, str):
+            self.samp_collect_device = str(self.samp_collect_device)
+
+        if self._is_empty(self.project_name):
+            self.MissingRequiredField("project_name")
+        if not isinstance(self.project_name, str):
+            self.project_name = str(self.project_name)
+
+        if self.host_taxon_id is not None and not isinstance(self.host_taxon_id, int):
+            self.host_taxon_id = int(self.host_taxon_id)
+
+        if not isinstance(self.alternate_identifiers, list):
+            self.alternate_identifiers = [self.alternate_identifiers] if self.alternate_identifiers is not None else []
+        self.alternate_identifiers = [v if isinstance(v, str) else str(v) for v in self.alternate_identifiers]
+
+        if self.parasite_density is not None and not isinstance(self.parasite_density, int):
+            self.parasite_density = int(self.parasite_density)
+
+        if self.accession is not None and not isinstance(self.accession, str):
+            self.accession = str(self.accession)
+
+        if self.sample_comments is not None and not isinstance(self.sample_comments, str):
+            self.sample_comments = str(self.sample_comments)
+
+        super().__post_init__(**kwargs)
+
+
 # Enumerations
 
 
@@ -779,4 +865,56 @@ slots.sequencingInfo__lib_kit = Slot(uri=PLASMO_TAR_AMP_SCHEMA.lib_kit, name="se
 
 slots.sequencingInfo__seq_center = Slot(uri=PLASMO_TAR_AMP_SCHEMA.seq_center, name="sequencingInfo__seq_center", curie=PLASMO_TAR_AMP_SCHEMA.curie('seq_center'),
                    model_uri=PLASMO_TAR_AMP_SCHEMA.sequencingInfo__seq_center, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._0-9 ]$'))
+
+slots.specimenInfo__sample_name = Slot(uri=PLASMO_TAR_AMP_SCHEMA.sample_name, name="specimenInfo__sample_name", curie=PLASMO_TAR_AMP_SCHEMA.curie('sample_name'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.specimenInfo__sample_name, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._0-9 ]$'))
+
+slots.specimenInfo__samp_taxon_id = Slot(uri=PLASMO_TAR_AMP_SCHEMA.samp_taxon_id, name="specimenInfo__samp_taxon_id", curie=PLASMO_TAR_AMP_SCHEMA.curie('samp_taxon_id'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.specimenInfo__samp_taxon_id, domain=None, range=int,
+                   pattern=re.compile(r'^[0-9]$'))
+
+slots.specimenInfo__host_taxon_id = Slot(uri=PLASMO_TAR_AMP_SCHEMA.host_taxon_id, name="specimenInfo__host_taxon_id", curie=PLASMO_TAR_AMP_SCHEMA.curie('host_taxon_id'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.specimenInfo__host_taxon_id, domain=None, range=Optional[int],
+                   pattern=re.compile(r'^[0-9]$'))
+
+slots.specimenInfo__alternate_identifiers = Slot(uri=PLASMO_TAR_AMP_SCHEMA.alternate_identifiers, name="specimenInfo__alternate_identifiers", curie=PLASMO_TAR_AMP_SCHEMA.curie('alternate_identifiers'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.specimenInfo__alternate_identifiers, domain=None, range=Optional[Union[str, List[str]]],
+                   pattern=re.compile(r'^[A-z-._0-9 ]$'))
+
+slots.specimenInfo__parasite_density = Slot(uri=PLASMO_TAR_AMP_SCHEMA.parasite_density, name="specimenInfo__parasite_density", curie=PLASMO_TAR_AMP_SCHEMA.curie('parasite_density'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.specimenInfo__parasite_density, domain=None, range=Optional[int],
+                   pattern=re.compile(r'r'^[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?$''))
+
+slots.specimenInfo__collection_date = Slot(uri=PLASMO_TAR_AMP_SCHEMA.collection_date, name="specimenInfo__collection_date", curie=PLASMO_TAR_AMP_SCHEMA.curie('collection_date'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.specimenInfo__collection_date, domain=None, range=str,
+                   pattern=re.compile(r'r"\d{4}-(?:0[1-9]|1[0-2])(?:-(?:0[1-9]|[12][0-9]|3[01]))?"'))
+
+slots.specimenInfo__lat_lon = Slot(uri=PLASMO_TAR_AMP_SCHEMA.lat_lon, name="specimenInfo__lat_lon", curie=PLASMO_TAR_AMP_SCHEMA.curie('lat_lon'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.specimenInfo__lat_lon, domain=None, range=str,
+                   pattern=re.compile(r'r'^[-+]?\d{1,2}(?:\.\d+)?,[-+]?\d{1,3}(?:\.\d+)?$''))
+
+slots.specimenInfo__collector = Slot(uri=PLASMO_TAR_AMP_SCHEMA.collector, name="specimenInfo__collector", curie=PLASMO_TAR_AMP_SCHEMA.curie('collector'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.specimenInfo__collector, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._0-9 ]$'))
+
+slots.specimenInfo__samp_store_loc = Slot(uri=PLASMO_TAR_AMP_SCHEMA.samp_store_loc, name="specimenInfo__samp_store_loc", curie=PLASMO_TAR_AMP_SCHEMA.curie('samp_store_loc'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.specimenInfo__samp_store_loc, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._0-9 ]$'))
+
+slots.specimenInfo__samp_collect_device = Slot(uri=PLASMO_TAR_AMP_SCHEMA.samp_collect_device, name="specimenInfo__samp_collect_device", curie=PLASMO_TAR_AMP_SCHEMA.curie('samp_collect_device'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.specimenInfo__samp_collect_device, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._0-9 ]$'))
+
+slots.specimenInfo__project_name = Slot(uri=PLASMO_TAR_AMP_SCHEMA.project_name, name="specimenInfo__project_name", curie=PLASMO_TAR_AMP_SCHEMA.curie('project_name'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.specimenInfo__project_name, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._0-9 ]$'))
+
+slots.specimenInfo__accession = Slot(uri=PLASMO_TAR_AMP_SCHEMA.accession, name="specimenInfo__accession", curie=PLASMO_TAR_AMP_SCHEMA.curie('accession'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.specimenInfo__accession, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[A-z-._0-9]$'))
+
+slots.specimenInfo__sample_comments = Slot(uri=PLASMO_TAR_AMP_SCHEMA.sample_comments, name="specimenInfo__sample_comments", curie=PLASMO_TAR_AMP_SCHEMA.curie('sample_comments'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.specimenInfo__sample_comments, domain=None, range=Optional[str],
                    pattern=re.compile(r'^[A-z-._0-9 ]$'))

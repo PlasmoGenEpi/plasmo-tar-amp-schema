@@ -155,6 +155,25 @@ linkml:Sparqlpath xsd:string
     )
 }
 
+<SpecimenInfo> CLOSED {
+    (  $<SpecimenInfo_tes> (  <sample_name> @linkml:String ;
+          <samp_taxon_id> @linkml:Integer ;
+          <host_taxon_id> @linkml:Integer ? ;
+          <alternate_identifiers> @linkml:String * ;
+          <parasite_density> @linkml:Integer ? ;
+          <collection_date> @linkml:String ;
+          <lat_lon> @linkml:String ;
+          <collector> @linkml:String ;
+          <samp_store_loc> @linkml:String ;
+          <samp_collect_device> @linkml:String ;
+          <project_name> @linkml:String ;
+          <accession> @linkml:String ? ;
+          <sample_comments> @linkml:String ?
+       ) ;
+       rdf:type [ <SpecimenInfo> ] ?
+    )
+}
+
 <TarAmpBioinformaticsInfo> CLOSED {
     (  $<TarAmpBioinformaticsInfo_tes> (  <demultiplexing_method> @<BioMethod> ;
           <denoising_method> @<BioMethod> ;

@@ -90,6 +90,23 @@ CREATE TABLE "SequencingInfo" (
 	PRIMARY KEY (seq_instrument, seq_date, nucl_acid_ext, nucl_acid_amp, nucl_acid_date, pcr_cond, lib_screen, lib_layout, lib_kit, seq_center)
 );
 
+CREATE TABLE "SpecimenInfo" (
+	sample_name TEXT NOT NULL, 
+	samp_taxon_id INTEGER NOT NULL, 
+	host_taxon_id INTEGER, 
+	alternate_identifiers TEXT, 
+	parasite_density INTEGER, 
+	collection_date TEXT NOT NULL, 
+	lat_lon TEXT NOT NULL, 
+	collector TEXT NOT NULL, 
+	samp_store_loc TEXT NOT NULL, 
+	samp_collect_device TEXT NOT NULL, 
+	project_name TEXT NOT NULL, 
+	accession TEXT, 
+	sample_comments TEXT, 
+	PRIMARY KEY (sample_name, samp_taxon_id, host_taxon_id, alternate_identifiers, parasite_density, collection_date, lat_lon, collector, samp_store_loc, samp_collect_device, project_name, accession, sample_comments)
+);
+
 CREATE TABLE "TarAmpBioinformaticsInfo" (
 	demultiplexing_method TEXT NOT NULL, 
 	denoising_method TEXT NOT NULL, 
