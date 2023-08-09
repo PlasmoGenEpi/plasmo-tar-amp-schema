@@ -1,5 +1,5 @@
 # Auto generated from plasmo_tar_amp_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-08-07T18:23:01
+# Generation date: 2023-08-09T18:34:04
 # Schema: plasmo-tar-amp-schema
 #
 # id: https://plasmogenepi.github.io/plasmo-tar-amp-schema
@@ -506,6 +506,83 @@ class TarAmpBioinformaticsInfo(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
+class SequencingInfo(YAMLRoot):
+    """
+    Information on sequencing info
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.SequencingInfo
+    class_class_curie: ClassVar[str] = "plasmo_tar_amp_schema:SequencingInfo"
+    class_name: ClassVar[str] = "SequencingInfo"
+    class_model_uri: ClassVar[URIRef] = PLASMO_TAR_AMP_SCHEMA.SequencingInfo
+
+    seq_instrument: str = None
+    seq_date: str = None
+    nucl_acid_ext: str = None
+    nucl_acid_amp: str = None
+    nucl_acid_date: str = None
+    pcr_cond: str = None
+    lib_screen: str = None
+    lib_layout: str = None
+    lib_kit: str = None
+    seq_center: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.seq_instrument):
+            self.MissingRequiredField("seq_instrument")
+        if not isinstance(self.seq_instrument, str):
+            self.seq_instrument = str(self.seq_instrument)
+
+        if self._is_empty(self.seq_date):
+            self.MissingRequiredField("seq_date")
+        if not isinstance(self.seq_date, str):
+            self.seq_date = str(self.seq_date)
+
+        if self._is_empty(self.nucl_acid_ext):
+            self.MissingRequiredField("nucl_acid_ext")
+        if not isinstance(self.nucl_acid_ext, str):
+            self.nucl_acid_ext = str(self.nucl_acid_ext)
+
+        if self._is_empty(self.nucl_acid_amp):
+            self.MissingRequiredField("nucl_acid_amp")
+        if not isinstance(self.nucl_acid_amp, str):
+            self.nucl_acid_amp = str(self.nucl_acid_amp)
+
+        if self._is_empty(self.nucl_acid_date):
+            self.MissingRequiredField("nucl_acid_date")
+        if not isinstance(self.nucl_acid_date, str):
+            self.nucl_acid_date = str(self.nucl_acid_date)
+
+        if self._is_empty(self.pcr_cond):
+            self.MissingRequiredField("pcr_cond")
+        if not isinstance(self.pcr_cond, str):
+            self.pcr_cond = str(self.pcr_cond)
+
+        if self._is_empty(self.lib_screen):
+            self.MissingRequiredField("lib_screen")
+        if not isinstance(self.lib_screen, str):
+            self.lib_screen = str(self.lib_screen)
+
+        if self._is_empty(self.lib_layout):
+            self.MissingRequiredField("lib_layout")
+        if not isinstance(self.lib_layout, str):
+            self.lib_layout = str(self.lib_layout)
+
+        if self._is_empty(self.lib_kit):
+            self.MissingRequiredField("lib_kit")
+        if not isinstance(self.lib_kit, str):
+            self.lib_kit = str(self.lib_kit)
+
+        if self._is_empty(self.seq_center):
+            self.MissingRequiredField("seq_center")
+        if not isinstance(self.seq_center, str):
+            self.seq_center = str(self.seq_center)
+
+        super().__post_init__(**kwargs)
+
+
 # Enumerations
 
 
@@ -663,3 +740,43 @@ slots.tarAmpBioinformaticsInfo__population_clustering_method = Slot(uri=PLASMO_T
 
 slots.tarAmpBioinformaticsInfo__additional_methods = Slot(uri=PLASMO_TAR_AMP_SCHEMA.additional_methods, name="tarAmpBioinformaticsInfo__additional_methods", curie=PLASMO_TAR_AMP_SCHEMA.curie('additional_methods'),
                    model_uri=PLASMO_TAR_AMP_SCHEMA.tarAmpBioinformaticsInfo__additional_methods, domain=None, range=Optional[Union[Union[dict, BioMethod], List[Union[dict, BioMethod]]]])
+
+slots.sequencingInfo__seq_instrument = Slot(uri=PLASMO_TAR_AMP_SCHEMA.seq_instrument, name="sequencingInfo__seq_instrument", curie=PLASMO_TAR_AMP_SCHEMA.curie('seq_instrument'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.sequencingInfo__seq_instrument, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._0-9 ]$'))
+
+slots.sequencingInfo__seq_date = Slot(uri=PLASMO_TAR_AMP_SCHEMA.seq_date, name="sequencingInfo__seq_date", curie=PLASMO_TAR_AMP_SCHEMA.curie('seq_date'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.sequencingInfo__seq_date, domain=None, range=str,
+                   pattern=re.compile(r'r"\d{4}-(?:0[1-9]|1[0-2])(?:-(?:0[1-9]|[12][0-9]|3[01]))?"'))
+
+slots.sequencingInfo__nucl_acid_ext = Slot(uri=PLASMO_TAR_AMP_SCHEMA.nucl_acid_ext, name="sequencingInfo__nucl_acid_ext", curie=PLASMO_TAR_AMP_SCHEMA.curie('nucl_acid_ext'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.sequencingInfo__nucl_acid_ext, domain=None, range=str,
+                   pattern=re.compile(r'r"^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$"'))
+
+slots.sequencingInfo__nucl_acid_amp = Slot(uri=PLASMO_TAR_AMP_SCHEMA.nucl_acid_amp, name="sequencingInfo__nucl_acid_amp", curie=PLASMO_TAR_AMP_SCHEMA.curie('nucl_acid_amp'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.sequencingInfo__nucl_acid_amp, domain=None, range=str,
+                   pattern=re.compile(r'r"^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$"'))
+
+slots.sequencingInfo__nucl_acid_date = Slot(uri=PLASMO_TAR_AMP_SCHEMA.nucl_acid_date, name="sequencingInfo__nucl_acid_date", curie=PLASMO_TAR_AMP_SCHEMA.curie('nucl_acid_date'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.sequencingInfo__nucl_acid_date, domain=None, range=str,
+                   pattern=re.compile(r'r"\d{4}-(?:0[1-9]|1[0-2])(?:-(?:0[1-9]|[12][0-9]|3[01]))?"'))
+
+slots.sequencingInfo__pcr_cond = Slot(uri=PLASMO_TAR_AMP_SCHEMA.pcr_cond, name="sequencingInfo__pcr_cond", curie=PLASMO_TAR_AMP_SCHEMA.curie('pcr_cond'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.sequencingInfo__pcr_cond, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._0-9 ]$'))
+
+slots.sequencingInfo__lib_screen = Slot(uri=PLASMO_TAR_AMP_SCHEMA.lib_screen, name="sequencingInfo__lib_screen", curie=PLASMO_TAR_AMP_SCHEMA.curie('lib_screen'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.sequencingInfo__lib_screen, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._0-9 ]$'))
+
+slots.sequencingInfo__lib_layout = Slot(uri=PLASMO_TAR_AMP_SCHEMA.lib_layout, name="sequencingInfo__lib_layout", curie=PLASMO_TAR_AMP_SCHEMA.curie('lib_layout'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.sequencingInfo__lib_layout, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._0-9 ]$'))
+
+slots.sequencingInfo__lib_kit = Slot(uri=PLASMO_TAR_AMP_SCHEMA.lib_kit, name="sequencingInfo__lib_kit", curie=PLASMO_TAR_AMP_SCHEMA.curie('lib_kit'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.sequencingInfo__lib_kit, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._0-9 ]$'))
+
+slots.sequencingInfo__seq_center = Slot(uri=PLASMO_TAR_AMP_SCHEMA.seq_center, name="sequencingInfo__seq_center", curie=PLASMO_TAR_AMP_SCHEMA.curie('seq_center'),
+                   model_uri=PLASMO_TAR_AMP_SCHEMA.sequencingInfo__seq_center, domain=None, range=str,
+                   pattern=re.compile(r'^[A-z-._0-9 ]$'))

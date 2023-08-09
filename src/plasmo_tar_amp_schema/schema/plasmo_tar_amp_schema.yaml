@@ -370,6 +370,72 @@ classes:
         inlined_as_list: true
         description: >-
           any additional methods used to analyze the data
+
+  SequencingInfo:
+    description: >-
+      Information on sequencing info
+    attributes:
+      seq_instrument:
+        range: string
+        pattern: "^[A-z-._0-9 ]$"
+        required: true
+        description: >-
+          the sequencing instrument used to sequence the run, e.g. ILLUMINA, Illumina MiSeq
+      seq_date:
+        range: string
+        pattern: r"\d{4}-(?:0[1-9]|1[0-2])(?:-(?:0[1-9]|[12][0-9]|3[01]))?"
+        required: true
+        description: >-
+          the date of sequencing, should be YYYY-MM or YYYY-MM-DD
+      nucl_acid_ext:
+        range: string
+        pattern: r"^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$"
+        required: true
+        description: >-
+          Link to a reference or kit that describes the recovery of nucleic acids from the sample
+      nucl_acid_amp:
+        range: string
+        pattern: r"^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$"
+        required: true
+        description: >-
+          Link to a reference or kit that describes the enzymatic amplification of nucleic acids,
+      nucl_acid_date:
+        range: string
+        pattern: r"\d{4}-(?:0[1-9]|1[0-2])(?:-(?:0[1-9]|[12][0-9]|3[01]))?"
+        required: true
+        description: >-
+          the date of the extraction/amplification
+      pcr_cond:
+        range: string
+        pattern: "^[A-z-._0-9 ]$"
+        required: true
+        description: >-
+          the method/conditions for PCR, List PCR cycles used to amplify the target
+      lib_screen:
+        range: string
+        pattern: "^[A-z-._0-9 ]$"
+        required: true
+        description: >-
+          Describe enrichment, screening, or normalization methods applied during amplification or library preparation, e.g. size selection 390bp, diluted to 1 ng DNA/sample
+      lib_layout:
+        range: string
+        pattern: "^[A-z-._0-9 ]$"
+        required: true
+        description: >-
+          Specify the configuration of reads, e.g. paired-end
+      lib_kit:
+        range: string
+        pattern: "^[A-z-._0-9 ]$"
+        required: true
+        description: >-
+          Name, version, and applicable cell or cycle numbers for the kit used to prepare libraries and load cells or chips for sequencing. If possible, include a part number, e.g. MiSeq Reagent Kit v3 (150-cycle), MS-102-3001
+      seq_center:
+        range: string
+        pattern: "^[A-z-._0-9 ]$"
+        required: true
+        description: >-
+          Name of facility where sequencing was performed (lab, core facility, or company)
+
 # slots:
 #   id:
 #     identifier: true

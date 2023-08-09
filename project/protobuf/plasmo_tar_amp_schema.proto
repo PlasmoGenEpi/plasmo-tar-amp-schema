@@ -74,6 +74,20 @@ message RepresentativeHaplotypeSequence
   string seq = 0
   string quality = 0
  }
+// Information on sequencing info
+message SequencingInfo
+ {
+  string seqInstrument = 0
+  string seqDate = 0
+  string nuclAcidExt = 0
+  string nuclAcidAmp = 0
+  string nuclAcidDate = 0
+  string pcrCond = 0
+  string libScreen = 0
+  string libLayout = 0
+  string libKit = 0
+  string seqCenter = 0
+ }
 // Haplotypes detected for a specific target
 message TarAmpBioinformaticsInfo
  {

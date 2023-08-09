@@ -74,6 +74,20 @@ type RepresentativeHaplotypeSequence
     quality: String
   }
 
+type SequencingInfo
+  {
+    seqInstrument: String!
+    seqDate: String!
+    nuclAcidExt: String!
+    nuclAcidAmp: String!
+    nuclAcidDate: String!
+    pcrCond: String!
+    libScreen: String!
+    libLayout: String!
+    libKit: String!
+    seqCenter: String!
+  }
+
 type TarAmpBioinformaticsInfo
   {
     demultiplexingMethod: BioMethod!

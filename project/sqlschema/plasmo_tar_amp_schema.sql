@@ -76,6 +76,20 @@ CREATE TABLE "RepresentativeHaplotypeSequence" (
 	PRIMARY KEY (haplotype_id, seq, quality)
 );
 
+CREATE TABLE "SequencingInfo" (
+	seq_instrument TEXT NOT NULL, 
+	seq_date TEXT NOT NULL, 
+	nucl_acid_ext TEXT NOT NULL, 
+	nucl_acid_amp TEXT NOT NULL, 
+	nucl_acid_date TEXT NOT NULL, 
+	pcr_cond TEXT NOT NULL, 
+	lib_screen TEXT NOT NULL, 
+	lib_layout TEXT NOT NULL, 
+	lib_kit TEXT NOT NULL, 
+	seq_center TEXT NOT NULL, 
+	PRIMARY KEY (seq_instrument, seq_date, nucl_acid_ext, nucl_acid_amp, nucl_acid_date, pcr_cond, lib_screen, lib_layout, lib_kit, seq_center)
+);
+
 CREATE TABLE "TarAmpBioinformaticsInfo" (
 	demultiplexing_method TEXT NOT NULL, 
 	denoising_method TEXT NOT NULL, 

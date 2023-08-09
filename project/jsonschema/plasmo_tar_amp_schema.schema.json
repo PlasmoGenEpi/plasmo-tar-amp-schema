@@ -310,6 +310,76 @@
             "title": "RepresentativeHaplotypeSequence",
             "type": "object"
         },
+        "SequencingInfo": {
+            "additionalProperties": false,
+            "description": "Information on sequencing info",
+            "properties": {
+                "lib_kit": {
+                    "description": "Name, version, and applicable cell or cycle numbers for the kit used to prepare libraries and load cells or chips for sequencing. If possible, include a part number, e.g. MiSeq Reagent Kit v3 (150-cycle), MS-102-3001",
+                    "pattern": "^[A-z-._0-9 ]$",
+                    "type": "string"
+                },
+                "lib_layout": {
+                    "description": "Specify the configuration of reads, e.g. paired-end",
+                    "pattern": "^[A-z-._0-9 ]$",
+                    "type": "string"
+                },
+                "lib_screen": {
+                    "description": "Describe enrichment, screening, or normalization methods applied during amplification or library preparation, e.g. size selection 390bp, diluted to 1 ng DNA/sample",
+                    "pattern": "^[A-z-._0-9 ]$",
+                    "type": "string"
+                },
+                "nucl_acid_amp": {
+                    "description": "Link to a reference or kit that describes the enzymatic amplification of nucleic acids,",
+                    "pattern": "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"",
+                    "type": "string"
+                },
+                "nucl_acid_date": {
+                    "description": "the date of the extraction/amplification",
+                    "pattern": "r\"\\d{4}-(?:0[1-9]|1[0-2])(?:-(?:0[1-9]|[12][0-9]|3[01]))?\"",
+                    "type": "string"
+                },
+                "nucl_acid_ext": {
+                    "description": "Link to a reference or kit that describes the recovery of nucleic acids from the sample",
+                    "pattern": "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"",
+                    "type": "string"
+                },
+                "pcr_cond": {
+                    "description": "the method/conditions for PCR, List PCR cycles used to amplify the target",
+                    "pattern": "^[A-z-._0-9 ]$",
+                    "type": "string"
+                },
+                "seq_center": {
+                    "description": "Name of facility where sequencing was performed (lab, core facility, or company)",
+                    "pattern": "^[A-z-._0-9 ]$",
+                    "type": "string"
+                },
+                "seq_date": {
+                    "description": "the date of sequencing, should be YYYY-MM or YYYY-MM-DD",
+                    "pattern": "r\"\\d{4}-(?:0[1-9]|1[0-2])(?:-(?:0[1-9]|[12][0-9]|3[01]))?\"",
+                    "type": "string"
+                },
+                "seq_instrument": {
+                    "description": "the sequencing instrument used to sequence the run, e.g. ILLUMINA, Illumina MiSeq",
+                    "pattern": "^[A-z-._0-9 ]$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "seq_instrument",
+                "seq_date",
+                "nucl_acid_ext",
+                "nucl_acid_amp",
+                "nucl_acid_date",
+                "pcr_cond",
+                "lib_screen",
+                "lib_layout",
+                "lib_kit",
+                "seq_center"
+            ],
+            "title": "SequencingInfo",
+            "type": "object"
+        },
         "TarAmpBioinformaticsInfo": {
             "additionalProperties": false,
             "description": "Haplotypes detected for a specific target",

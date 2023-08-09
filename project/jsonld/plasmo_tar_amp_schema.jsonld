@@ -929,6 +929,156 @@
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
+    },
+    {
+      "name": "sequencingInfo__seq_instrument",
+      "description": "the sequencing instrument used to sequence the run, e.g. ILLUMINA, Illumina MiSeq",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/seq_instrument",
+      "alias": "seq_instrument",
+      "owner": "SequencingInfo",
+      "domain_of": [
+        "SequencingInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._0-9 ]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sequencingInfo__seq_date",
+      "description": "the date of sequencing, should be YYYY-MM or YYYY-MM-DD",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/seq_date",
+      "alias": "seq_date",
+      "owner": "SequencingInfo",
+      "domain_of": [
+        "SequencingInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "r\"\\d{4}-(?:0[1-9]|1[0-2])(?:-(?:0[1-9]|[12][0-9]|3[01]))?\"",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sequencingInfo__nucl_acid_ext",
+      "description": "Link to a reference or kit that describes the recovery of nucleic acids from the sample",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/nucl_acid_ext",
+      "alias": "nucl_acid_ext",
+      "owner": "SequencingInfo",
+      "domain_of": [
+        "SequencingInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sequencingInfo__nucl_acid_amp",
+      "description": "Link to a reference or kit that describes the enzymatic amplification of nucleic acids,",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/nucl_acid_amp",
+      "alias": "nucl_acid_amp",
+      "owner": "SequencingInfo",
+      "domain_of": [
+        "SequencingInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sequencingInfo__nucl_acid_date",
+      "description": "the date of the extraction/amplification",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/nucl_acid_date",
+      "alias": "nucl_acid_date",
+      "owner": "SequencingInfo",
+      "domain_of": [
+        "SequencingInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "r\"\\d{4}-(?:0[1-9]|1[0-2])(?:-(?:0[1-9]|[12][0-9]|3[01]))?\"",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sequencingInfo__pcr_cond",
+      "description": "the method/conditions for PCR, List PCR cycles used to amplify the target",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/pcr_cond",
+      "alias": "pcr_cond",
+      "owner": "SequencingInfo",
+      "domain_of": [
+        "SequencingInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._0-9 ]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sequencingInfo__lib_screen",
+      "description": "Describe enrichment, screening, or normalization methods applied during amplification or library preparation, e.g. size selection 390bp, diluted to 1 ng DNA/sample",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/lib_screen",
+      "alias": "lib_screen",
+      "owner": "SequencingInfo",
+      "domain_of": [
+        "SequencingInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._0-9 ]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sequencingInfo__lib_layout",
+      "description": "Specify the configuration of reads, e.g. paired-end",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/lib_layout",
+      "alias": "lib_layout",
+      "owner": "SequencingInfo",
+      "domain_of": [
+        "SequencingInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._0-9 ]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sequencingInfo__lib_kit",
+      "description": "Name, version, and applicable cell or cycle numbers for the kit used to prepare libraries and load cells or chips for sequencing. If possible, include a part number, e.g. MiSeq Reagent Kit v3 (150-cycle), MS-102-3001",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/lib_kit",
+      "alias": "lib_kit",
+      "owner": "SequencingInfo",
+      "domain_of": [
+        "SequencingInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._0-9 ]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sequencingInfo__seq_center",
+      "description": "Name of facility where sequencing was performed (lab, core facility, or company)",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/seq_center",
+      "alias": "seq_center",
+      "owner": "SequencingInfo",
+      "domain_of": [
+        "SequencingInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._0-9 ]$",
+      "@type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -1472,13 +1622,116 @@
       ],
       "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/TarAmpBioinformaticsInfo",
       "@type": "ClassDefinition"
+    },
+    {
+      "name": "SequencingInfo",
+      "definition_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/SequencingInfo",
+      "description": "Information on sequencing info",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slots": [
+        "sequencingInfo__seq_instrument",
+        "sequencingInfo__seq_date",
+        "sequencingInfo__nucl_acid_ext",
+        "sequencingInfo__nucl_acid_amp",
+        "sequencingInfo__nucl_acid_date",
+        "sequencingInfo__pcr_cond",
+        "sequencingInfo__lib_screen",
+        "sequencingInfo__lib_layout",
+        "sequencingInfo__lib_kit",
+        "sequencingInfo__seq_center"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "seq_instrument",
+          "description": "the sequencing instrument used to sequence the run, e.g. ILLUMINA, Illumina MiSeq",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._0-9 ]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "seq_date",
+          "description": "the date of sequencing, should be YYYY-MM or YYYY-MM-DD",
+          "range": "string",
+          "required": true,
+          "pattern": "r\"\\d{4}-(?:0[1-9]|1[0-2])(?:-(?:0[1-9]|[12][0-9]|3[01]))?\"",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "nucl_acid_ext",
+          "description": "Link to a reference or kit that describes the recovery of nucleic acids from the sample",
+          "range": "string",
+          "required": true,
+          "pattern": "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "nucl_acid_amp",
+          "description": "Link to a reference or kit that describes the enzymatic amplification of nucleic acids,",
+          "range": "string",
+          "required": true,
+          "pattern": "r\"^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$\"",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "nucl_acid_date",
+          "description": "the date of the extraction/amplification",
+          "range": "string",
+          "required": true,
+          "pattern": "r\"\\d{4}-(?:0[1-9]|1[0-2])(?:-(?:0[1-9]|[12][0-9]|3[01]))?\"",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "pcr_cond",
+          "description": "the method/conditions for PCR, List PCR cycles used to amplify the target",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._0-9 ]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "lib_screen",
+          "description": "Describe enrichment, screening, or normalization methods applied during amplification or library preparation, e.g. size selection 390bp, diluted to 1 ng DNA/sample",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._0-9 ]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "lib_layout",
+          "description": "Specify the configuration of reads, e.g. paired-end",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._0-9 ]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "lib_kit",
+          "description": "Name, version, and applicable cell or cycle numbers for the kit used to prepare libraries and load cells or chips for sequencing. If possible, include a part number, e.g. MiSeq Reagent Kit v3 (150-cycle), MS-102-3001",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._0-9 ]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "seq_center",
+          "description": "Name of facility where sequencing was performed (lab, core facility, or company)",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._0-9 ]$",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/SequencingInfo",
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "plasmo_tar_amp_schema.yaml",
-  "source_file_date": "2023-08-07T18:07:02",
-  "source_file_size": 11872,
-  "generation_date": "2023-08-07T18:22:53",
+  "source_file_date": "2023-08-09T18:33:45",
+  "source_file_size": 14355,
+  "generation_date": "2023-08-09T18:33:55",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/plasmo_tar_amp_schema.context.jsonld",
