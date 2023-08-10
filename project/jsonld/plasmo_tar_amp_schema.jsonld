@@ -2260,7 +2260,7 @@
   "source_file": "plasmo_tar_amp_schema.yaml",
   "source_file_date": "2023-08-09T20:07:29",
   "source_file_size": 19318,
-  "generation_date": "2023-08-09T21:23:51",
+  "generation_date": "2023-08-09T21:24:17",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/plasmo_tar_amp_schema.context.jsonld",
