@@ -24,13 +24,6 @@ CREATE TABLE "GenomicLocation" (
 	PRIMARY KEY (chrom, start, "end", strand)
 );
 
-CREATE TABLE "HaplotypeInfo" (
-	haplotype_id TEXT NOT NULL, 
-	target_id TEXT NOT NULL, 
-	alt_annotations TEXT, 
-	PRIMARY KEY (haplotype_id, target_id, alt_annotations)
-);
-
 CREATE TABLE "HaplotypesDetected" (
 	sequencing_id TEXT NOT NULL, 
 	bioinformatics_id TEXT NOT NULL, 
@@ -58,6 +51,16 @@ CREATE TABLE "PanelInfo" (
 	PRIMARY KEY (panel_id, targets)
 );
 
+CREATE TABLE "PlasmoTarAmpResults" (
+	specimen_infos TEXT NOT NULL, 
+	sequencing_info TEXT NOT NULL, 
+	bioinformatics_info TEXT NOT NULL, 
+	panel_info TEXT NOT NULL, 
+	representative_haplotype_sequences TEXT NOT NULL, 
+	haplotypes_detected TEXT NOT NULL, 
+	PRIMARY KEY (specimen_infos, sequencing_info, bioinformatics_info, panel_info, representative_haplotype_sequences, haplotypes_detected)
+);
+
 CREATE TABLE "PrimerInfo" (
 	seq TEXT NOT NULL, 
 	location TEXT NOT NULL, 
@@ -73,10 +76,18 @@ CREATE TABLE "RepresentativeHaplotypeSequence" (
 	haplotype_id TEXT NOT NULL, 
 	seq TEXT NOT NULL, 
 	quality TEXT, 
-	PRIMARY KEY (haplotype_id, seq, quality)
+	alt_annotations TEXT, 
+	PRIMARY KEY (haplotype_id, seq, quality, alt_annotations)
+);
+
+CREATE TABLE "RepresentativeHaplotypeSequences" (
+	target_id TEXT NOT NULL, 
+	seqs TEXT NOT NULL, 
+	PRIMARY KEY (target_id, seqs)
 );
 
 CREATE TABLE "SequencingInfo" (
+	sequencing_info_id TEXT NOT NULL, 
 	seq_instrument TEXT NOT NULL, 
 	seq_date TEXT NOT NULL, 
 	nucl_acid_ext TEXT NOT NULL, 
@@ -87,7 +98,7 @@ CREATE TABLE "SequencingInfo" (
 	lib_layout TEXT NOT NULL, 
 	lib_kit TEXT NOT NULL, 
 	seq_center TEXT NOT NULL, 
-	PRIMARY KEY (seq_instrument, seq_date, nucl_acid_ext, nucl_acid_amp, nucl_acid_date, pcr_cond, lib_screen, lib_layout, lib_kit, seq_center)
+	PRIMARY KEY (sequencing_info_id, seq_instrument, seq_date, nucl_acid_ext, nucl_acid_amp, nucl_acid_date, pcr_cond, lib_screen, lib_layout, lib_kit, seq_center)
 );
 
 CREATE TABLE "SpecimenInfo" (
@@ -108,11 +119,12 @@ CREATE TABLE "SpecimenInfo" (
 );
 
 CREATE TABLE "TarAmpBioinformaticsInfo" (
+	tar_amp_bioinformatics_info_id TEXT NOT NULL, 
 	demultiplexing_method TEXT NOT NULL, 
 	denoising_method TEXT NOT NULL, 
 	population_clustering_method TEXT NOT NULL, 
 	additional_methods TEXT, 
-	PRIMARY KEY (demultiplexing_method, denoising_method, population_clustering_method, additional_methods)
+	PRIMARY KEY (tar_amp_bioinformatics_info_id, demultiplexing_method, denoising_method, population_clustering_method, additional_methods)
 );
 
 CREATE TABLE "TargetInfo" (

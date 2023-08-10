@@ -22,13 +22,6 @@ message GenomicLocation
   integer end = 0
   string strand = 0
  }
-// information on a haplotype except for it's sequence which can be found under RepresentativeHaplotypeSequence
-message HaplotypeInfo
- {
-  string haplotypeId = 0
-  string targetId = 0
- repeated  string altAnnotations = 0
- }
 // the haplotypes detected in a targeted amplicon analysis
 message HaplotypesDetected
  {
@@ -56,6 +49,16 @@ message PanelInfo
   string panelId = 0
  repeated  targetInfo targets = 0
  }
+// Information on final results from a targeted amplicon analysis
+message PlasmoTarAmpResults
+ {
+ repeated  specimenInfo specimenInfos = 0
+  sequencingInfo sequencingInfo = 0
+  tarAmpBioinformaticsInfo bioinformaticsInfo = 0
+  panelInfo panelInfo = 0
+ repeated  representativeHaplotypeSequences representativeHaplotypeSequences = 0
+  haplotypesDetected haplotypesDetected = 0
+ }
 // information on a primer sequence
 message PrimerInfo
  {
@@ -73,10 +76,18 @@ message RepresentativeHaplotypeSequence
   string haplotypeId = 0
   string seq = 0
   string quality = 0
+ repeated  string altAnnotations = 0
+ }
+// the a list of the representative sequence for a haplotype, similar to a fast(a/q) format
+message RepresentativeHaplotypeSequences
+ {
+  string targetId = 0
+ repeated  representativeHaplotypeSequence seqs = 0
  }
 // Information on sequencing info
 message SequencingInfo
  {
+  string sequencingInfoId = 0
   string seqInstrument = 0
   string seqDate = 0
   string nuclAcidExt = 0
@@ -105,9 +116,10 @@ message SpecimenInfo
   string accession = 0
   string sampleComments = 0
  }
-// Haplotypes detected for a specific target
+// the targeted amplicon bioinformatics pipeline
 message TarAmpBioinformaticsInfo
  {
+  string tarAmpBioinformaticsInfoId = 0
   bioMethod demultiplexingMethod = 0
   bioMethod denoisingMethod = 0
   bioMethod populationClusteringMethod = 0

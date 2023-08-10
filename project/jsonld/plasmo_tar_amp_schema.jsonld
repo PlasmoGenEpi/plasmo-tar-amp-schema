@@ -461,47 +461,49 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "haplotypeInfo__haplotype_id",
-      "description": "name of the haplotype, should be unique to this haplotype",
-      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
-      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/haplotype_id",
-      "alias": "haplotype_id",
-      "owner": "HaplotypeInfo",
-      "domain_of": [
-        "HaplotypeInfo"
-      ],
-      "range": "string",
-      "required": true,
-      "pattern": "^[A-z-._0-9]$",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "haplotypeInfo__target_id",
-      "description": "name of the target the haplotype is associated with",
-      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
-      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/target_id",
-      "alias": "target_id",
-      "owner": "HaplotypeInfo",
-      "domain_of": [
-        "HaplotypeInfo"
-      ],
-      "range": "string",
-      "required": true,
-      "pattern": "^[A-z-._0-9]$",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "haplotypeInfo__alt_annotations",
+      "name": "representativeHaplotypeSequence__alt_annotations",
       "description": "a list of additional annotations associated with this haplotype, e.g. wildtype, amino acid changes etc",
       "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
       "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/alt_annotations",
       "multivalued": true,
       "alias": "alt_annotations",
-      "owner": "HaplotypeInfo",
+      "owner": "RepresentativeHaplotypeSequence",
       "domain_of": [
-        "HaplotypeInfo"
+        "RepresentativeHaplotypeSequence"
       ],
       "range": "string",
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "representativeHaplotypeSequences__target_id",
+      "description": "name of the target for the sequences",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/target_id",
+      "alias": "target_id",
+      "owner": "RepresentativeHaplotypeSequences",
+      "domain_of": [
+        "RepresentativeHaplotypeSequences"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._0-9]$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "representativeHaplotypeSequences__seqs",
+      "description": "a list of the haplotypes detected for a sample for various targets ",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/seqs",
+      "multivalued": true,
+      "alias": "seqs",
+      "owner": "RepresentativeHaplotypeSequences",
+      "domain_of": [
+        "RepresentativeHaplotypeSequences"
+      ],
+      "range": "RepresentativeHaplotypeSequence",
+      "required": true,
+      "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
@@ -870,6 +872,21 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "tarAmpBioinformaticsInfo__tar_amp_bioinformatics_info_id",
+      "description": "a unique identifier for this bioinformatics info",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/tar_amp_bioinformatics_info_id",
+      "alias": "tar_amp_bioinformatics_info_id",
+      "owner": "TarAmpBioinformaticsInfo",
+      "domain_of": [
+        "TarAmpBioinformaticsInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._0-9 ]$",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "tarAmpBioinformaticsInfo__demultiplexing_method",
       "description": "the demultiplexing method used to separate raw reads from barcodes and primer targets",
       "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
@@ -928,6 +945,21 @@
       "range": "BioMethod",
       "inlined": true,
       "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sequencingInfo__sequencing_info_id",
+      "description": "a unique identifier for this sequencing info",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/sequencing_info_id",
+      "alias": "sequencing_info_id",
+      "owner": "SequencingInfo",
+      "domain_of": [
+        "SequencingInfo"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^[A-z-._0-9 ]$",
       "@type": "SlotDefinition"
     },
     {
@@ -1271,6 +1303,100 @@
       "range": "string",
       "pattern": "^[A-z-._0-9 ]$",
       "@type": "SlotDefinition"
+    },
+    {
+      "name": "plasmoTarAmpResults__specimen_infos",
+      "description": "a list of SpecimenInfo of all the samples within this project",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/specimen_infos",
+      "multivalued": true,
+      "alias": "specimen_infos",
+      "owner": "PlasmoTarAmpResults",
+      "domain_of": [
+        "PlasmoTarAmpResults"
+      ],
+      "range": "SpecimenInfo",
+      "required": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "plasmoTarAmpResults__sequencing_info",
+      "description": "the sequencing info for this project",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/sequencing_info",
+      "alias": "sequencing_info",
+      "owner": "PlasmoTarAmpResults",
+      "domain_of": [
+        "PlasmoTarAmpResults"
+      ],
+      "range": "SequencingInfo",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "plasmoTarAmpResults__bioinformatics_info",
+      "description": "the bioinformatics pipeline info for this project",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/bioinformatics_info",
+      "alias": "bioinformatics_info",
+      "owner": "PlasmoTarAmpResults",
+      "domain_of": [
+        "PlasmoTarAmpResults"
+      ],
+      "range": "TarAmpBioinformaticsInfo",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "plasmoTarAmpResults__panel_info",
+      "description": "the info on the panel used for this project",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/panel_info",
+      "alias": "panel_info",
+      "owner": "PlasmoTarAmpResults",
+      "domain_of": [
+        "PlasmoTarAmpResults"
+      ],
+      "range": "PanelInfo",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "plasmoTarAmpResults__representative_haplotype_sequences",
+      "description": "a list of the representative sequences for the results for this project",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/representative_haplotype_sequences",
+      "multivalued": true,
+      "alias": "representative_haplotype_sequences",
+      "owner": "PlasmoTarAmpResults",
+      "domain_of": [
+        "PlasmoTarAmpResults"
+      ],
+      "range": "RepresentativeHaplotypeSequences",
+      "required": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "plasmoTarAmpResults__haplotypes_detected",
+      "description": "the haplotypes detected in this projects ",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slot_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/haplotypes_detected",
+      "alias": "haplotypes_detected",
+      "owner": "PlasmoTarAmpResults",
+      "domain_of": [
+        "PlasmoTarAmpResults"
+      ],
+      "range": "HaplotypesDetected",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -1376,7 +1502,8 @@
       "slots": [
         "representativeHaplotypeSequence__haplotype_id",
         "representativeHaplotypeSequence__seq",
-        "representativeHaplotypeSequence__quality"
+        "representativeHaplotypeSequence__quality",
+        "representativeHaplotypeSequence__alt_annotations"
       ],
       "slot_usage": {},
       "attributes": [
@@ -1402,38 +1529,6 @@
           "range": "string",
           "pattern": "^[A-z-._0-9]$",
           "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/RepresentativeHaplotypeSequence",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "HaplotypeInfo",
-      "definition_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/HaplotypeInfo",
-      "description": "information on a haplotype except for it's sequence which can be found under RepresentativeHaplotypeSequence",
-      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
-      "slots": [
-        "haplotypeInfo__haplotype_id",
-        "haplotypeInfo__target_id",
-        "haplotypeInfo__alt_annotations"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "haplotype_id",
-          "description": "name of the haplotype, should be unique to this haplotype",
-          "range": "string",
-          "required": true,
-          "pattern": "^[A-z-._0-9]$",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "target_id",
-          "description": "name of the target the haplotype is associated with",
-          "range": "string",
-          "required": true,
-          "pattern": "^[A-z-._0-9]$",
-          "@type": "SlotDefinition"
         },
         {
           "name": "alt_annotations",
@@ -1444,7 +1539,39 @@
           "@type": "SlotDefinition"
         }
       ],
-      "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/HaplotypeInfo",
+      "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/RepresentativeHaplotypeSequence",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "RepresentativeHaplotypeSequences",
+      "definition_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/RepresentativeHaplotypeSequences",
+      "description": "the a list of the representative sequence for a haplotype, similar to a fast(a/q) format",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slots": [
+        "representativeHaplotypeSequences__target_id",
+        "representativeHaplotypeSequences__seqs"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "target_id",
+          "description": "name of the target for the sequences",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._0-9]$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "seqs",
+          "description": "a list of the haplotypes detected for a sample for various targets ",
+          "multivalued": true,
+          "range": "RepresentativeHaplotypeSequence",
+          "required": true,
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/RepresentativeHaplotypeSequences",
       "@type": "ClassDefinition"
     },
     {
@@ -1772,9 +1899,10 @@
     {
       "name": "TarAmpBioinformaticsInfo",
       "definition_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/TarAmpBioinformaticsInfo",
-      "description": "Haplotypes detected for a specific target",
+      "description": "the targeted amplicon bioinformatics pipeline",
       "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
       "slots": [
+        "tarAmpBioinformaticsInfo__tar_amp_bioinformatics_info_id",
         "tarAmpBioinformaticsInfo__demultiplexing_method",
         "tarAmpBioinformaticsInfo__denoising_method",
         "tarAmpBioinformaticsInfo__population_clustering_method",
@@ -1782,6 +1910,14 @@
       ],
       "slot_usage": {},
       "attributes": [
+        {
+          "name": "tar_amp_bioinformatics_info_id",
+          "description": "a unique identifier for this bioinformatics info",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._0-9 ]$",
+          "@type": "SlotDefinition"
+        },
         {
           "name": "demultiplexing_method",
           "description": "the demultiplexing method used to separate raw reads from barcodes and primer targets",
@@ -1821,6 +1957,7 @@
       "description": "Information on sequencing info",
       "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
       "slots": [
+        "sequencingInfo__sequencing_info_id",
         "sequencingInfo__seq_instrument",
         "sequencingInfo__seq_date",
         "sequencingInfo__nucl_acid_ext",
@@ -1834,6 +1971,14 @@
       ],
       "slot_usage": {},
       "attributes": [
+        {
+          "name": "sequencing_info_id",
+          "description": "a unique identifier for this sequencing info",
+          "range": "string",
+          "required": true,
+          "pattern": "^[A-z-._0-9 ]$",
+          "@type": "SlotDefinition"
+        },
         {
           "name": "seq_instrument",
           "description": "the sequencing instrument used to sequence the run, e.g. ILLUMINA, Illumina MiSeq",
@@ -2044,13 +2189,78 @@
       ],
       "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/SpecimenInfo",
       "@type": "ClassDefinition"
+    },
+    {
+      "name": "PlasmoTarAmpResults",
+      "definition_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/PlasmoTarAmpResults",
+      "description": "Information on final results from a targeted amplicon analysis",
+      "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
+      "slots": [
+        "plasmoTarAmpResults__specimen_infos",
+        "plasmoTarAmpResults__sequencing_info",
+        "plasmoTarAmpResults__bioinformatics_info",
+        "plasmoTarAmpResults__panel_info",
+        "plasmoTarAmpResults__representative_haplotype_sequences",
+        "plasmoTarAmpResults__haplotypes_detected"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "specimen_infos",
+          "description": "a list of SpecimenInfo of all the samples within this project",
+          "multivalued": true,
+          "range": "SpecimenInfo",
+          "required": true,
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "sequencing_info",
+          "description": "the sequencing info for this project",
+          "range": "SequencingInfo",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "bioinformatics_info",
+          "description": "the bioinformatics pipeline info for this project",
+          "range": "TarAmpBioinformaticsInfo",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "panel_info",
+          "description": "the info on the panel used for this project",
+          "range": "PanelInfo",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "representative_haplotype_sequences",
+          "description": "a list of the representative sequences for the results for this project",
+          "multivalued": true,
+          "range": "RepresentativeHaplotypeSequences",
+          "required": true,
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "haplotypes_detected",
+          "description": "the haplotypes detected in this projects ",
+          "range": "HaplotypesDetected",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/PlasmoTarAmpResults",
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "plasmo_tar_amp_schema.yaml",
-  "source_file_date": "2023-08-09T19:08:19",
-  "source_file_size": 17091,
-  "generation_date": "2023-08-09T19:08:28",
+  "source_file_date": "2023-08-09T20:05:49",
+  "source_file_size": 19321,
+  "generation_date": "2023-08-09T20:05:56",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/plasmo_tar_amp_schema.context.jsonld",

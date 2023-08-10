@@ -102,35 +102,6 @@
             "title": "GenomicLocation",
             "type": "object"
         },
-        "HaplotypeInfo": {
-            "additionalProperties": false,
-            "description": "information on a haplotype except for it's sequence which can be found under RepresentativeHaplotypeSequence",
-            "properties": {
-                "alt_annotations": {
-                    "description": "a list of additional annotations associated with this haplotype, e.g. wildtype, amino acid changes etc",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "haplotype_id": {
-                    "description": "name of the haplotype, should be unique to this haplotype",
-                    "pattern": "^[A-z-._0-9]$",
-                    "type": "string"
-                },
-                "target_id": {
-                    "description": "name of the target the haplotype is associated with",
-                    "pattern": "^[A-z-._0-9]$",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "haplotype_id",
-                "target_id"
-            ],
-            "title": "HaplotypeInfo",
-            "type": "object"
-        },
         "HaplotypesDetected": {
             "additionalProperties": false,
             "description": "the haplotypes detected in a targeted amplicon analysis",
@@ -248,6 +219,52 @@
             "title": "PanelInfo",
             "type": "object"
         },
+        "PlasmoTarAmpResults": {
+            "additionalProperties": false,
+            "description": "Information on final results from a targeted amplicon analysis",
+            "properties": {
+                "bioinformatics_info": {
+                    "$ref": "#/$defs/TarAmpBioinformaticsInfo",
+                    "description": "the bioinformatics pipeline info for this project"
+                },
+                "haplotypes_detected": {
+                    "$ref": "#/$defs/HaplotypesDetected",
+                    "description": "the haplotypes detected in this projects "
+                },
+                "panel_info": {
+                    "$ref": "#/$defs/PanelInfo",
+                    "description": "the info on the panel used for this project"
+                },
+                "representative_haplotype_sequences": {
+                    "description": "a list of the representative sequences for the results for this project",
+                    "items": {
+                        "$ref": "#/$defs/RepresentativeHaplotypeSequences"
+                    },
+                    "type": "array"
+                },
+                "sequencing_info": {
+                    "$ref": "#/$defs/SequencingInfo",
+                    "description": "the sequencing info for this project"
+                },
+                "specimen_infos": {
+                    "description": "a list of SpecimenInfo of all the samples within this project",
+                    "items": {
+                        "$ref": "#/$defs/SpecimenInfo"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "specimen_infos",
+                "sequencing_info",
+                "bioinformatics_info",
+                "panel_info",
+                "representative_haplotype_sequences",
+                "haplotypes_detected"
+            ],
+            "title": "PlasmoTarAmpResults",
+            "type": "object"
+        },
         "PrimerInfo": {
             "additionalProperties": false,
             "description": "information on a primer sequence",
@@ -287,6 +304,13 @@
             "additionalProperties": false,
             "description": "the representative sequence for a haplotype, similar to a fast(a/q) format",
             "properties": {
+                "alt_annotations": {
+                    "description": "a list of additional annotations associated with this haplotype, e.g. wildtype, amino acid changes etc",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "haplotype_id": {
                     "description": "name of the haplotype, should be unique to this haplotype",
                     "pattern": "^[A-z-._0-9]$",
@@ -308,6 +332,30 @@
                 "seq"
             ],
             "title": "RepresentativeHaplotypeSequence",
+            "type": "object"
+        },
+        "RepresentativeHaplotypeSequences": {
+            "additionalProperties": false,
+            "description": "the a list of the representative sequence for a haplotype, similar to a fast(a/q) format",
+            "properties": {
+                "seqs": {
+                    "description": "a list of the haplotypes detected for a sample for various targets ",
+                    "items": {
+                        "$ref": "#/$defs/RepresentativeHaplotypeSequence"
+                    },
+                    "type": "array"
+                },
+                "target_id": {
+                    "description": "name of the target for the sequences",
+                    "pattern": "^[A-z-._0-9]$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "target_id",
+                "seqs"
+            ],
+            "title": "RepresentativeHaplotypeSequences",
             "type": "object"
         },
         "SequencingInfo": {
@@ -363,9 +411,15 @@
                     "description": "the sequencing instrument used to sequence the run, e.g. ILLUMINA, Illumina MiSeq",
                     "pattern": "^[A-z-._0-9 ]$",
                     "type": "string"
+                },
+                "sequencing_info_id": {
+                    "description": "a unique identifier for this sequencing info",
+                    "pattern": "^[A-z-._0-9 ]$",
+                    "type": "string"
                 }
             },
             "required": [
+                "sequencing_info_id",
                 "seq_instrument",
                 "seq_date",
                 "nucl_acid_ext",
@@ -468,7 +522,7 @@
         },
         "TarAmpBioinformaticsInfo": {
             "additionalProperties": false,
-            "description": "Haplotypes detected for a specific target",
+            "description": "the targeted amplicon bioinformatics pipeline",
             "properties": {
                 "additional_methods": {
                     "description": "any additional methods used to analyze the data",
@@ -488,9 +542,15 @@
                 "population_clustering_method": {
                     "$ref": "#/$defs/BioMethod",
                     "description": "the method used to compare clustered/de-noised reads across samples for a target"
+                },
+                "tar_amp_bioinformatics_info_id": {
+                    "description": "a unique identifier for this bioinformatics info",
+                    "pattern": "^[A-z-._0-9 ]$",
+                    "type": "string"
                 }
             },
             "required": [
+                "tar_amp_bioinformatics_info_id",
                 "demultiplexing_method",
                 "denoising_method",
                 "population_clustering_method"

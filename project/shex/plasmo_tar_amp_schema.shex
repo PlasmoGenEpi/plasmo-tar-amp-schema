@@ -72,15 +72,6 @@ linkml:Sparqlpath xsd:string
     )
 }
 
-<HaplotypeInfo> CLOSED {
-    (  $<HaplotypeInfo_tes> (  <haplotype_id> @linkml:String ;
-          <target_id> @linkml:String ;
-          <alt_annotations> @linkml:String *
-       ) ;
-       rdf:type [ <HaplotypeInfo> ] ?
-    )
-}
-
 <HaplotypesDetected> CLOSED {
     (  $<HaplotypesDetected_tes> (  <sequencing_id> @linkml:String ;
           <bioinformatics_id> @linkml:String ;
@@ -116,6 +107,18 @@ linkml:Sparqlpath xsd:string
     )
 }
 
+<PlasmoTarAmpResults> CLOSED {
+    (  $<PlasmoTarAmpResults_tes> (  <specimen_infos> @<SpecimenInfo> + ;
+          <sequencing_info> @<SequencingInfo> ;
+          <bioinformatics_info> @<TarAmpBioinformaticsInfo> ;
+          <panel_info> @<PanelInfo> ;
+          <representative_haplotype_sequences> @<RepresentativeHaplotypeSequences> + ;
+          <haplotypes_detected> @<HaplotypesDetected>
+       ) ;
+       rdf:type [ <PlasmoTarAmpResults> ] ?
+    )
+}
+
 <PrimerInfo> CLOSED {
     (  $<PrimerInfo_tes> (  <seq> @linkml:String ;
           <location> @<GenomicLocation>
@@ -133,14 +136,24 @@ linkml:Sparqlpath xsd:string
 <RepresentativeHaplotypeSequence> CLOSED {
     (  $<RepresentativeHaplotypeSequence_tes> (  <haplotype_id> @linkml:String ;
           <seq> @linkml:String ;
-          <quality> @linkml:String ?
+          <quality> @linkml:String ? ;
+          <alt_annotations> @linkml:String *
        ) ;
        rdf:type [ <RepresentativeHaplotypeSequence> ] ?
     )
 }
 
+<RepresentativeHaplotypeSequences> CLOSED {
+    (  $<RepresentativeHaplotypeSequences_tes> (  <target_id> @linkml:String ;
+          <seqs> @<RepresentativeHaplotypeSequence> +
+       ) ;
+       rdf:type [ <RepresentativeHaplotypeSequences> ] ?
+    )
+}
+
 <SequencingInfo> CLOSED {
-    (  $<SequencingInfo_tes> (  <seq_instrument> @linkml:String ;
+    (  $<SequencingInfo_tes> (  <sequencing_info_id> @linkml:String ;
+          <seq_instrument> @linkml:String ;
           <seq_date> @linkml:String ;
           <nucl_acid_ext> @linkml:String ;
           <nucl_acid_amp> @linkml:String ;
@@ -175,7 +188,8 @@ linkml:Sparqlpath xsd:string
 }
 
 <TarAmpBioinformaticsInfo> CLOSED {
-    (  $<TarAmpBioinformaticsInfo_tes> (  <demultiplexing_method> @<BioMethod> ;
+    (  $<TarAmpBioinformaticsInfo_tes> (  <tar_amp_bioinformatics_info_id> @linkml:String ;
+          <demultiplexing_method> @<BioMethod> ;
           <denoising_method> @<BioMethod> ;
           <population_clustering_method> @<BioMethod> ;
           <additional_methods> @<BioMethod> *

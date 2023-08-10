@@ -131,23 +131,6 @@ classes:
         required: false
         description: >-
           the ansi fastq per base quality score for this sequence, this is optional
-
-  HaplotypeInfo:
-    description: >-
-      information on a haplotype except for it's sequence which can be found under RepresentativeHaplotypeSequence
-    attributes:
-      haplotype_id:
-        range: string
-        pattern: "^[A-z-._0-9]$"
-        required: true
-        description: >-
-          name of the haplotype, should be unique to this haplotype
-      target_id:
-        range: string
-        pattern: "^[A-z-._0-9]$"
-        required: true
-        description: >-
-          name of the target the haplotype is associated with
       alt_annotations:
         required: false
         range: string
@@ -155,6 +138,43 @@ classes:
         inlined_as_list: true
         description: >-
           a list of additional annotations associated with this haplotype, e.g. wildtype, amino acid changes etc
+
+  RepresentativeHaplotypeSequences:
+    description: >-
+      the a list of the representative sequence for a haplotype, similar to a fast(a/q) format
+    attributes:
+      target_id:
+        range: string
+        pattern: "^[A-z-._0-9]$"
+        required: true
+        description: >-
+          name of the target for the sequences
+      seqs:
+        required: true
+        range: RepresentativeHaplotypeSequence
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          a list of the haplotypes detected for a sample for various targets 
+      
+
+#  HaplotypeInfo:
+#    description: >-
+#      information on a haplotype except for it's sequence which can be found under RepresentativeHaplotypeSequence
+#    attributes:
+#      haplotype_id:
+#        range: string
+#        pattern: "^[A-z-._0-9]$"
+#        required: true
+#        description: >-
+#          name of the haplotype, should be unique to this haplotype
+#      target_id:
+#        range: string
+#        pattern: "^[A-z-._0-9]$"
+#        required: true
+#        description: >-
+#          name of the target the haplotype is associated with
+
 
   HaplotypesDetected:
     description: >-
@@ -344,10 +364,17 @@ classes:
         inlined_as_list: true
         description: >-
           any additional arguments that differ from the default
+
   TarAmpBioinformaticsInfo:
     description: >-
-      Haplotypes detected for a specific target
+      the targeted amplicon bioinformatics pipeline
     attributes:
+      tar_amp_bioinformatics_info_id:
+        range: string
+        pattern: "^[A-z-._0-9 ]$"
+        required: true
+        description: >-
+          a unique identifier for this bioinformatics info
       demultiplexing_method:
         range: BioMethod
         required: true
@@ -375,6 +402,12 @@ classes:
     description: >-
       Information on sequencing info
     attributes:
+      sequencing_info_id:
+        range: string
+        pattern: "^[A-z-._0-9 ]$"
+        required: true
+        description: >-
+          a unique identifier for this sequencing info
       seq_instrument:
         range: string
         pattern: "^[A-z-._0-9 ]$"
@@ -520,7 +553,45 @@ classes:
         required: false
         description: >-
           any additional comments about the sample  
-          
+
+  PlasmoTarAmpResults:
+    description: >-
+      Information on final results from a targeted amplicon analysis
+    attributes:
+      specimen_infos:
+        range: SpecimenInfo
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          a list of SpecimenInfo of all the samples within this project
+      sequencing_info:
+        range: SequencingInfo
+        required: true
+        description: >-
+          the sequencing info for this project
+      bioinformatics_info:
+        range: TarAmpBioinformaticsInfo
+        required: true
+        description: >-
+          the bioinformatics pipeline info for this project
+      panel_info:
+        range: PanelInfo
+        required: true
+        description: >-
+          the info on the panel used for this project
+      representative_haplotype_sequences:
+        range: RepresentativeHaplotypeSequences
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          a list of the representative sequences for the results for this project
+      haplotypes_detected:
+        range: HaplotypesDetected
+        required: true
+        description: >-
+          the haplotypes detected in this projects 
 
 # slots:
 #   id:

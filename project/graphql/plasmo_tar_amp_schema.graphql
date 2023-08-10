@@ -22,13 +22,6 @@ type GenomicLocation
     strand: String
   }
 
-type HaplotypeInfo
-  {
-    haplotypeId: String!
-    targetId: String!
-    altAnnotations: [String]
-  }
-
 type HaplotypesDetected
   {
     sequencingId: String!
@@ -56,6 +49,16 @@ type PanelInfo
     targets: [TargetInfo]!
   }
 
+type PlasmoTarAmpResults
+  {
+    specimenInfos: [SpecimenInfo]!
+    sequencingInfo: SequencingInfo!
+    bioinformaticsInfo: TarAmpBioinformaticsInfo!
+    panelInfo: PanelInfo!
+    representativeHaplotypeSequences: [RepresentativeHaplotypeSequences]!
+    haplotypesDetected: HaplotypesDetected!
+  }
+
 type PrimerInfo
   {
     seq: String!
@@ -72,10 +75,18 @@ type RepresentativeHaplotypeSequence
     haplotypeId: String!
     seq: String!
     quality: String
+    altAnnotations: [String]
+  }
+
+type RepresentativeHaplotypeSequences
+  {
+    targetId: String!
+    seqs: [RepresentativeHaplotypeSequence]!
   }
 
 type SequencingInfo
   {
+    sequencingInfoId: String!
     seqInstrument: String!
     seqDate: String!
     nuclAcidExt: String!
@@ -107,6 +118,7 @@ type SpecimenInfo
 
 type TarAmpBioinformaticsInfo
   {
+    tarAmpBioinformaticsInfoId: String!
     demultiplexingMethod: BioMethod!
     denoisingMethod: BioMethod!
     populationClusteringMethod: BioMethod!
