@@ -2,112 +2,532 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/BioMethod/</loc>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/Boolean/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/Curie/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/Date/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/DateOrDatetime/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/Datetime/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/Decimal/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/Double/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/Float/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/GenomeInfo/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/GenomicLocation/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/HaplotypeInfo/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/HaplotypesDetected/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/HaplotypesForSample/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/HaplotypesForTarget/</loc>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/Integer/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/Ncname/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/Nodeidentifier/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/Objectidentifier/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/PanelInfo/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/PlasmoTarAmpResults/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/PrimerInfo/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/Primers/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/RepresentativeHaplotypeSequence/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/RepresentativeHaplotypeSequences/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/SequencingInfo/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/SpecimenInfo/</loc>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/String/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/TarAmpBioinformaticsInfo/</loc>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/TargetInfo/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/Time/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/Uri/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/Uriorcurie/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/about/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/accession/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/additional_argument/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/additional_methods/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/alt_annotations/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/alternate_identifiers/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/bioinformatics_id/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/bioinformatics_info/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/chrom/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/collection_date/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/collector/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/demultiplexing_method/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/denoising_method/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/end/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/entries/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/forward_primers/</loc>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/gene_id/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/gff_url/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/haplotype_id/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/haplotype_ids/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/haplotypes_detected/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/host_taxon_id/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/insert_location/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/lat_lon/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/lib_kit/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/lib_layout/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/lib_screen/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/location/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/name/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/nucl_acid_amp/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/nucl_acid_date/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/nucl_acid_ext/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/panel_id/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/panel_info/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/parasite_density/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/pcr_cond/</loc>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/plasmo-tar-amp-schema/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/population_clustering_method/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/program/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/project_name/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/purpose/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/quality/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/read_counts/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/representative_haplotype_sequences/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/reverse_primers/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/samp_collect_device/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/samp_store_loc/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/samp_taxon_id/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/sample_comments/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/sample_id/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/sample_name/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/samples/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/seq/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/seq_center/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/seq_date/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/seq_instrument/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/seqs/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/sequencing_id/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/sequencing_info/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/sequencing_info_id/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/specimen_infos/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/start/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/strand/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/tar_amp_bioinformatics_info_id/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/target_genome/</loc>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/target_id/</loc>
-         <lastmod>2023-08-02</lastmod>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/target_results/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/targets/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/taxon_id/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/umi_counts/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/url/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://PlasmoGenEpi.github.io/plasmo-tar-amp-schema/version/</loc>
+         <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
