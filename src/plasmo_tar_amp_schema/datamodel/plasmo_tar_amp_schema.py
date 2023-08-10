@@ -1,5 +1,5 @@
 # Auto generated from plasmo_tar_amp_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-08-09T20:06:06
+# Generation date: 2023-08-09T20:08:00
 # Schema: plasmo-tar-amp-schema
 #
 # id: https://plasmogenepi.github.io/plasmo-tar-amp-schema
@@ -165,7 +165,7 @@ class RepresentativeHaplotypeSequence(YAMLRoot):
 @dataclass
 class RepresentativeHaplotypeSequences(YAMLRoot):
     """
-    the a list of the representative sequence for a haplotype, similar to a fast(a/q) format
+    a list of the representative sequence for a haplotypes, similar to a fast(a/q) format
     """
     _inherited_slots: ClassVar[List[str]] = []
 

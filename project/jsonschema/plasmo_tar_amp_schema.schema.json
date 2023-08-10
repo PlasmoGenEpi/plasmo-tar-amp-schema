@@ -336,7 +336,7 @@
         },
         "RepresentativeHaplotypeSequences": {
             "additionalProperties": false,
-            "description": "the a list of the representative sequence for a haplotype, similar to a fast(a/q) format",
+            "description": "a list of the representative sequence for a haplotypes, similar to a fast(a/q) format",
             "properties": {
                 "seqs": {
                     "description": "a list of the haplotypes detected for a sample for various targets ",

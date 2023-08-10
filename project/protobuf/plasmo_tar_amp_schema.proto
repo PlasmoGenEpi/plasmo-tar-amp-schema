@@ -78,7 +78,7 @@ message RepresentativeHaplotypeSequence
   string quality = 0
  repeated  string altAnnotations = 0
  }
-// the a list of the representative sequence for a haplotype, similar to a fast(a/q) format
+// a list of the representative sequence for a haplotypes, similar to a fast(a/q) format
 message RepresentativeHaplotypeSequences
  {
   string targetId = 0

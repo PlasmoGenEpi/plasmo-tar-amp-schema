@@ -1545,7 +1545,7 @@
     {
       "name": "RepresentativeHaplotypeSequences",
       "definition_uri": "https://plasmogenepi.github.io/plasmo-tar-amp-schema/RepresentativeHaplotypeSequences",
-      "description": "the a list of the representative sequence for a haplotype, similar to a fast(a/q) format",
+      "description": "a list of the representative sequence for a haplotypes, similar to a fast(a/q) format",
       "from_schema": "https://plasmogenepi.github.io/plasmo-tar-amp-schema",
       "slots": [
         "representativeHaplotypeSequences__target_id",
@@ -2258,9 +2258,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "plasmo_tar_amp_schema.yaml",
-  "source_file_date": "2023-08-09T20:05:49",
-  "source_file_size": 19321,
-  "generation_date": "2023-08-09T20:05:56",
+  "source_file_date": "2023-08-09T20:07:29",
+  "source_file_size": 19318,
+  "generation_date": "2023-08-09T20:07:51",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/plasmo_tar_amp_schema.context.jsonld",

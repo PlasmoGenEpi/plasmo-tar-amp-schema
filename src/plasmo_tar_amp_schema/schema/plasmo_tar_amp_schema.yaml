@@ -141,7 +141,7 @@ classes:
 
   RepresentativeHaplotypeSequences:
     description: >-
-      the a list of the representative sequence for a haplotype, similar to a fast(a/q) format
+      a list of the representative sequence for a haplotypes, similar to a fast(a/q) format
     attributes:
       target_id:
         range: string
