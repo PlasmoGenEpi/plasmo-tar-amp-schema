@@ -227,7 +227,7 @@
 <tr>
 <td><a href="../target_id/">target_id</a></td>
 <td>1..1 <br/> <a href="../String/">String</a></td>
-<td>name of the target for the sequences</td>
+<td>name of the target</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -289,14 +289,9 @@
 description: a list of the representative sequence for a haplotypes, similar to a
   fast(a/q) format
 from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+slots:
+- target_id
 attributes:
-  target_id:
-    name: target_id
-    description: name of the target for the sequences
-    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
-    range: string
-    required: true
-    pattern: ^[A-z-._0-9]$
   seqs:
     name: seqs
     description: 'a list of the haplotypes detected for a sample for various targets '
@@ -317,19 +312,6 @@ description: a list of the representative sequence for a haplotypes, similar to 
   fast(a/q) format
 from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
 attributes:
-  target_id:
-    name: target_id
-    description: name of the target for the sequences
-    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
-    alias: target_id
-    owner: RepresentativeHaplotypeSequences
-    domain_of:
-    - TargetInfo
-    - RepresentativeHaplotypeSequences
-    - HaplotypesForTarget
-    range: string
-    required: true
-    pattern: ^[A-z-._0-9]$
   seqs:
     name: seqs
     description: 'a list of the haplotypes detected for a sample for various targets '
@@ -344,6 +326,20 @@ attributes:
     required: true
     inlined: true
     inlined_as_list: true
+  target_id:
+    name: target_id
+    description: name of the target
+    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+    rank: 1000
+    alias: target_id
+    owner: RepresentativeHaplotypeSequences
+    domain_of:
+    - TargetInfo
+    - RepresentativeHaplotypeSequences
+    - HaplotypesForTarget
+    range: string
+    required: true
+    pattern: ^[A-z-._0-9]$
 
 </code></pre>
 </details>

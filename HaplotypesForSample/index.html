@@ -288,15 +288,9 @@
 <pre><code class="language-yaml">name: HaplotypesForSample
 description: Haplotypes detected for a sample for all targets
 from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+slots:
+- sample_id
 attributes:
-  sample_id:
-    name: sample_id
-    description: the name of the sample
-    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
-    rank: 1000
-    range: string
-    required: true
-    pattern: ^[A-z-._0-9]$
   target_results:
     name: target_results
     description: a list of the haplotypes detected for a list of targets
@@ -305,8 +299,7 @@ attributes:
     multivalued: true
     range: HaplotypesForTarget
     required: true
-    inlined: true
-    inlined_as_list: true
+    inlined_as_list: false
 
 </code></pre>
 </details>
@@ -316,18 +309,6 @@ attributes:
 description: Haplotypes detected for a sample for all targets
 from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
 attributes:
-  sample_id:
-    name: sample_id
-    description: the name of the sample
-    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
-    rank: 1000
-    alias: sample_id
-    owner: HaplotypesForSample
-    domain_of:
-    - HaplotypesForSample
-    range: string
-    required: true
-    pattern: ^[A-z-._0-9]$
   target_results:
     name: target_results
     description: a list of the haplotypes detected for a list of targets
@@ -340,8 +321,21 @@ attributes:
     - HaplotypesForSample
     range: HaplotypesForTarget
     required: true
-    inlined: true
-    inlined_as_list: true
+    inlined_as_list: false
+  sample_id:
+    name: sample_id
+    description: the name of the sample
+    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+    rank: 1000
+    identifier: true
+    alias: sample_id
+    owner: HaplotypesForSample
+    domain_of:
+    - HaplotypesForSample
+    - SpecimenInfo
+    range: string
+    required: true
+    pattern: ^[A-z-._0-9]$
 
 </code></pre>
 </details>

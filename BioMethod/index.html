@@ -208,6 +208,8 @@
 
       BioMethod : program
 
+      BioMethod : program_version
+
       BioMethod : purpose
 
 
@@ -234,6 +236,12 @@
 <td><a href="../purpose/">purpose</a></td>
 <td>1..1 <br/> <a href="../String/">String</a></td>
 <td>the propose for this method</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../program_version/">program_version</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>a versioning info for the program</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -329,6 +337,14 @@ attributes:
     range: string
     required: true
     pattern: ^[A-z-._0-9 ]$
+  program_version:
+    name: program_version
+    description: a versioning info for the program
+    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+    rank: 1000
+    range: string
+    required: true
+    pattern: ^[A-z-._0-9 ]$
   additional_argument:
     name: additional_argument
     description: any additional arguments that differ from the default
@@ -367,6 +383,18 @@ attributes:
     from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
     rank: 1000
     alias: purpose
+    owner: BioMethod
+    domain_of:
+    - BioMethod
+    range: string
+    required: true
+    pattern: ^[A-z-._0-9 ]$
+  program_version:
+    name: program_version
+    description: a versioning info for the program
+    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+    rank: 1000
+    alias: program_version
     owner: BioMethod
     domain_of:
     - BioMethod

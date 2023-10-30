@@ -336,6 +336,11 @@
 <td>Haplotypes detected for a sample for all targets</td>
 <td>no</td>
 </tr>
+<tr>
+<td><a href="../SpecimenInfo/">SpecimenInfo</a></td>
+<td>Information on specimen info</td>
+<td>no</td>
+</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
@@ -362,10 +367,11 @@
 description: the name of the sample
 from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
 rank: 1000
+identifier: true
 alias: sample_id
-owner: HaplotypesForSample
 domain_of:
 - HaplotypesForSample
+- SpecimenInfo
 range: string
 required: true
 pattern: ^[A-z-._0-9]$

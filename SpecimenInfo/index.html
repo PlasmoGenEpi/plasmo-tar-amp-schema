@@ -218,6 +218,10 @@
 
       SpecimenInfo : parasite_density
 
+      SpecimenInfo : plate_info
+
+          SpecimenInfo --|&gt; PlateWellInfo : plate_info
+
       SpecimenInfo : project_name
 
       SpecimenInfo : samp_collect_device
@@ -228,7 +232,7 @@
 
       SpecimenInfo : sample_comments
 
-      SpecimenInfo : sample_name
+      SpecimenInfo : sample_id
 
 
 </div>
@@ -245,9 +249,9 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../sample_name/">sample_name</a></td>
+<td><a href="../sample_id/">sample_id</a></td>
 <td>1..1 <br/> <a href="../String/">String</a></td>
-<td>Collector’s project-specific sample name, which must be unique for each sampl...</td>
+<td>the name of the sample</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -322,6 +326,12 @@
 <td>any additional comments about the sample</td>
 <td>direct</td>
 </tr>
+<tr>
+<td><a href="../plate_info/">plate_info</a></td>
+<td>1..1 <br/> <a href="../PlateWellInfo/">PlateWellInfo</a></td>
+<td>data about the location of the plate location for the specimen</td>
+<td>direct</td>
+</tr>
 </tbody>
 </table>
 <h2 id="usages">Usages</h2>
@@ -374,16 +384,9 @@
 <pre><code class="language-yaml">name: SpecimenInfo
 description: Information on specimen info
 from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+slots:
+- sample_id
 attributes:
-  sample_name:
-    name: sample_name
-    description: Collector’s project-specific sample name, which must be unique for
-      each sample that you are submitting
-    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
-    rank: 1000
-    range: string
-    required: true
-    pattern: ^[A-z-._0-9 ]$
   samp_taxon_id:
     name: samp_taxon_id
     description: the NCBI taxonomy number of the organism of interest
@@ -478,12 +481,19 @@ attributes:
     pattern: ^[A-z-._0-9]$
   sample_comments:
     name: sample_comments
-    description: 'any additional comments about the sample  '
+    description: any additional comments about the sample
     from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
     rank: 1000
     range: string
     required: false
     pattern: ^[A-z-._0-9 ]$
+  plate_info:
+    name: plate_info
+    description: 'data about the location of the plate location for the specimen  '
+    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+    rank: 1000
+    range: PlateWellInfo
+    required: true
 
 </code></pre>
 </details>
@@ -493,19 +503,6 @@ attributes:
 description: Information on specimen info
 from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
 attributes:
-  sample_name:
-    name: sample_name
-    description: Collector’s project-specific sample name, which must be unique for
-      each sample that you are submitting
-    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
-    rank: 1000
-    alias: sample_name
-    owner: SpecimenInfo
-    domain_of:
-    - SpecimenInfo
-    range: string
-    required: true
-    pattern: ^[A-z-._0-9 ]$
   samp_taxon_id:
     name: samp_taxon_id
     description: the NCBI taxonomy number of the organism of interest
@@ -644,7 +641,7 @@ attributes:
     pattern: ^[A-z-._0-9]$
   sample_comments:
     name: sample_comments
-    description: 'any additional comments about the sample  '
+    description: any additional comments about the sample
     from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
     rank: 1000
     alias: sample_comments
@@ -654,6 +651,31 @@ attributes:
     range: string
     required: false
     pattern: ^[A-z-._0-9 ]$
+  plate_info:
+    name: plate_info
+    description: 'data about the location of the plate location for the specimen  '
+    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+    rank: 1000
+    alias: plate_info
+    owner: SpecimenInfo
+    domain_of:
+    - SpecimenInfo
+    range: PlateWellInfo
+    required: true
+  sample_id:
+    name: sample_id
+    description: the name of the sample
+    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+    rank: 1000
+    identifier: true
+    alias: sample_id
+    owner: SpecimenInfo
+    domain_of:
+    - HaplotypesForSample
+    - SpecimenInfo
+    range: string
+    required: true
+    pattern: ^[A-z-._0-9]$
 
 </code></pre>
 </details>

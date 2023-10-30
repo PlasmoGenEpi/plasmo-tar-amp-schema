@@ -229,7 +229,7 @@
 <tr>
 <td><a href="../target_id/">target_id</a></td>
 <td>1..1 <br/> <a href="../String/">String</a></td>
-<td>the target associated with this target and these detected haplotypes</td>
+<td>name of the target</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -302,14 +302,9 @@
 <pre><code class="language-yaml">name: HaplotypesForTarget
 description: Haplotypes detected for a specific target
 from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+slots:
+- target_id
 attributes:
-  target_id:
-    name: target_id
-    description: the target associated with this target and these detected haplotypes
-    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
-    range: string
-    required: true
-    pattern: ^[A-z-._0-9]$
   haplotype_ids:
     name: haplotype_ids
     description: a list of the haplotypes detected for this target
@@ -351,19 +346,6 @@ attributes:
 description: Haplotypes detected for a specific target
 from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
 attributes:
-  target_id:
-    name: target_id
-    description: the target associated with this target and these detected haplotypes
-    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
-    alias: target_id
-    owner: HaplotypesForTarget
-    domain_of:
-    - TargetInfo
-    - RepresentativeHaplotypeSequences
-    - HaplotypesForTarget
-    range: string
-    required: true
-    pattern: ^[A-z-._0-9]$
   haplotype_ids:
     name: haplotype_ids
     description: a list of the haplotypes detected for this target
@@ -408,6 +390,20 @@ attributes:
     required: false
     inlined: true
     inlined_as_list: true
+  target_id:
+    name: target_id
+    description: name of the target
+    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+    rank: 1000
+    alias: target_id
+    owner: HaplotypesForTarget
+    domain_of:
+    - TargetInfo
+    - RepresentativeHaplotypeSequences
+    - HaplotypesForTarget
+    range: string
+    required: true
+    pattern: ^[A-z-._0-9]$
 
 </code></pre>
 </details>

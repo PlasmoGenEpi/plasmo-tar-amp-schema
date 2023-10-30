@@ -218,10 +218,6 @@
 
           TargetInfo --|&gt; Primers : reverse_primers
 
-      TargetInfo : target_genome
-
-          TargetInfo --|&gt; GenomeInfo : target_genome
-
       TargetInfo : target_id
 
 
@@ -241,19 +237,13 @@
 <tr>
 <td><a href="../target_id/">target_id</a></td>
 <td>1..1 <br/> <a href="../String/">String</a></td>
-<td>a unique identifier for target</td>
+<td>name of the target</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../gene_id/">gene_id</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>an identifier of the gene, if any, is being covered with this targeted</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../target_genome/">target_genome</a></td>
-<td>1..1 <br/> <a href="../GenomeInfo/">GenomeInfo</a></td>
-<td>the info on the target genome for this target</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -326,15 +316,9 @@
 <pre><code class="language-yaml">name: TargetInfo
 description: Information about a specific target within a genome
 from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+slots:
+- target_id
 attributes:
-  target_id:
-    name: target_id
-    description: 'a unique identifier for target '
-    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
-    rank: 1000
-    range: string
-    required: true
-    pattern: ^[A-z-._0-9]$
   gene_id:
     name: gene_id
     description: an identifier of the gene, if any, is being covered with this targeted
@@ -342,13 +326,6 @@ attributes:
     rank: 1000
     range: string
     pattern: ^[A-z-._0-9]$
-  target_genome:
-    name: target_genome
-    description: the info on the target genome for this target
-    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
-    rank: 1000
-    range: GenomeInfo
-    required: true
   insert_location:
     name: insert_location
     description: the intended genomic location of the insert of the amplicon (the
@@ -381,20 +358,6 @@ attributes:
 description: Information about a specific target within a genome
 from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
 attributes:
-  target_id:
-    name: target_id
-    description: 'a unique identifier for target '
-    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
-    rank: 1000
-    alias: target_id
-    owner: TargetInfo
-    domain_of:
-    - TargetInfo
-    - RepresentativeHaplotypeSequences
-    - HaplotypesForTarget
-    range: string
-    required: true
-    pattern: ^[A-z-._0-9]$
   gene_id:
     name: gene_id
     description: an identifier of the gene, if any, is being covered with this targeted
@@ -406,17 +369,6 @@ attributes:
     - TargetInfo
     range: string
     pattern: ^[A-z-._0-9]$
-  target_genome:
-    name: target_genome
-    description: the info on the target genome for this target
-    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
-    rank: 1000
-    alias: target_genome
-    owner: TargetInfo
-    domain_of:
-    - TargetInfo
-    range: GenomeInfo
-    required: true
   insert_location:
     name: insert_location
     description: the intended genomic location of the insert of the amplicon (the
@@ -452,6 +404,20 @@ attributes:
     - TargetInfo
     range: Primers
     required: true
+  target_id:
+    name: target_id
+    description: name of the target
+    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+    rank: 1000
+    alias: target_id
+    owner: TargetInfo
+    domain_of:
+    - TargetInfo
+    - RepresentativeHaplotypeSequences
+    - HaplotypesForTarget
+    range: string
+    required: true
+    pattern: ^[A-z-._0-9]$
 
 </code></pre>
 </details>

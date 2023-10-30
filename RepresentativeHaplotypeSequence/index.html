@@ -227,15 +227,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../haplotype_id/">haplotype_id</a></td>
+<td><a href="../seq/">seq</a></td>
 <td>1..1 <br/> <a href="../String/">String</a></td>
-<td>name of the haplotype, should be unique to this haplotype</td>
+<td>the DNA sequence</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../seq/">seq</a></td>
+<td><a href="../haplotype_id/">haplotype_id</a></td>
 <td>1..1 <br/> <a href="../String/">String</a></td>
-<td>the sequence of haplotype</td>
+<td>name of the haplotype, should be unique to this haplotype</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -302,6 +302,8 @@
 <pre><code class="language-yaml">name: RepresentativeHaplotypeSequence
 description: the representative sequence for a haplotype, similar to a fast(a/q) format
 from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+slots:
+- seq
 attributes:
   haplotype_id:
     name: haplotype_id
@@ -311,14 +313,6 @@ attributes:
     range: string
     required: true
     pattern: ^[A-z-._0-9]$
-  seq:
-    name: seq
-    description: the sequence of haplotype
-    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
-    rank: 1000
-    range: string
-    required: true
-    pattern: ^[A-z]$
   quality:
     name: quality
     description: the ansi fastq per base quality score for this sequence, this is
@@ -360,19 +354,6 @@ attributes:
     range: string
     required: true
     pattern: ^[A-z-._0-9]$
-  seq:
-    name: seq
-    description: the sequence of haplotype
-    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
-    rank: 1000
-    alias: seq
-    owner: RepresentativeHaplotypeSequence
-    domain_of:
-    - RepresentativeHaplotypeSequence
-    - PrimerInfo
-    range: string
-    required: true
-    pattern: ^[A-z]$
   quality:
     name: quality
     description: the ansi fastq per base quality score for this sequence, this is
@@ -401,6 +382,19 @@ attributes:
     required: false
     inlined: true
     inlined_as_list: true
+  seq:
+    name: seq
+    description: the DNA sequence
+    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+    rank: 1000
+    alias: seq
+    owner: RepresentativeHaplotypeSequence
+    domain_of:
+    - RepresentativeHaplotypeSequence
+    - PrimerInfo
+    range: string
+    required: true
+    pattern: ^[A-z]$
 
 </code></pre>
 </details>

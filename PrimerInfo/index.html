@@ -227,7 +227,7 @@
 <tr>
 <td><a href="../seq/">seq</a></td>
 <td>1..1 <br/> <a href="../String/">String</a></td>
-<td>the primer sequence, can include any degeneracy bases as well</td>
+<td>the DNA sequence</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -288,14 +288,9 @@
 <pre><code class="language-yaml">name: PrimerInfo
 description: information on a primer sequence
 from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+slots:
+- seq
 attributes:
-  seq:
-    name: seq
-    description: the primer sequence, can include any degeneracy bases as well
-    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
-    range: string
-    required: true
-    pattern: ^[A-z]$
   location:
     name: location
     description: "what the intended genomic location of the primer is  \n  "
@@ -312,18 +307,6 @@ attributes:
 description: information on a primer sequence
 from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
 attributes:
-  seq:
-    name: seq
-    description: the primer sequence, can include any degeneracy bases as well
-    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
-    alias: seq
-    owner: PrimerInfo
-    domain_of:
-    - RepresentativeHaplotypeSequence
-    - PrimerInfo
-    range: string
-    required: true
-    pattern: ^[A-z]$
   location:
     name: location
     description: "what the intended genomic location of the primer is  \n  "
@@ -335,6 +318,19 @@ attributes:
     - PrimerInfo
     range: GenomicLocation
     required: true
+  seq:
+    name: seq
+    description: the DNA sequence
+    from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+    rank: 1000
+    alias: seq
+    owner: PrimerInfo
+    domain_of:
+    - RepresentativeHaplotypeSequence
+    - PrimerInfo
+    range: string
+    required: true
+    pattern: ^[A-z]$
 
 </code></pre>
 </details>

@@ -274,6 +274,19 @@
     Identifier and Mapping Information
   </a>
   
+    <nav class="md-nav" aria-label="Identifier and Mapping Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-source" class="md-nav__link">
+    Schema Source
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -304,6 +317,7 @@
 
 
 <h1 id="slot-seq">Slot: seq</h1>
+<p><em>the DNA sequence</em></p>
 <p>URI: <a href="https://plasmogenepi.github.io/plasmo-tar-amp-schema/seq">plasmo_tar_amp_schema:seq</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -331,18 +345,35 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../String/">String</a></li>
+<li>
+<p>Range: <a href="../String/">String</a></p>
+</li>
+<li>
+<p>Required: True</p>
+</li>
+<li>
+<p>Regex pattern: <code>^[A-z]$</code></p>
+</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema</li>
+</ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: seq
+description: the DNA sequence
+from_schema: https://plasmogenepi.github.io/plasmo-tar-amp-schema
+rank: 1000
 alias: seq
 domain_of:
 - RepresentativeHaplotypeSequence
 - PrimerInfo
 range: string
+required: true
+pattern: ^[A-z]$
 
 </code></pre>
 
